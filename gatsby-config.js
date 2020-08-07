@@ -1,10 +1,11 @@
 module.exports = {
   siteMetadata: {
     title: `Gerard Hynes`,
-    description: `Web Developer`,
+    description: `Web Developer focusing on JAMstack and fullstack JavaScript`,
     author: `@Gerard_K_Hynes`,
   },
   plugins: [
+    `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
