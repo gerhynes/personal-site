@@ -1,72 +1,82 @@
-import { Link } from "gatsby";
-import PropTypes from "prop-types";
 import React from "react";
+import PropTypes from "prop-types";
+import { Link } from "gatsby";
+import styled from "styled-components";
+
+const Nav = styled.nav`
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 1.45rem 1.0875rem;
+  display: flex;
+  justify-content: space-between;
+`;
+
+const Heading = styled.h1`
+  font-weight: 700;
+  margn: 0;
+  display: inline-block;
+  background-image: linear-gradient(
+    to top,
+    rgba(0, 214, 214, 0.25) 40%,
+    transparent 40%,
+    transparent 100%
+  );
+`;
+
+const NavList = styled.ul`
+  display: flex;
+`;
+
+const NavLink = styled(Link)`
+  &:hover {
+    background-image: linear-gradient(
+      to top,
+      rgba(0, 214, 214, 0.25) 40%,
+      transparent 40%,
+      transparent 100%
+    );
+  }
+`;
 
 const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <nav
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-        display: `flex`,
-        justifyContent: `space-between`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
+  <header>
+    <Nav>
+      <Heading>
         <Link
           to="/"
           style={{
-            color: `white`,
             textDecoration: `none`,
           }}
         >
           {siteTitle}
         </Link>
-      </h1>
-      <ul style={{ display: `flex` }}>
+      </Heading>
+      <NavList>
         <li>
-          <Link
+          <NavLink
             to="/about/"
             style={{
-              color: `white`,
-              textDecoration: `none`,
               marginRight: `1rem`,
             }}
           >
             About
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link
+          <NavLink
             to="/projects/"
             style={{
-              color: `white`,
-              textDecoration: `none`,
               marginRight: `1rem`,
             }}
           >
             Projects
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link
-            to="/writing/"
-            style={{
-              color: `white`,
-              textDecoration: `none`,
-            }}
-          >
-            Writing
-          </Link>
+          <NavLink to="/writing/">Writing</NavLink>
         </li>
-      </ul>
-    </nav>
+      </NavList>
+    </Nav>
   </header>
 );
 
