@@ -17,9 +17,9 @@ const Heading = styled.h1`
   display: inline-block;
   background-image: linear-gradient(
     to top,
-    rgba(0, 214, 214, 0.25) 40%,
-    transparent 40%,
-    transparent 100%
+    transparent 15%,
+    rgba(0, 214, 214, 0.25) 15% 55%,
+    transparent 55%
   );
 `;
 
@@ -28,12 +28,13 @@ const NavList = styled.ul`
 `;
 
 const NavLink = styled(Link)`
+  font-weight: 500;
   &:hover {
     background-image: linear-gradient(
       to top,
-      rgba(0, 214, 214, 0.25) 40%,
-      transparent 40%,
-      transparent 100%
+      transparent 15%,
+      rgba(0, 214, 214, 0.25) 15% 55%,
+      transparent 55%
     );
   }
 `;

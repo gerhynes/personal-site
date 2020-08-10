@@ -13,9 +13,9 @@ const Heading = styled.h1`
   display: inline-block;
   background-image: linear-gradient(
     to top,
-    rgba(0, 214, 214, 0.25) 40%,
-    transparent 40%,
-    transparent 100%
+    transparent 15%,
+    rgba(0, 214, 214, 0.25) 15% 55%,
+    transparent 55%
   );
 `;
 
