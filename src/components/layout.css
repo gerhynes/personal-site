@@ -599,7 +599,6 @@ video {
 
 body {
   font-family: "Inter", sans-serif;
-  font-display: swap;
   background-image: linear-gradient(135deg, #f7fafc 50%, #fff 50%);
 }
 

@@ -9,12 +9,16 @@ const Nav = styled.nav`
   padding: 1.45rem 1.0875rem;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 `;
 
-const Heading = styled.h1`
+const NavHeading = styled.h1`
   font-weight: 700;
-  margn: 0;
-  display: inline-block;
+  font-size: 1.125rem;
+  margin: 0 1rem 0 0;
+  padding-left: 0.125rem;
+  padding-right: 0.125rem;
+  display: inline;
   background-image: linear-gradient(
     to top,
     transparent 15%,
@@ -25,11 +29,14 @@ const Heading = styled.h1`
 
 const NavList = styled.ul`
   display: flex;
+  flex-wrap: wrap;
 `;
 
 const NavLink = styled(Link)`
   font-weight: 500;
-  &:hover {
+  margin-right: 1rem;
+  &:hover,
+  &:active {
     background-image: linear-gradient(
       to top,
       transparent 15%,
@@ -42,36 +49,15 @@ const NavLink = styled(Link)`
 const Header = ({ siteTitle }) => (
   <header>
     <Nav>
-      <Heading>
-        <Link
-          to="/"
-          style={{
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </Heading>
+      <NavHeading>
+        <Link to="/">{siteTitle}</Link>
+      </NavHeading>
       <NavList>
         <li>
-          <NavLink
-            to="/about/"
-            style={{
-              marginRight: `1rem`,
-            }}
-          >
-            About
-          </NavLink>
+          <NavLink to="/about/">About</NavLink>
         </li>
         <li>
-          <NavLink
-            to="/projects/"
-            style={{
-              marginRight: `1rem`,
-            }}
-          >
-            Projects
-          </NavLink>
+          <NavLink to="/projects/">Projects</NavLink>
         </li>
         <li>
           <NavLink to="/writing/">Writing</NavLink>
