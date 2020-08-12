@@ -15,12 +15,12 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   }
 };
 
-exports.createPages = ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
   const articleTemplate = path.resolve(`./src/templates/article.js`);
 
-  return graphql(`
+  const result = await graphql(`
     query {
       allMdx(sort: { fields: [frontmatter___date], order: DESC }, limit: 1000) {
         edges {
@@ -37,32 +37,25 @@ exports.createPages = ({ graphql, actions }) => {
         }
       }
     }
-  `).then((result) => {
-    if (result.errors) {
-      throw result.errors;
-    }
+  `);
 
-    // Create article pages.
-    const posts = result.data.allMdx.edges;
+  if (result.errors) {
+    throw result.errors;
+  }
 
-    posts.forEach((post, index) => {
-      const previous =
-        index === posts.length - 1 ? null : posts[index + 1].node;
-      const next = index === 0 ? null : posts[index - 1].node;
+  // Create article pages.
+  const posts = result.data.allMdx.edges;
 
-      createPage({
-        path: post.node.fields.slug,
-        // This component will wrap our MDX content
-        component: articleTemplate,
-        // You can use the values in this context in
-        // our page layout component
-        context: {
-          id: node.id,
-          slug: post.node.fields.slug,
-          previous,
-          next,
-        },
-      });
+  posts.forEach(({ node }, index) => {
+    createPage({
+      // This is the slug you created before
+      // (or `node.frontmatter.slug`)
+      path: node.fields.slug,
+      // This component will wrap our MDX content
+      component: articleTemplate,
+      // You can use the values in this context in
+      // our page layout component
+      context: { id: node.id, slug: node.fields.slug },
     });
   });
 };

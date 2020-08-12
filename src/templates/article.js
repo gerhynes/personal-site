@@ -36,7 +36,6 @@ export default function PageTemplate({ location, data: { mdx } }) {
 export const pageQuery = graphql`
   query ArticleQuery($id: String!) {
     mdx(id: { eq: $id }) {
-      id
       excerpt(pruneLength: 160)
       body
       frontmatter {

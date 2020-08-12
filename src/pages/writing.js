@@ -1,10 +1,10 @@
 import React from "react";
-import { Link } from "gatsby";
+import { graphql, Link } from "gatsby";
 import Layout from "../components/layout";
 
 import SEO from "../components/seo";
 
-const Writing = ({ data }) => {
+export default function Writing({ data }) {
   const { edges: posts } = data.allMdx;
   return (
     <Layout>
@@ -13,7 +13,7 @@ const Writing = ({ data }) => {
       <ul style={{ listStyle: `none` }}>
         {posts.map(({ node: post }) => (
           <li key={post.id}>
-            <Link to={post.fields.slug}>
+            <Link to={`/${post.fields.slug}`}>
               <h2>{post.frontmatter.title}</h2>
             </Link>
             <p>{post.frontmatter.date}</p>
@@ -23,16 +23,13 @@ const Writing = ({ data }) => {
       </ul>
     </Layout>
   );
-};
-
-export default Writing;
+}
 
 export const pageQuery = graphql`
   query {
     allMdx {
       edges {
         node {
-          id
           excerpt
           frontmatter {
             title
