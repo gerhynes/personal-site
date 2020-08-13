@@ -9,7 +9,9 @@ import SEO from "../components/seo";
 
 const shortcodes = { Link }; // Provide common components here
 
-export default function PageTemplate({ location, data: { mdx } }) {
+export default function PostTemplate({ location, data: { mdx }, pageContext }) {
+  const { prev, next } = pageContext;
+  console.log(pageContext);
   const { title, date, featuredImage } = mdx.frontmatter;
   return (
     <Layout>
@@ -28,6 +30,30 @@ export default function PageTemplate({ location, data: { mdx } }) {
       <p>{date}</p>
       <MDXProvider components={shortcodes}>
         <MDXRenderer>{mdx.body}</MDXRenderer>
+        <ul
+          style={{
+            display: `flex`,
+            flexWrap: `wrap`,
+            justifyContent: `space-between`,
+            listStyle: `none`,
+            padding: 0,
+          }}
+        >
+          <li>
+            {prev && (
+              <Link to={prev.node.fields.slug} rel="prev">
+                ← {prev.node.frontmatter.title}
+              </Link>
+            )}
+          </li>
+          <li>
+            {next && (
+              <Link to={next.node.fields.slug} rel="next">
+                {next.node.frontmatter.title} →
+              </Link>
+            )}
+          </li>
+        </ul>
       </MDXProvider>
     </Layout>
   );

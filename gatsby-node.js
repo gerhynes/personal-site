@@ -49,6 +49,8 @@ exports.createPages = async ({ graphql, actions }) => {
   const posts = result.data.allMdx.edges;
 
   posts.forEach(({ node }, index) => {
+    const prev = posts[index - 1];
+    const next = posts[index + 1];
     createPage({
       // This is the slug you created before
       // (or `node.frontmatter.slug`)
@@ -57,7 +59,13 @@ exports.createPages = async ({ graphql, actions }) => {
       component: postTemplate,
       // You can use the values in this context in
       // our page layout component
-      context: { id: node.id, slug: node.fields.slug },
+      context: {
+        id: node.id,
+        slug: node.fields.slug,
+        prev,
+        next,
+        pathPrefix: "",
+      },
     });
   });
 };
