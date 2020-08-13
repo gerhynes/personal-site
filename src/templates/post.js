@@ -19,12 +19,12 @@ export default function PageTemplate({ location, data: { mdx } }) {
         image={featuredImage.childImageSharp.fluid}
         pathname={location.pathname}
       />
-      <h1>{title}</h1>
       <Img
         style={{ marginBottom: `1rem` }}
         fluid={featuredImage.childImageSharp.fluid}
         alt={title}
       />
+      <h1>{title}</h1>
       <p>{date}</p>
       <MDXProvider components={shortcodes}>
         <MDXRenderer>{mdx.body}</MDXRenderer>
@@ -34,7 +34,7 @@ export default function PageTemplate({ location, data: { mdx } }) {
 }
 
 export const pageQuery = graphql`
-  query ArticleQuery($id: String!) {
+  query PostQuery($id: String!) {
     mdx(id: { eq: $id }) {
       excerpt(pruneLength: 160)
       body

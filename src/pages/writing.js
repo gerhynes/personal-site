@@ -9,7 +9,7 @@ export default function Writing({ data }) {
   return (
     <Layout>
       <SEO title="Gerard Hynes | Writing" />
-      <h1>Articles will go here</h1>
+      <h1>Posts will go here</h1>
       <ul style={{ listStyle: `none` }}>
         {posts.map(({ node: post }) => (
           <li key={post.id}>

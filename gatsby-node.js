@@ -20,7 +20,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
-  const articleTemplate = path.resolve(`./src/templates/article.js`);
+  const postTemplate = path.resolve(`./src/templates/post.js`);
 
   const result = await graphql(`
     query {
@@ -54,7 +54,7 @@ exports.createPages = async ({ graphql, actions }) => {
       // (or `node.frontmatter.slug`)
       path: node.fields.slug,
       // This component will wrap our MDX content
-      component: articleTemplate,
+      component: postTemplate,
       // You can use the values in this context in
       // our page layout component
       context: { id: node.id, slug: node.fields.slug },
