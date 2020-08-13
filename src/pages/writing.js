@@ -13,7 +13,7 @@ export default function Writing({ data }) {
       <ul style={{ listStyle: `none` }}>
         {posts.map(({ node: post }) => (
           <li key={post.id}>
-            <Link to={`/${post.fields.slug}`}>
+            <Link to={post.fields.slug}>
               <h2>{post.frontmatter.title}</h2>
             </Link>
             <p>{post.frontmatter.date}</p>

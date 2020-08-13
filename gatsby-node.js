@@ -10,7 +10,9 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     createNodeField({
       name: `slug`,
       node,
-      value: node.frontmatter.slug || generatedSlug,
+      value: node.frontmatter.slug
+        ? `/${node.frontmatter.slug}/`
+        : generatedSlug,
     });
   }
 };
