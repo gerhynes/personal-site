@@ -3,12 +3,12 @@ import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
 import Header from "./header";
-import "./layout.css";
+import GlobalStyles from "./styles/GlobalStyles";
 
 const Container = styled.section`
   margin: 0 auto;
   max-width: 960px;
-  padding: 0 1.0875rem 1rem;
+  padding: 0 1rem 1rem;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -35,6 +35,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
+      <GlobalStyles />
       <Container>
         <Header siteTitle={data.site.siteMetadata.title} />
         <Main>{children}</Main>
