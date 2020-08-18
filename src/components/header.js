@@ -6,10 +6,14 @@ import styled from "styled-components";
 const Nav = styled.nav`
   margin: 0 auto;
   max-width: 960px;
-  padding: 1.45rem 1.0875rem;
+  padding: 1.5rem 1rem;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+`;
+
+const NavContainer = styled.div`
+  max-width: 960px;
 `;
 
 const NavHeading = styled.h1`

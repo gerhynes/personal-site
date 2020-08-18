@@ -7,8 +7,6 @@ import GlobalStyles from "./styles/GlobalStyles";
 
 const Container = styled.section`
   margin: 0 auto;
-  max-width: 960px;
-  padding: 0 1rem 1rem;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -16,10 +14,13 @@ const Container = styled.section`
 
 const Main = styled.main`
   flex: 1;
+  margin: 0 auto;
+  max-width: 800px;
 `;
 
 const Footer = styled.footer`
   text-align: center;
+  padding: 1rem;
 `;
 
 const Layout = ({ children }) => {
