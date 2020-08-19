@@ -1,11 +1,47 @@
 import React from "react";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import Img from "gatsby-image";
 import { MDXProvider } from "@mdx-js/react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
-import { Link } from "gatsby";
+import styled from "styled-components";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
+
+const PostHeading = styled.h2`
+  font-weight: 700;
+  font-size: 2.5rem;
+`;
+
+const PostDate = styled.p`
+  color: rgba(107, 114, 128, 1);
+  margin-bottom: 1rem;
+`;
+
+const PostNavigation = styled.ul`
+  margin-top: 1rem;
+  display: flex;
+  flexwrap: wrap;
+  justifycontent: space-between;
+  liststyle: none;
+  padding: 0;
+`;
+
+const PostBody = styled.section`
+  font-size: 1.2rem;
+  line-height: 1.75;
+  color: #374151;
+  p {
+    margin-bottom: 1.25rem;
+  }
+
+  a {
+    font-weight: 600;
+    text-decoration: underline;
+    color: #75abad;
+  }
+`;
+
+const PostLink = styled(Link)``;
 
 const shortcodes = { Link }; // Provide common components here
 
@@ -26,19 +62,13 @@ export default function PostTemplate({ location, data: { mdx }, pageContext }) {
         fluid={featuredImage.childImageSharp.fluid}
         alt={title}
       />
-      <h1>{title}</h1>
-      <p>{date}</p>
+      <PostHeading>{title}</PostHeading>
+      <PostDate>{date}</PostDate>
       <MDXProvider components={shortcodes}>
-        <MDXRenderer>{mdx.body}</MDXRenderer>
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
+        <PostBody>
+          <MDXRenderer>{mdx.body}</MDXRenderer>
+        </PostBody>
+        <PostNavigation>
           <li>
             {prev && (
               <Link to={prev.node.fields.slug} rel="prev">
@@ -53,7 +83,7 @@ export default function PostTemplate({ location, data: { mdx }, pageContext }) {
               </Link>
             )}
           </li>
-        </ul>
+        </PostNavigation>
       </MDXProvider>
     </Layout>
   );

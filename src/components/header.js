@@ -12,10 +12,6 @@ const Nav = styled.nav`
   flex-wrap: wrap;
 `;
 
-const NavContainer = styled.div`
-  max-width: 960px;
-`;
-
 const NavHeading = styled.h1`
   font-weight: 700;
   font-size: 1.125rem;

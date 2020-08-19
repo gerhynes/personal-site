@@ -15,8 +15,8 @@ const WritingIntro = styled.div`
 `;
 
 const Heading = styled.h1`
-  font-size: 4rem;
-  font-weight: 800;
+  font-size: 3.5rem;
+  font-weight: 700;
   line-height: 3.5rem;
   margin-bottom: 1rem;
 `;
@@ -61,8 +61,8 @@ export default function Writing({ data }) {
       <SEO title="Gerard Hynes | Writing" />
       <Container>
         <WritingIntro>
-          <Heading>Writing</Heading>
-          <Subheading>Here are some sample articles</Subheading>
+          <Heading>Articles</Heading>
+          <Subheading>I write about learning web development</Subheading>
         </WritingIntro>
         <ArticleList style={{ listStyle: `none` }}>
           {posts.map(({ node: post }) => (
