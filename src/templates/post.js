@@ -7,6 +7,11 @@ import styled from "styled-components";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
+const Post = styled.div`
+  margin-left: 1rem;
+  margin-right: 1rem;
+`;
+
 const PostHeading = styled.h2`
   font-weight: 700;
   font-size: 2.5rem;
@@ -17,16 +22,8 @@ const PostDate = styled.p`
   margin-bottom: 1rem;
 `;
 
-const PostNavigation = styled.ul`
-  margin-top: 1rem;
-  display: flex;
-  flexwrap: wrap;
-  justifycontent: space-between;
-  liststyle: none;
-  padding: 0;
-`;
-
 const PostBody = styled.section`
+  position: relative;
   font-size: 1.2rem;
   line-height: 1.75;
   color: #374151;
@@ -39,9 +36,36 @@ const PostBody = styled.section`
     text-decoration: underline;
     color: #75abad;
   }
+
+  ul > li::before {
+    content: "";
+    position: absolute;
+    background-color: #cbd5e0;
+    border-radius: 50%;
+    width: 0.375em;
+    height: 0.375em;
+    top: 0.6875em;
+    left: 0.25em;
+  }
+
+  ul > li {
+    position: relative;
+    padding-left: 1.75em;
+  }
 `;
 
-const PostLink = styled(Link)``;
+const PostNavigation = styled.ul`
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  liststyle: none;
+  padding: 0;
+
+  li {
+    margin-bottom: 1rem;
+  }
+`;
 
 const shortcodes = { Link }; // Provide common components here
 
@@ -57,34 +81,36 @@ export default function PostTemplate({ location, data: { mdx }, pageContext }) {
         image={featuredImage.childImageSharp.fluid}
         pathname={location.pathname}
       />
-      <Img
-        style={{ marginBottom: `1rem` }}
-        fluid={featuredImage.childImageSharp.fluid}
-        alt={title}
-      />
-      <PostHeading>{title}</PostHeading>
-      <PostDate>{date}</PostDate>
-      <MDXProvider components={shortcodes}>
-        <PostBody>
-          <MDXRenderer>{mdx.body}</MDXRenderer>
-        </PostBody>
-        <PostNavigation>
-          <li>
-            {prev && (
-              <Link to={prev.node.fields.slug} rel="prev">
-                ← {prev.node.frontmatter.title}
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link to={next.node.fields.slug} rel="next">
-                {next.node.frontmatter.title} →
-              </Link>
-            )}
-          </li>
-        </PostNavigation>
-      </MDXProvider>
+      <Post>
+        <Img
+          style={{ marginBottom: `1rem` }}
+          fluid={featuredImage.childImageSharp.fluid}
+          alt={title}
+        />
+        <PostHeading>{title}</PostHeading>
+        <PostDate>{date}</PostDate>
+        <MDXProvider components={shortcodes}>
+          <PostBody>
+            <MDXRenderer>{mdx.body}</MDXRenderer>
+          </PostBody>
+          <PostNavigation>
+            <li>
+              {prev && (
+                <Link to={prev.node.fields.slug} rel="prev">
+                  ← {prev.node.frontmatter.title}
+                </Link>
+              )}
+            </li>
+            <li>
+              {next && (
+                <Link to={next.node.fields.slug} rel="next">
+                  {next.node.frontmatter.title} →
+                </Link>
+              )}
+            </li>
+          </PostNavigation>
+        </MDXProvider>
+      </Post>
     </Layout>
   );
 }

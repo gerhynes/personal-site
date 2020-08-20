@@ -74,7 +74,7 @@ export default function Writing({ data }) {
                 </Link>
                 <ArticleExcerpt>{post.excerpt}</ArticleExcerpt>
                 <ArticleLink>
-                  <Link>Read more →</Link>
+                  <Link to={post.fields.slug}>Read more →</Link>
                 </ArticleLink>
               </Article>
             </li>
