@@ -14,7 +14,7 @@ const WritingIntro = styled.div`
   padding-bottom: 1.5rem;
 `;
 
-const Heading = styled.h1`
+const Heading = styled.h2`
   font-size: 3.5rem;
   font-weight: 700;
   line-height: 3.5rem;
