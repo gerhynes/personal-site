@@ -87,7 +87,7 @@ export default function Writing({ data }) {
 
 export const pageQuery = graphql`
   query {
-    allMdx {
+    allMdx(sort: { fields: [frontmatter___date], order: DESC }, limit: 1000) {
       edges {
         node {
           excerpt
