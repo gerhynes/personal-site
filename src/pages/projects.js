@@ -1,5 +1,4 @@
 import React from "react";
-import Img from "gatsby-image";
 import styled from "styled-components";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -13,23 +12,38 @@ const Heading = styled.h2`
 `;
 
 const ProjectGrid = styled.section`
-  max-width: 960px;
+  max-width: 1080px;
 `;
 
 const ProjectCard = styled.article`
   display: flex;
   padding-bottom: 4rem;
+  position: relative;
 `;
 
 const ImageContainer = styled.div`
   flex: 3;
   display: flex;
   align-items: center;
+  position: relative;
+
+  img {
+    position: relative;
+    ::before {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: -10%;
+      width: 60%;
+      content: "";
+      background-color: #e2e2e2;
+    }
+  }
 `;
 
 const TextContainer = styled.div`
   flex: 2;
-  padding: 1rem;
+  padding: 3rem 2rem;
   h3 {
     font-size: 1.5rem;
     font-weight: 700;
@@ -82,7 +96,7 @@ const Writing = () => (
           </ul>
         </TextContainer>
       </ProjectCard>
-      <ProjectCard>
+      {/* <ProjectCard>
         <TextContainer>
           <h3>Project Title</h3>
           <p>
@@ -103,7 +117,7 @@ const Writing = () => (
             alt=""
           />
         </ImageContainer>
-      </ProjectCard>
+      </ProjectCard> */}
     </ProjectGrid>
   </Layout>
 );
