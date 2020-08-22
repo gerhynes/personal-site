@@ -10,15 +10,15 @@ const Container = styled.div`
 
 const WritingIntro = styled.div`
   margin: 2rem 1rem;
-  border-bottom: 1px solid #d2d6dc;
   padding-bottom: 1.5rem;
 `;
 
 const Heading = styled.h2`
+  text-align: center;
   font-size: 3.5rem;
   font-weight: 700;
   line-height: 3.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 `;
 
 const Subheading = styled.p`
@@ -33,7 +33,6 @@ const ArticleList = styled.ul`
 
 const Article = styled.article`
   padding: 1.5rem 0;
-  border-bottom: 1px solid #d2d6dc;
 `;
 
 const Date = styled.p`
@@ -51,7 +50,7 @@ const ArticleExcerpt = styled.p`
 
 const ArticleLink = styled.p`
   font-weight: 500;
-  color: rgba(4, 116, 129, 1);
+  color: #75abad;
 `;
 
 export default function Writing({ data }) {
@@ -62,16 +61,19 @@ export default function Writing({ data }) {
       <Container>
         <WritingIntro>
           <Heading>Articles</Heading>
-          <Subheading>I write about learning web development</Subheading>
+          <Subheading>
+            I write about the web development topics I'm learning. It helps me
+            to consolidate my knowledge, and hopefully helps others.
+          </Subheading>
         </WritingIntro>
         <ArticleList style={{ listStyle: `none` }}>
           {posts.map(({ node: post }) => (
             <li key={post.id}>
               <Article>
-                <Date>{post.frontmatter.date}</Date>
                 <Link to={post.fields.slug}>
                   <ArticleTitle>{post.frontmatter.title}</ArticleTitle>
                 </Link>
+                <Date>{post.frontmatter.date}</Date>
                 <ArticleExcerpt>{post.excerpt}</ArticleExcerpt>
                 <ArticleLink>
                   <Link to={post.fields.slug}>Read more →</Link>

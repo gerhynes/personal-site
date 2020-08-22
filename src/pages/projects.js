@@ -29,9 +29,11 @@ const ImageContainer = styled.div`
 
   figure {
     position: relative;
+
     img {
       position: relative;
     }
+
     ::before {
       position: absolute;
       top: -1.5rem;
@@ -39,7 +41,7 @@ const ImageContainer = styled.div`
       left: -1.5rem;
       width: 100%;
       content: "";
-      background-color: #d1f6f7;
+      background-color: #b1e9eb;
     }
   }
 `;
@@ -47,6 +49,7 @@ const ImageContainer = styled.div`
 const TextContainer = styled.div`
   flex: 2;
   padding: 3rem 2rem;
+
   h3 {
     font-size: 1.5rem;
     font-weight: 700;
@@ -72,6 +75,21 @@ const TextContainer = styled.div`
   }
 `;
 
+const ProjectLink = styled.a`
+  display: inline-block;
+  background: #84babc;
+  color: #fff;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.25rem;
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+  transition: background-color 300ms ease;
+
+  &:hover {
+    background-color: #75abad;
+  }
+`;
+
 const Writing = () => (
   <Layout>
     <SEO title="Gerard Hynes | Projects" />
@@ -81,7 +99,7 @@ const Writing = () => (
         <ImageContainer>
           <figure>
             <img
-              src="https://res.cloudinary.com/gerhynes/image/upload/v1585406433/Screenshot_2020-03-28_React_Calculator_vwcqm4.png"
+              src="https://res.cloudinary.com/gerhynes/image/upload/v1598122792/Screenshot_2020-08-22_Home_mbsmnl.png"
               alt=""
             />
           </figure>
@@ -94,6 +112,8 @@ const Writing = () => (
             consequuntur rerum illum odit fugit assumenda rem dolores inventore
             iste reprehenderit maxime! Iusto.
           </p>
+          <ProjectLink href="#">Code</ProjectLink>
+          <ProjectLink href="#">Demo</ProjectLink>
           <ul>
             <li>#React</li>
             <li>#Gatsby</li>
@@ -110,6 +130,8 @@ const Writing = () => (
             consequuntur rerum illum odit fugit assumenda rem dolores inventore
             iste reprehenderit maxime! Iusto.
           </p>
+          <ProjectLink href="#">Code</ProjectLink>
+          <ProjectLink href="#">Demo</ProjectLink>
           <ul>
             <li>#React</li>
             <li>#Gatsby</li>
