@@ -27,16 +27,19 @@ const ImageContainer = styled.div`
   align-items: center;
   position: relative;
 
-  img {
+  figure {
     position: relative;
+    img {
+      position: relative;
+    }
     ::before {
       position: absolute;
-      top: 0;
-      bottom: 0;
-      left: -10%;
-      width: 60%;
+      top: -1.5rem;
+      bottom: 1.5rem;
+      left: -1.5rem;
+      width: 100%;
       content: "";
-      background-color: #e2e2e2;
+      background-color: #d1f6f7;
     }
   }
 `;
@@ -76,10 +79,12 @@ const Writing = () => (
     <ProjectGrid>
       <ProjectCard>
         <ImageContainer>
-          <img
-            src="https://res.cloudinary.com/gerhynes/image/upload/v1585406433/Screenshot_2020-03-28_React_Calculator_vwcqm4.png"
-            alt=""
-          />
+          <figure>
+            <img
+              src="https://res.cloudinary.com/gerhynes/image/upload/v1585406433/Screenshot_2020-03-28_React_Calculator_vwcqm4.png"
+              alt=""
+            />
+          </figure>
         </ImageContainer>
         <TextContainer>
           <h3>Project Title</h3>
@@ -96,7 +101,7 @@ const Writing = () => (
           </ul>
         </TextContainer>
       </ProjectCard>
-      {/* <ProjectCard>
+      <ProjectCard>
         <TextContainer>
           <h3>Project Title</h3>
           <p>
@@ -112,12 +117,14 @@ const Writing = () => (
           </ul>
         </TextContainer>
         <ImageContainer>
-          <img
-            src="https://res.cloudinary.com/gerhynes/image/upload/v1587814025/Screenshot_2020-04-25_Home_uurxds.png"
-            alt=""
-          />
+          <figure>
+            <img
+              src="https://res.cloudinary.com/gerhynes/image/upload/v1587814025/Screenshot_2020-04-25_Home_uurxds.png"
+              alt=""
+            />
+          </figure>
         </ImageContainer>
-      </ProjectCard> */}
+      </ProjectCard>
     </ProjectGrid>
   </Layout>
 );
