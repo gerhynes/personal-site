@@ -2,7 +2,10 @@ module.exports = {
   siteMetadata: {
     title: `Gerard Hynes`,
     description: `Web Developer focusing on JAMstack and fullstack JavaScript`,
-    author: `@Gerard_K_Hynes`,
+    author: `Gerard Hynes`,
+    social: {
+      twitter: `Gerard_K_Hynes`,
+    },
   },
   plugins: [
     `gatsby-plugin-styled-components`,

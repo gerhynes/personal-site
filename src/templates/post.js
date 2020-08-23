@@ -6,6 +6,7 @@ import { MDXRenderer } from "gatsby-plugin-mdx";
 import styled from "styled-components";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
+import Author from "../components/author";
 import { PostBody, PostNavigation } from "../components/styles/PostStyles";
 
 const Post = styled.div`
@@ -22,8 +23,6 @@ const PostDate = styled.p`
   color: rgba(107, 114, 128, 1);
   margin-bottom: 1rem;
 `;
-
-
 
 const shortcodes = { Link }; // Provide common components here
 
@@ -51,6 +50,7 @@ export default function PostTemplate({ location, data: { mdx }, pageContext }) {
           <PostBody>
             <MDXRenderer>{mdx.body}</MDXRenderer>
           </PostBody>
+          <Author />
           <PostNavigation>
             <li>
               {prev && (
