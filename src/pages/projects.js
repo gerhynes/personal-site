@@ -17,7 +17,7 @@ const ProjectGrid = styled.section`
 
 const ProjectCard = styled.article`
   display: flex;
-  padding-bottom: 4rem;
+  padding-bottom: 2rem;
   position: relative;
 `;
 
@@ -90,7 +90,7 @@ const ProjectLink = styled.a`
   }
 `;
 
-const Writing = () => (
+const Projects = () => (
   <Layout>
     <SEO title="Gerard Hynes | Projects" />
     <Heading>Projects</Heading>
@@ -151,4 +151,4 @@ const Writing = () => (
   </Layout>
 );
 
-export default Writing;
+export default Projects;

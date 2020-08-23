@@ -6,6 +6,7 @@ import { MDXRenderer } from "gatsby-plugin-mdx";
 import styled from "styled-components";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
+import { PostBody, PostNavigation } from "../components/styles/PostStyles";
 
 const Post = styled.div`
   margin-left: 1rem;
@@ -22,50 +23,7 @@ const PostDate = styled.p`
   margin-bottom: 1rem;
 `;
 
-const PostBody = styled.section`
-  position: relative;
-  font-size: 1.2rem;
-  line-height: 1.75;
-  color: #374151;
-  p {
-    margin-bottom: 1.25rem;
-  }
 
-  a {
-    font-weight: 600;
-    text-decoration: underline;
-    color: #75abad;
-  }
-
-  ul > li::before {
-    content: "";
-    position: absolute;
-    background-color: #cbd5e0;
-    border-radius: 50%;
-    width: 0.375em;
-    height: 0.375em;
-    top: 0.6875em;
-    left: 0.25em;
-  }
-
-  ul > li {
-    position: relative;
-    padding-left: 1.75em;
-  }
-`;
-
-const PostNavigation = styled.ul`
-  margin-top: 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  liststyle: none;
-  padding: 0;
-
-  li {
-    margin-bottom: 1rem;
-  }
-`;
 
 const shortcodes = { Link }; // Provide common components here
 

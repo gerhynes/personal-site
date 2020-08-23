@@ -9,7 +9,7 @@ const Container = styled.div`
 `;
 
 const WritingIntro = styled.div`
-  margin: 2rem 1rem;
+  margin: 2rem 1rem 1rem 1rem;
   padding-bottom: 1.5rem;
 `;
 
@@ -60,10 +60,10 @@ export default function Writing({ data }) {
       <SEO title="Gerard Hynes | Writing" />
       <Container>
         <WritingIntro>
-          <Heading>Articles</Heading>
+          <Heading>Writing</Heading>
           <Subheading>
             I write about the web development topics I'm learning. It helps me
-            to consolidate my knowledge, and hopefully helps others.
+            to consolidate my knowledge, and hopefully help others.
           </Subheading>
         </WritingIntro>
         <ArticleList style={{ listStyle: `none` }}>
