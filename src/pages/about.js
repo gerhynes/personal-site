@@ -16,22 +16,22 @@ const Heading = styled.h2`
 
 const BioContainer = styled.div`
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   justify-content: center;
 
   @media (min-width: 768px) {
-    flex-direction: row;
+    flex-direction: row-reverse;
   }
 `;
 
 const Bio = styled.div`
   margin-left: 1.5rem;
   margin-right: 1.5rem;
-  font-size: 1rem;
-  line-height: 1.5;
+  font-size: 1.125rem;
+  line-height: 1.75;
 
   p {
-    margin-bottom: 1.25rem;
+    margin-bottom: 1rem;
   }
 
   a {
@@ -64,35 +64,38 @@ const About = () => {
             <SEO title="Gerard Hynes | About" />
             <Heading>About</Heading>
             <BioContainer>
-              <Bio>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Lectus arcu bibendum at varius vel. Proin sed libero enim sed
-                  faucibus turpis in. At augue eget arcu dictum varius duis at.
-                  Iaculis nunc sed augue lacus viverra vitae congue. Nec
-                  ullamcorper sit amet risus nullam eget felis eget. Lorem sed
-                  risus ultricies tristique nulla aliquet. Sit amet consectetur
-                  adipiscing elit pellentesque habitant morbi. Et tortor
-                  consequat id porta nibh venenatis cras sed. Habitasse platea
-                  dictumst vestibulum rhoncus est pellentesque elit ullamcorper.
-                </p>
-                <p>
-                  You can usually find me on{` `}
-                  <a href={`https://twitter.com/${social.twitter}`}>Twitter</a>,
-                  where I'll be doing{" "}
-                  <a href="https://twitter.com/search?q=%23100DaysOfCode%20from%3AGerard_K_Hynes&src=typed_query&f=live">
-                    #100DaysOfCode
-                  </a>
-                  and talking about Irish.
-                </p>
-              </Bio>
               <BioImageWrapper>
                 <BioImage
                   fixed={data.avatar.childImageSharp.fixed}
                   alt={author}
                 />
               </BioImageWrapper>
+              <Bio>
+                <p>Hi, I'm Gerard Hynes.</p>
+                <p>I'm a self-taught web developer from Ireland.</p>
+                <p>
+                  I've spent the last couple of years diving into web
+                  development, with a focus on JavaScript, from frontend
+                  frameworks like React to Node on the server.
+                </p>
+                <p>
+                  Right now, I'm enjoying building fast, flexible sites and apps
+                  with the <a href="https://jamstack.org/">JAMstack</a>. In
+                  fact,{" "}
+                  <a href="https://github.com/GK-Hynes/personal-site">
+                    this is a Gatsby site.
+                  </a>
+                </p>
+                <p>
+                  You can usually find me on{` `}
+                  <a href={`https://twitter.com/${social.twitter}`}>Twitter</a>,
+                  where I'll probably be doing{" "}
+                  <a href="https://twitter.com/search?q=%23100DaysOfCode%20from%3AGerard_K_Hynes&src=typed_query&f=live">
+                    #100DaysOfCode{` `}
+                  </a>
+                  and talking about Irish.
+                </p>
+              </Bio>
             </BioContainer>
           </Layout>
         );

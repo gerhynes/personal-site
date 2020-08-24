@@ -29,6 +29,7 @@ const Subheading = styled.p`
 
 const ArticleList = styled.ul`
   padding: 0 1rem;
+  list-style: none;
 `;
 
 const Article = styled.article`
@@ -69,11 +70,11 @@ export default function Writing({ data }) {
         <WritingIntro>
           <Heading>Writing</Heading>
           <Subheading>
-            I write about the web development topics I'm learning. It helps me
-            to consolidate my knowledge, and hopefully help others.
+            Writing about the web development topics I'm learning helps me to
+            consolidate my knowledge. I hope you find these articles useful.
           </Subheading>
         </WritingIntro>
-        <ArticleList style={{ listStyle: `none` }}>
+        <ArticleList>
           {posts.map(({ node: post }) => (
             <li key={post.id}>
               <Article>
