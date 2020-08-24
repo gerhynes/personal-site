@@ -37,6 +37,13 @@ const Article = styled.article`
 
 const Date = styled.p`
   color: rgba(107, 114, 128, 1);
+  display: inline-block;
+  margin-right: 1rem;
+`;
+
+const Category = styled.p`
+  display: inline-block;
+  color: rgba(107, 114, 128, 1);
 `;
 
 const ArticleTitle = styled.h2`
@@ -74,6 +81,7 @@ export default function Writing({ data }) {
                   <ArticleTitle>{post.frontmatter.title}</ArticleTitle>
                 </Link>
                 <Date>{post.frontmatter.date}</Date>
+                <Category>{post.frontmatter.category}</Category>
                 <ArticleExcerpt>{post.excerpt}</ArticleExcerpt>
                 <ArticleLink>
                   <Link to={post.fields.slug}>Read more →</Link>
@@ -100,6 +108,7 @@ export const pageQuery = graphql`
           frontmatter {
             title
             date
+            category
           }
           fields {
             slug

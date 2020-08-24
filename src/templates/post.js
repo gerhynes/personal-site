@@ -20,6 +20,14 @@ const PostHeading = styled.h2`
 `;
 
 const PostDate = styled.p`
+  display: inline-block;
+  color: rgba(107, 114, 128, 1);
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+`;
+
+const PostCategory = styled.p`
+  display: inline-block;
   color: rgba(107, 114, 128, 1);
   margin-bottom: 1rem;
 `;
@@ -28,24 +36,24 @@ const shortcodes = { Link }; // Provide common components here
 
 export default function PostTemplate({ location, data: { mdx }, pageContext }) {
   const { prev, next } = pageContext;
-  console.log(pageContext);
-  const { title, date, featuredImage } = mdx.frontmatter;
+  const { title, date, image, category } = mdx.frontmatter;
   return (
     <Layout>
       <SEO
         title={title}
         description={mdx.excerpt}
-        image={featuredImage.childImageSharp.fluid}
+        image={image.childImageSharp.fluid}
         pathname={location.pathname}
       />
       <Post>
         <Img
           style={{ marginBottom: `1rem` }}
-          fluid={featuredImage.childImageSharp.fluid}
+          fluid={image.childImageSharp.fluid}
           alt={title}
         />
         <PostHeading>{title}</PostHeading>
         <PostDate>{date}</PostDate>
+        <PostCategory>{category}</PostCategory>
         <MDXProvider components={shortcodes}>
           <PostBody>
             <MDXRenderer>{mdx.body}</MDXRenderer>
@@ -81,7 +89,8 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date
-        featuredImage {
+        category
+        image {
           childImageSharp {
             fluid(maxWidth: 800) {
               ...GatsbyImageSharpFluid_withWebp
