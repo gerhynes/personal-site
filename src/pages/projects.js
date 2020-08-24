@@ -1,4 +1,6 @@
 import React from "react";
+import { StaticQuery, graphql } from "gatsby";
+import Image from "gatsby-image";
 import styled from "styled-components";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -13,12 +15,19 @@ const Heading = styled.h2`
 
 const ProjectGrid = styled.section`
   max-width: 1080px;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
 `;
 
 const ProjectCard = styled.article`
   display: flex;
+  flex-direction: column;
   padding-bottom: 2rem;
   position: relative;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
 `;
 
 const ImageContainer = styled.div`
@@ -27,14 +36,14 @@ const ImageContainer = styled.div`
   align-items: center;
   position: relative;
 
-  figure {
+  & > * {
+    flex-grow: 1;
+  }
+
+  img {
     position: relative;
 
-    img {
-      position: relative;
-    }
-
-    ::before {
+    &::before {
       position: absolute;
       top: -1.5rem;
       bottom: 1.5rem;
@@ -56,6 +65,7 @@ const TextContainer = styled.div`
   }
 
   p {
+    font-size: 1.125rem;
     margin-bottom: 0.5rem;
   }
 
@@ -90,65 +100,125 @@ const ProjectLink = styled.a`
   }
 `;
 
-const Projects = () => (
-  <Layout>
-    <SEO title="Gerard Hynes | Projects" />
-    <Heading>Projects</Heading>
-    <ProjectGrid>
-      <ProjectCard>
-        <ImageContainer>
-          <figure>
-            <img
-              src="https://res.cloudinary.com/gerhynes/image/upload/v1598122792/Screenshot_2020-08-22_Home_mbsmnl.png"
-              alt=""
-            />
-          </figure>
-        </ImageContainer>
-        <TextContainer>
-          <h3>Project Title</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error
-            doloremque omnis animi, eligendi magni a voluptatum, vitae,
-            consequuntur rerum illum odit fugit assumenda rem dolores inventore
-            iste reprehenderit maxime! Iusto.
-          </p>
-          <ProjectLink href="#">Code</ProjectLink>
-          <ProjectLink href="#">Demo</ProjectLink>
-          <ul>
-            <li>#React</li>
-            <li>#Gatsby</li>
-            <li>#APIs</li>
-          </ul>
-        </TextContainer>
-      </ProjectCard>
-      <ProjectCard>
-        <TextContainer>
-          <h3>Project Title</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error
-            doloremque omnis animi, eligendi magni a voluptatum, vitae,
-            consequuntur rerum illum odit fugit assumenda rem dolores inventore
-            iste reprehenderit maxime! Iusto.
-          </p>
-          <ProjectLink href="#">Code</ProjectLink>
-          <ProjectLink href="#">Demo</ProjectLink>
-          <ul>
-            <li>#React</li>
-            <li>#Gatsby</li>
-            <li>#APIs</li>
-          </ul>
-        </TextContainer>
-        <ImageContainer>
-          <figure>
-            <img
-              src="https://res.cloudinary.com/gerhynes/image/upload/v1587814025/Screenshot_2020-04-25_Home_uurxds.png"
-              alt=""
-            />
-          </figure>
-        </ImageContainer>
-      </ProjectCard>
-    </ProjectGrid>
-  </Layout>
-);
+const Projects = () => {
+  return (
+    <StaticQuery
+      query={projectsQuery}
+      render={(data) => {
+        return (
+          <Layout>
+            <SEO title="Gerard Hynes | Projects" />
+            <Heading>Projects</Heading>
+            <ProjectGrid>
+              <ProjectCard>
+                <ImageContainer>
+                  <Image
+                    fluid={data.nasaApod.childImageSharp.fluid}
+                    alt="NASA apod"
+                  />
+                </ImageContainer>
+                <TextContainer>
+                  <h3>NASA Astronomy Picture of the Day</h3>
+                  <p>
+                    An app which displays daily images and videos from NASA's
+                    APOD API.
+                  </p>
+                  <ProjectLink href="https://github.com/GK-Hynes/nasa-apod">
+                    Code
+                  </ProjectLink>
+                  <ProjectLink href="https://julie-nasa.netlify.app/">
+                    Demo
+                  </ProjectLink>
+                  <ul>
+                    <li>#React</li>
+                    <li>#Gatsby</li>
+                    <li>#APIs</li>
+                  </ul>
+                </TextContainer>
+              </ProjectCard>
+              <ProjectCard>
+                <TextContainer>
+                  <h3>Mars Weather App</h3>
+                  <p>
+                    An app to display the weather on Mars using Nasa's InSight
+                    Mars Weather Service API.
+                  </p>
+                  <ProjectLink href="https://github.com/GK-Hynes/mars-weather-app">
+                    Code
+                  </ProjectLink>
+                  <ProjectLink href="https://weather-on-mars.netlify.app/">
+                    Demo
+                  </ProjectLink>
+                  <ul>
+                    <li>#React</li>
+                    <li>#Gatsby</li>
+                    <li>#APIs</li>
+                  </ul>
+                </TextContainer>
+                <ImageContainer>
+                  <Image
+                    fluid={data.marsWeather.childImageSharp.fluid}
+                    alt="Mars Weather"
+                  />
+                </ImageContainer>
+              </ProjectCard>
+              <ProjectCard>
+                <ImageContainer>
+                  <Image
+                    fluid={data.trataTimer.childImageSharp.fluid}
+                    alt="Tráta Timer"
+                  />
+                </ImageContainer>
+                <TextContainer>
+                  <h3>Tráta Timer</h3>
+                  <p>
+                    A Pomodoro timer built with Gatsby for the freeCodeCamp
+                    curriculum.
+                  </p>
+                  <ProjectLink href="https://github.com/GK-Hynes/trata-timer">
+                    Code
+                  </ProjectLink>
+                  <ProjectLink href="https://trata-timer.netlify.app/">
+                    Demo
+                  </ProjectLink>
+                  <ul>
+                    <li>#React</li>
+                    <li>#Gatsby</li>
+                  </ul>
+                </TextContainer>
+              </ProjectCard>
+            </ProjectGrid>
+          </Layout>
+        );
+      }}
+    />
+  );
+};
 
 export default Projects;
+
+const projectsQuery = graphql`
+  query projectsQuery {
+    nasaApod: file(absolutePath: { regex: "/nasa-apod.png/" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    marsWeather: file(absolutePath: { regex: "/mars-weather.png/" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    trataTimer: file(absolutePath: { regex: "/trata-timer.png/" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`;
