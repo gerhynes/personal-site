@@ -39,19 +39,19 @@ const ImageContainer = styled.div`
   & > * {
     flex-grow: 1;
   }
+`;
 
-  img {
-    position: relative;
+const ImageWrapper = styled.figure`
+  position: relative;
 
-    &::before {
-      position: absolute;
-      top: -1.5rem;
-      bottom: 1.5rem;
-      left: -1.5rem;
-      width: 100%;
-      content: "";
-      background-color: #b1e9eb;
-    }
+  &::before {
+    position: absolute;
+    top: -1.5rem;
+    bottom: 1.5rem;
+    left: -1.5rem;
+    width: 100%;
+    content: "";
+    background-color: #b1e9eb;
   }
 `;
 
@@ -112,10 +112,12 @@ const Projects = () => {
             <ProjectGrid>
               <ProjectCard>
                 <ImageContainer>
-                  <Image
-                    fluid={data.nasaApod.childImageSharp.fluid}
-                    alt="NASA apod"
-                  />
+                  <ImageWrapper>
+                    <Image
+                      fluid={data.nasaApod.childImageSharp.fluid}
+                      alt="NASA apod"
+                    />
+                  </ImageWrapper>
                 </ImageContainer>
                 <TextContainer>
                   <h3>NASA Astronomy Picture of the Day</h3>
@@ -156,18 +158,22 @@ const Projects = () => {
                   </ul>
                 </TextContainer>
                 <ImageContainer>
-                  <Image
-                    fluid={data.marsWeather.childImageSharp.fluid}
-                    alt="Mars Weather"
-                  />
+                  <ImageWrapper>
+                    <Image
+                      fluid={data.marsWeather.childImageSharp.fluid}
+                      alt="Mars Weather"
+                    />
+                  </ImageWrapper>
                 </ImageContainer>
               </ProjectCard>
               <ProjectCard>
                 <ImageContainer>
-                  <Image
-                    fluid={data.trataTimer.childImageSharp.fluid}
-                    alt="Tráta Timer"
-                  />
+                  <ImageWrapper>
+                    <Image
+                      fluid={data.trataTimer.childImageSharp.fluid}
+                      alt="Tráta Timer"
+                    />
+                  </ImageWrapper>
                 </ImageContainer>
                 <TextContainer>
                   <h3>Tráta Timer</h3>
