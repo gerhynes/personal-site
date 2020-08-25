@@ -21,13 +21,20 @@ const ProjectGrid = styled.section`
 
 const ProjectCard = styled.article`
   display: flex;
-  flex-direction: column;
   padding-bottom: 2rem;
   position: relative;
 
   @media (min-width: 768px) {
     flex-direction: row;
   }
+`;
+
+const ProjectCardLeft = styled(ProjectCard)`
+  flex-direction: column;
+`;
+
+const ProjectCardRight = styled(ProjectCard)`
+  flex-direction: column-reverse;
 `;
 
 const ImageContainer = styled.div`
@@ -43,15 +50,24 @@ const ImageContainer = styled.div`
 
 const ImageWrapper = styled.figure`
   position: relative;
+  max-width: 450px;
+  margin: auto;
 
   &::before {
     position: absolute;
-    top: -1.5rem;
-    bottom: 1.5rem;
-    left: -1.5rem;
+    top: -1rem;
+    left: -1rem;
+    bottom: 1rem;
     width: 100%;
     content: "";
     background-color: #b1e9eb;
+  }
+
+  @media (min-width: 768px) {
+    &::before {
+      top: -1.5rem;
+      left: -1.5rem;
+    }
   }
 `;
 
@@ -85,6 +101,12 @@ const TextContainer = styled.div`
   }
 `;
 
+const TextLink = styled.a`
+  font-weight: 600;
+  text-decoration: underline;
+  color: #75abad;
+`;
+
 const ProjectLink = styled.a`
   display: inline-block;
   background: #84babc;
@@ -110,7 +132,7 @@ const Projects = () => {
             <SEO title="Gerard Hynes | Projects" />
             <Heading>Projects</Heading>
             <ProjectGrid>
-              <ProjectCard>
+              <ProjectCardLeft>
                 <ImageContainer>
                   <ImageWrapper>
                     <Image
@@ -122,8 +144,10 @@ const Projects = () => {
                 <TextContainer>
                   <h3>NASA Astronomy Picture of the Day</h3>
                   <p>
-                    An app which displays daily images and videos from NASA's
-                    APOD API.
+                    An app which displays daily images and videos from{" "}
+                    <TextLink href="https://api.nasa.gov/">
+                      NASA's APOD API.
+                    </TextLink>
                   </p>
                   <ProjectLink href="https://github.com/GK-Hynes/nasa-apod">
                     Code
@@ -135,15 +159,18 @@ const Projects = () => {
                     <li>#React</li>
                     <li>#Gatsby</li>
                     <li>#APIs</li>
+                    <li>#PWA</li>
                   </ul>
                 </TextContainer>
-              </ProjectCard>
-              <ProjectCard>
+              </ProjectCardLeft>
+              <ProjectCardRight>
                 <TextContainer>
                   <h3>Mars Weather App</h3>
                   <p>
-                    An app to display the weather on Mars using Nasa's InSight
-                    Mars Weather Service API.
+                    An app to display the weather on Mars using{" "}
+                    <TextLink href="https://api.nasa.gov/">
+                      NASA's InSight Mars Weather Service API.
+                    </TextLink>
                   </p>
                   <ProjectLink href="https://github.com/GK-Hynes/mars-weather-app">
                     Code
@@ -165,8 +192,8 @@ const Projects = () => {
                     />
                   </ImageWrapper>
                 </ImageContainer>
-              </ProjectCard>
-              <ProjectCard>
+              </ProjectCardRight>
+              <ProjectCardLeft>
                 <ImageContainer>
                   <ImageWrapper>
                     <Image
@@ -178,7 +205,10 @@ const Projects = () => {
                 <TextContainer>
                   <h3>Tráta Timer</h3>
                   <p>
-                    A Pomodoro timer built with Gatsby for the freeCodeCamp
+                    A Pomodoro timer built with Gatsby for the{" "}
+                    <TextLink href="https://www.freecodecamp.org/">
+                      freeCodeCamp
+                    </TextLink>{" "}
                     curriculum.
                   </p>
                   <ProjectLink href="https://github.com/GK-Hynes/trata-timer">
@@ -192,7 +222,7 @@ const Projects = () => {
                     <li>#Gatsby</li>
                   </ul>
                 </TextContainer>
-              </ProjectCard>
+              </ProjectCardLeft>
             </ProjectGrid>
           </Layout>
         );
