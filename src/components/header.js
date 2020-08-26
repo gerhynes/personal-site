@@ -22,7 +22,7 @@ const NavHeading = styled.h1`
   background-image: linear-gradient(
     to top,
     transparent 15%,
-    rgba(0, 214, 214, 0.25) 15% 55%,
+    var(--primary-500) 15% 55%,
     transparent 55%
   );
 `;
@@ -40,7 +40,7 @@ const NavLink = styled(Link)`
     background-image: linear-gradient(
       to top,
       transparent 15%,
-      rgba(0, 214, 214, 0.25) 15% 55%,
+      var(--primary-500) 15% 55%,
       transparent 55%
     );
   }

@@ -17,12 +17,12 @@ const MainHeading = styled.h1`
   font-size: 4rem;
   font-weight: 700;
   text-align: center;
-  color: #002a32;
+  color: var(--dark);
   display: inline;
   background-image: linear-gradient(
     to top,
     transparent 15%,
-    rgba(0, 214, 214, 0.25) 15% 55%,
+    var(--primary-500) 15% 55%,
     transparent 55%
   );
 `;
@@ -30,19 +30,19 @@ const MainHeading = styled.h1`
 const SubHeading = styled.h2`
   font-size: 1.25rem;
   text-align: center;
-  color: #002a32;
+  color: var(--dark);
 `;
 
 const TwitterIcon = styled(Twitter)`
   width: 2rem;
   margin: 1rem 0.5rem;
-  color: #002a32;
+  color: var(--dark);
 `;
 
 const GithubIcon = styled(Github)`
   margin: 1rem 0.5rem;
   width: 2rem;
-  color: #002a32;
+  color: var(--dark);
 `;
 
 const IndexPage = () => (

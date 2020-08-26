@@ -60,7 +60,7 @@ const ImageWrapper = styled.figure`
     bottom: 1rem;
     width: 100%;
     content: "";
-    background-color: #b1e9eb;
+    background-color: var(--primary-500);
   }
 
   @media (min-width: 768px) {
@@ -91,8 +91,8 @@ const TextContainer = styled.div`
 
   li {
     border-radius: 9999px;
-    background: rgba(237, 242, 247, 1);
-    color: rgba(74, 85, 104, 1);
+    background: var(--grey-200);
+    color: var(--grey-700);
     padding: 0.25rem 0.75rem;
     margin-right: 0.5rem;
     margin-bottom: 0.5rem;
@@ -104,12 +104,12 @@ const TextContainer = styled.div`
 const TextLink = styled.a`
   font-weight: 600;
   text-decoration: underline;
-  color: #75abad;
+  color: var(--primary-900);
 `;
 
 const ProjectLink = styled.a`
   display: inline-block;
-  background: #84babc;
+  background: var(--primary-800);
   color: #fff;
   padding: 0.25rem 0.75rem;
   border-radius: 0.25rem;
@@ -118,7 +118,7 @@ const ProjectLink = styled.a`
   transition: background-color 300ms ease;
 
   &:hover {
-    background-color: #75abad;
+    background-color: var(--primary-900);
   }
 `;
 

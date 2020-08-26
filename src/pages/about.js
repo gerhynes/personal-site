@@ -37,7 +37,7 @@ const Bio = styled.div`
   a {
     font-weight: 600;
     text-decoration: underline;
-    color: #75abad;
+    color: var(--primary-900);
   }
 `;
 

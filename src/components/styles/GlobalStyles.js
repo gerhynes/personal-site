@@ -600,9 +600,21 @@ video {
 
 /* Global styles */
 
+:root {
+  --primary-500: #b1e9eb;
+  --primary-800: #84babc;
+  --primary-900: #75abad;
+  --dark: #002a32;
+  --grey-100: #F7FAFC;
+  --grey-200: #edf2f7;
+  --grey-500: #A0AEC0;
+  --grey-600: #718096;
+  --grey-700: #4A5568;
+}
+
 body {
   font-family: "Inter", sans-serif;
-  background-image: linear-gradient(135deg, #f7fafc 50%, #fff 50%);
+  background-image: linear-gradient(135deg, var(--grey-100) 50%, #fff 50%);
 }
 
 h1,
