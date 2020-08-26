@@ -10,7 +10,7 @@ const Container = styled.div`
 
 const WritingIntro = styled.div`
   margin: 2rem 1rem 1rem 1rem;
-  padding-bottom: 1.5rem;
+  padding-bottom: 1rem;
 `;
 
 const Heading = styled.h2`
@@ -24,7 +24,7 @@ const Heading = styled.h2`
 const Subheading = styled.p`
   font-size: 1.125rem;
   line-height: 1.75rem;
-  color: rgba(107, 114, 128, 1);
+  color: var(--grey-600);
 `;
 
 const ArticleList = styled.ul`
@@ -37,28 +37,29 @@ const Article = styled.article`
 `;
 
 const Date = styled.p`
-  color: rgba(107, 114, 128, 1);
+  color: var(--grey-600);
   display: inline-block;
   margin-right: 1rem;
 `;
 
 const Category = styled.p`
   display: inline-block;
-  color: rgba(107, 114, 128, 1);
+  color: var(--grey-600);
 `;
 
 const ArticleTitle = styled.h2`
   font-size: 1.5rem;
   font-weight: 700;
+  margin-bottom: 0.5rem;
 `;
 
 const ArticleExcerpt = styled.p`
-  margin: 1.5rem 0;
+  margin: 0.5rem 0;
 `;
 
 const ArticleLink = styled.p`
   font-weight: 500;
-  color: #75abad;
+  color: var(--primary-900);
 `;
 
 export default function Writing({ data }) {
