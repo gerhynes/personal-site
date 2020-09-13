@@ -5,7 +5,6 @@ import styled from "styled-components";
 
 const AuthorDetails = styled.section`
   display: flex;
-  align-items: center;
   margin: 2rem 0;
 
   img {
@@ -14,7 +13,7 @@ const AuthorDetails = styled.section`
   }
 
   p {
-    margin-left: 1.5rem;
+    padding-left: 1rem;
   }
 
   a {
@@ -32,7 +31,9 @@ const Author = () => {
         const { author, social } = data.site.siteMetadata;
         return (
           <AuthorDetails>
-            <Image fixed={data.avatar.childImageSharp.fixed} alt={author} />
+            <div>
+              <Image fixed={data.avatar.childImageSharp.fixed} alt={author} />
+            </div>
             <div>
               <p>
                 Written by <strong>{author}</strong>. I write about JavaScript
