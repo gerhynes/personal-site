@@ -7,8 +7,6 @@ import GlobalStyles from "./styles/GlobalStyles";
 
 const Container = styled.section`
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
   min-height: 100vh;
 `;
 

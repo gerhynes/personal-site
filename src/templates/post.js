@@ -16,7 +16,11 @@ const Post = styled.div`
 
 const PostHeading = styled.h2`
   font-weight: 700;
-  font-size: 2.5rem;
+  font-size: 2rem;
+
+  @media (min-width: 640px) {
+    font-size: 2.5rem;
+  }
 `;
 
 const PostDate = styled.p`

@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const PostBody = styled.section`
-  position: relative;
   font-size: 1.2rem;
   line-height: 1.75;
   color: #374151;
@@ -39,6 +38,7 @@ export const PostBody = styled.section`
   }
 
   pre {
+    overflow-x: auto;
     background: #2d3748;
     padding: 1rem 1.5rem;
     border-radius: 0.375rem;
@@ -69,6 +69,7 @@ export const PostBody = styled.section`
   }
 
   ol {
+    width: 100%;
     padding-left: 1.75em;
     margin-bottom: 1.25rem;
   }
@@ -79,6 +80,7 @@ export const PostBody = styled.section`
   }
 
   ul {
+    width: 100%;
     margin-bottom: 1.25rem;
   }
 
