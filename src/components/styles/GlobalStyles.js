@@ -601,7 +601,13 @@ video {
 /* Global styles */
 
 :root {
+  --primary-100: #f0fcfc;
+  --primary-200: #e1f9fa;
+  --primary-300: #d1f6f7;
+  --primary-400: #c1f3f4;
   --primary-500: #b1e9eb;
+  --primary-600: #a2d9db;
+  --primary-700: #93cacc;
   --primary-800: #84babc;
   --primary-900: #75abad;
   --dark: #002a32;
@@ -621,13 +627,12 @@ h1,
 h2,
 h3,
 h4 {
-  color: #002a32;
+  color: var(--dark);
 }
 
 a {
   color: inherit;
 }
-
 
 `;
 

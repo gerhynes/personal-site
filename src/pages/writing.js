@@ -44,7 +44,10 @@ const Date = styled.p`
 
 const Category = styled.p`
   display: inline-block;
-  color: var(--grey-600);
+  color: var(--primary-900);
+  background: var(--primary-200);
+  padding: 0.25rem;
+  border-radius: 0.25rem;
 `;
 
 const ArticleTitle = styled.h2`
@@ -109,7 +112,7 @@ export const pageQuery = graphql`
           excerpt
           frontmatter {
             title
-            date
+            date(formatString: "DD MMMM YYYY")
             category
           }
           fields {

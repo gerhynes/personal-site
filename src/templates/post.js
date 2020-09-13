@@ -28,7 +28,10 @@ const PostDate = styled.p`
 
 const PostCategory = styled.p`
   display: inline-block;
-  color: rgba(107, 114, 128, 1);
+  color: var(--primary-900);
+  background: var(--primary-200);
+  padding: 0.25rem;
+  border-radius: 0.25rem;
   margin-bottom: 1rem;
 `;
 
@@ -88,7 +91,7 @@ export const pageQuery = graphql`
       body
       frontmatter {
         title
-        date
+        date(formatString: "DD MMMM YYYY")
         category
         image {
           childImageSharp {

@@ -120,4 +120,8 @@ export const PostNavigation = styled.ul`
     margin-bottom: 1rem;
     font-weight: 500;
   }
+
+  a {
+    color: var(--primary-900);
+  }
 `;
