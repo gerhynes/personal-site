@@ -7,6 +7,7 @@ const Nav = styled.nav`
   margin: 0 auto;
   max-width: 960px;
   padding: 1.5rem 1rem;
+  font-size: 1.125rem;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -14,7 +15,7 @@ const Nav = styled.nav`
 
 const NavHeading = styled.h1`
   font-weight: 700;
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   margin: 0 1rem 0 0;
   padding-left: 0.125rem;
   padding-right: 0.125rem;

@@ -24,7 +24,7 @@ const Heading = styled.h2`
 const Subheading = styled.p`
   font-size: 1.125rem;
   line-height: 1.75rem;
-  color: var(--grey-600);
+  color: var(--grey-700);
 `;
 
 const ArticleList = styled.ul`
@@ -78,8 +78,8 @@ export default function Writing({ data }) {
         <WritingIntro>
           <Heading>Writing</Heading>
           <Subheading>
-            Writing about the web development topics I'm learning helps me to
-            consolidate my knowledge. I hope you find these articles useful.
+            I write about the things I'm learning to help me to consolidate my
+            knowledge. I hope you also find these articles useful.
           </Subheading>
         </WritingIntro>
         <ArticleList>

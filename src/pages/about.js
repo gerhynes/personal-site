@@ -11,7 +11,7 @@ const Heading = styled.h2`
   font-size: 3.5rem;
   font-weight: 700;
   line-height: 3.5rem;
-  margin-bottom: 2rem;
+  margin: 1rem 0 2rem 0;
 `;
 
 const BioContainer = styled.div`

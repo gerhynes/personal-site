@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "gatsby";
 import styled from "styled-components";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -6,12 +7,12 @@ import { Twitter } from "@styled-icons/boxicons-logos/Twitter";
 import { Github } from "@styled-icons/boxicons-logos/Github";
 
 const Hero = styled.div`
-  margin-top: 30vh;
+  margin-top: 20vh;
   text-align: center;
+  padding: 0 0.5rem;
 `;
 
-const MainHeading = styled.h1`
-  margin: auto auto 1.5rem auto;
+const MainHeading = styled.h2`
   padding-left: 0.25rem;
   padding-right: 0.25rem;
   font-size: 4rem;
@@ -27,10 +28,23 @@ const MainHeading = styled.h1`
   );
 `;
 
-const SubHeading = styled.h2`
+const SubHeading = styled.p`
   font-size: 1.25rem;
   text-align: center;
   color: var(--dark);
+  margin-bottom: 0.5rem;
+`;
+
+const Description = styled.p`
+  font-size: 1.25rem;
+  text-align: center;
+  color: var(--dark);
+
+  a {
+    font-weight: 600;
+    text-decoration: underline;
+    color: #75abad;
+  }
 `;
 
 const TwitterIcon = styled(Twitter)`
@@ -54,6 +68,11 @@ const IndexPage = () => (
         I make fast, modern sites and apps using the JAMstack and fullstack
         JavaScript.
       </SubHeading>
+      <Description>
+        You can <Link to="/projects">see some of my projects</Link>,{" "}
+        <Link to="/about">find out about me</Link> or{" "}
+        <Link to="/writing">see what I've been writing</Link>.
+      </Description>
       <a href="https://twitter.com/Gerard_K_Hynes">
         <TwitterIcon />
       </a>
