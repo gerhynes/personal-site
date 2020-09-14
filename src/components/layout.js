@@ -7,11 +7,17 @@ import GlobalStyles from "./styles/GlobalStyles";
 
 const Container = styled.section`
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
+  min-width: 0;
+`;
+
+const Wrapper = styled.div`
+  flex: 1;
 `;
 
 const Main = styled.main`
-  flex: 1;
   margin: 0 auto;
   max-width: 800px;
 `;
@@ -36,8 +42,10 @@ const Layout = ({ children }) => {
     <>
       <GlobalStyles />
       <Container>
-        <Header siteTitle={data.site.siteMetadata.title} />
-        <Main>{children}</Main>
+        <Wrapper>
+          <Header siteTitle={data.site.siteMetadata.title} />
+          <Main>{children}</Main>
+        </Wrapper>
         <Footer>Gerard Hynes © {new Date().getFullYear()}</Footer>
       </Container>
     </>

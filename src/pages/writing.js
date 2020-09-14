@@ -37,14 +37,14 @@ const Article = styled.article`
 `;
 
 const Date = styled.p`
-  color: var(--grey-600);
+  color: var(--grey-700);
   display: inline-block;
   margin-right: 1rem;
 `;
 
 const Category = styled.p`
   display: inline-block;
-  color: var(--primary-900);
+  color: var(--grey-700);
   background: var(--primary-200);
   padding: 0.25rem;
   border-radius: 0.25rem;
@@ -63,6 +63,10 @@ const ArticleExcerpt = styled.p`
 const ArticleLink = styled.p`
   font-weight: 500;
   color: var(--primary-900);
+
+  a {
+    text-decoration: underline;
+  }
 `;
 
 export default function Writing({ data }) {
@@ -115,6 +119,7 @@ export const pageQuery = graphql`
             date(formatString: "DD MMMM YYYY")
             category
           }
+          id
           fields {
             slug
           }

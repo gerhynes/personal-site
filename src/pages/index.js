@@ -5,7 +5,7 @@ import SEO from "../components/seo";
 import { Twitter } from "@styled-icons/boxicons-logos/Twitter";
 import { Github } from "@styled-icons/boxicons-logos/Github";
 
-const HeroWrapper = styled.div`
+const Hero = styled.div`
   margin-top: 30vh;
   text-align: center;
 `;
@@ -48,7 +48,7 @@ const GithubIcon = styled(Github)`
 const IndexPage = () => (
   <Layout>
     <SEO title="Gerard Hynes | Web Developer" />
-    <HeroWrapper>
+    <Hero>
       <MainHeading>Hi, I'm Gerard</MainHeading>
       <SubHeading>
         I make fast, modern sites and apps using the JAMstack and fullstack
@@ -60,7 +60,7 @@ const IndexPage = () => (
       <a href="https://github.com/GK-Hynes">
         <GithubIcon />
       </a>
-    </HeroWrapper>
+    </Hero>
   </Layout>
 );
 

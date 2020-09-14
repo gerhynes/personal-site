@@ -10,29 +10,26 @@ import Author from "../components/author";
 import { PostBody, PostNavigation } from "../components/styles/PostStyles";
 
 const Post = styled.div`
+  min-width: 100px;
   margin-left: 1rem;
   margin-right: 1rem;
 `;
 
 const PostHeading = styled.h2`
   font-weight: 700;
-  font-size: 2rem;
-
-  @media (min-width: 640px) {
-    font-size: 2.5rem;
-  }
+  font-size: 2.5rem;
 `;
 
 const PostDate = styled.p`
   display: inline-block;
-  color: rgba(107, 114, 128, 1);
+  color: var(--grey-700);
   margin-bottom: 1rem;
   margin-right: 1rem;
 `;
 
 const PostCategory = styled.p`
   display: inline-block;
-  color: var(--primary-900);
+  color: var(--grey-700);
   background: var(--primary-200);
   padding: 0.25rem;
   border-radius: 0.25rem;
