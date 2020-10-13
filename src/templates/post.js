@@ -86,8 +86,8 @@ export default function PostTemplate({ location, data: { mdx }, pageContext }) {
 }
 
 export const pageQuery = graphql`
-  query PostQuery($id: String!) {
-    mdx(id: { eq: $id }) {
+  query PostQuery($slug: String!) {
+    mdx(fields: { slug: { eq: $slug } }) {
       excerpt(pruneLength: 160)
       body
       frontmatter {

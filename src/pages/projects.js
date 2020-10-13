@@ -1,5 +1,5 @@
 import React from "react";
-import { StaticQuery, graphql } from "gatsby";
+import { StaticQuery, graphql, Link } from "gatsby";
 import Image from "gatsby-image";
 import styled from "styled-components";
 import Layout from "../components/layout";
@@ -149,6 +149,7 @@ const Projects = () => {
                       NASA's APOD API.
                     </TextLink>
                   </p>
+                  <Link to="/nasa-apod">Read more</Link>
                   <ProjectLink href="https://github.com/GK-Hynes/nasa-apod">
                     Code
                   </ProjectLink>
@@ -211,6 +212,7 @@ const Projects = () => {
                     </TextLink>{" "}
                     curriculum.
                   </p>
+                  <Link to="/trata-timer">Read more</Link>
                   <ProjectLink href="https://github.com/GK-Hynes/trata-timer">
                     Code
                   </ProjectLink>
@@ -235,7 +237,7 @@ export default Projects;
 
 const projectsQuery = graphql`
   query projectsQuery {
-    nasaApod: file(absolutePath: { regex: "/nasa-apod.png/" }) {
+    nasaApod: file(absolutePath: { regex: "/nasa-apod.jpg/" }) {
       childImageSharp {
         fluid {
           ...GatsbyImageSharpFluid
