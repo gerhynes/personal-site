@@ -107,14 +107,21 @@ const TextLink = styled.a`
   color: var(--primary-900);
 `;
 
-const ProjectLink = styled.a`
+// const LinkStyles = styled(Link)`
+//   display: block;
+//   font-weight: 600;
+//   text-decoration: underline;
+//   color: var(--primary-900);
+//   margin-bottom: 0.5rem;
+// `;
+
+const ProjectLinkStyles = styled(Link)`
   display: inline-block;
   background: var(--primary-800);
   color: #fff;
   padding: 0.25rem 0.75rem;
   border-radius: 0.25rem;
-  margin-bottom: 1rem;
-  margin-right: 1rem;
+  margin: 1rem auto;
   transition: background-color 300ms ease;
 
   &:hover {
@@ -149,13 +156,9 @@ const Projects = () => {
                       NASA's APOD API.
                     </TextLink>
                   </p>
-                  <Link to="/nasa-apod">Read more</Link>
-                  <ProjectLink href="https://github.com/GK-Hynes/nasa-apod">
-                    Code
-                  </ProjectLink>
-                  <ProjectLink href="https://julie-nasa.netlify.app/">
-                    Demo
-                  </ProjectLink>
+                  <ProjectLinkStyles to="/nasa-apod">
+                    View Project
+                  </ProjectLinkStyles>
                   <ul>
                     <li>#React</li>
                     <li>#Gatsby</li>
@@ -164,45 +167,8 @@ const Projects = () => {
                   </ul>
                 </TextContainer>
               </ProjectCardLeft>
+
               <ProjectCardRight>
-                <TextContainer>
-                  <h3>Mars Weather App</h3>
-                  <p>
-                    An app to display the weather on Mars using{" "}
-                    <TextLink href="https://api.nasa.gov/">
-                      NASA's InSight Mars Weather Service API.
-                    </TextLink>
-                  </p>
-                  <ProjectLink href="https://github.com/GK-Hynes/mars-weather-app">
-                    Code
-                  </ProjectLink>
-                  <ProjectLink href="https://weather-on-mars.netlify.app/">
-                    Demo
-                  </ProjectLink>
-                  <ul>
-                    <li>#React</li>
-                    <li>#Gatsby</li>
-                    <li>#APIs</li>
-                  </ul>
-                </TextContainer>
-                <ImageContainer>
-                  <ImageWrapper>
-                    <Image
-                      fluid={data.marsWeather.childImageSharp.fluid}
-                      alt="Mars Weather"
-                    />
-                  </ImageWrapper>
-                </ImageContainer>
-              </ProjectCardRight>
-              <ProjectCardLeft>
-                <ImageContainer>
-                  <ImageWrapper>
-                    <Image
-                      fluid={data.trataTimer.childImageSharp.fluid}
-                      alt="Tráta Timer"
-                    />
-                  </ImageWrapper>
-                </ImageContainer>
                 <TextContainer>
                   <h3>Tráta Timer</h3>
                   <p>
@@ -212,19 +178,23 @@ const Projects = () => {
                     </TextLink>{" "}
                     curriculum.
                   </p>
-                  <Link to="/trata-timer">Read more</Link>
-                  <ProjectLink href="https://github.com/GK-Hynes/trata-timer">
-                    Code
-                  </ProjectLink>
-                  <ProjectLink href="https://trata-timer.netlify.app/">
-                    Demo
-                  </ProjectLink>
+                  <ProjectLinkStyles to="/trata-timer">
+                    View Project
+                  </ProjectLinkStyles>
                   <ul>
                     <li>#React</li>
                     <li>#Gatsby</li>
                   </ul>
                 </TextContainer>
-              </ProjectCardLeft>
+                <ImageContainer>
+                  <ImageWrapper>
+                    <Image
+                      fluid={data.trataTimer.childImageSharp.fluid}
+                      alt="Tráta Timer"
+                    />
+                  </ImageWrapper>
+                </ImageContainer>
+              </ProjectCardRight>
             </ProjectGrid>
           </Layout>
         );
@@ -238,13 +208,6 @@ export default Projects;
 const projectsQuery = graphql`
   query projectsQuery {
     nasaApod: file(absolutePath: { regex: "/nasa-apod.jpg/" }) {
-      childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    marsWeather: file(absolutePath: { regex: "/mars-weather.png/" }) {
       childImageSharp {
         fluid {
           ...GatsbyImageSharpFluid
