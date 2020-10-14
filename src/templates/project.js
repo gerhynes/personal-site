@@ -9,6 +9,11 @@ import SEO from "../components/seo";
 import Author from "../components/author";
 import { PostBody } from "../components/styles/PostStyles";
 
+const ProjectHeadingStyles = styled.h2`
+  font-weight: 700;
+  font-size: 2.5rem;
+`;
+
 const shortcodes = { Link }; // Provide common components here
 
 export default function ProjectTemplate({
@@ -26,12 +31,12 @@ export default function ProjectTemplate({
         pathname={location.pathname}
       />
       <div>
+        <ProjectHeadingStyles>{title}</ProjectHeadingStyles>
         <Img
           style={{ marginBottom: `1rem` }}
           fluid={image.childImageSharp.fluid}
           alt={title}
         />
-        <h2>{title}</h2>
         <MDXProvider components={shortcodes}>
           <PostBody>
             <MDXRenderer>{mdx.body}</MDXRenderer>
