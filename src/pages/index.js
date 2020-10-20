@@ -65,7 +65,7 @@ const IndexPage = () => (
     <Hero>
       <MainHeading>Hi, I'm Gerard</MainHeading>
       <SubHeading>
-        I make fast, modern sites and apps using the JAMstack and fullstack
+        I make fast, modern sites and apps using the Jamstack and fullstack
         JavaScript.
       </SubHeading>
       <Description>
@@ -73,10 +73,10 @@ const IndexPage = () => (
         <Link to="/about">find out about me</Link> or{" "}
         <Link to="/writing">see what I've been writing</Link>.
       </Description>
-      <a href="https://twitter.com/Gerard_K_Hynes">
+      <a href="https://twitter.com/Gerard_K_Hynes" aria-label="Twitter">
         <TwitterIcon />
       </a>
-      <a href="https://github.com/GK-Hynes">
+      <a href="https://github.com/GK-Hynes" aria-label="GitHub">
         <GithubIcon />
       </a>
     </Hero>

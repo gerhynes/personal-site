@@ -57,7 +57,7 @@ export default function PostTemplate({ location, data: { mdx }, pageContext }) {
         />
         <PostHeading>{title}</PostHeading>
         <PostDate>{date}</PostDate>
-        <PostCategory>{category}</PostCategory>
+        <PostCategory>{`#${category}`}</PostCategory>
         <MDXProvider components={shortcodes}>
           <PostBody>
             <MDXRenderer>{mdx.body}</MDXRenderer>

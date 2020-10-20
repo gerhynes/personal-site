@@ -78,7 +78,7 @@ export default function Writing({ data }) {
         <WritingIntro>
           <Heading>Writing</Heading>
           <Subheading>
-            I write about the things I'm learning to help me to consolidate my
+            I write about the things I'm learning to help me consolidate my
             knowledge. I hope you also find these articles useful.
           </Subheading>
         </WritingIntro>
@@ -90,7 +90,7 @@ export default function Writing({ data }) {
                   <ArticleTitle>{post.frontmatter.title}</ArticleTitle>
                 </Link>
                 <Date>{post.frontmatter.date}</Date>
-                <Category>{post.frontmatter.category}</Category>
+                <Category>{`#${post.frontmatter.category}`}</Category>
                 <ArticleExcerpt>{post.excerpt}</ArticleExcerpt>
                 <ArticleLink>
                   <Link to={post.fields.slug}>Read more →</Link>
