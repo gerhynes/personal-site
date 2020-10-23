@@ -3,6 +3,7 @@ import { graphql, Link } from "gatsby";
 import styled from "styled-components";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
+import PageHeadingStyles from "../components/styles/PageHeadingStyles";
 
 const Container = styled.div`
   margin: 0 auto;
@@ -11,14 +12,6 @@ const Container = styled.div`
 const WritingIntro = styled.div`
   margin: 2rem 1rem 1rem 1rem;
   padding-bottom: 1rem;
-`;
-
-const Heading = styled.h2`
-  text-align: center;
-  font-size: 3.5rem;
-  font-weight: 700;
-  line-height: 3.5rem;
-  margin-bottom: 2rem;
 `;
 
 const Subheading = styled.p`
@@ -76,7 +69,7 @@ export default function Writing({ data }) {
       <SEO title="Gerard Hynes | Writing" />
       <Container>
         <WritingIntro>
-          <Heading>Writing</Heading>
+          <PageHeadingStyles>Writing</PageHeadingStyles>
           <Subheading>
             I write about the things I'm learning to help me consolidate my
             knowledge. I hope you also find these articles useful.

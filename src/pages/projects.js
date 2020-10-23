@@ -4,14 +4,7 @@ import Image from "gatsby-image";
 import styled from "styled-components";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-
-const Heading = styled.h2`
-  font-size: 3.5rem;
-  font-weight: 700;
-  line-height: 3.5rem;
-  margin: 1rem 0 2rem 0;
-  text-align: center;
-`;
+import PageHeadingStyles from "../components/styles/PageHeadingStyles";
 
 const ProjectGrid = styled.section`
   max-width: 1080px;
@@ -107,14 +100,6 @@ const TextLink = styled.a`
   color: var(--primary-900);
 `;
 
-// const LinkStyles = styled(Link)`
-//   display: block;
-//   font-weight: 600;
-//   text-decoration: underline;
-//   color: var(--primary-900);
-//   margin-bottom: 0.5rem;
-// `;
-
 const ProjectLinkStyles = styled(Link)`
   display: inline-block;
   background: var(--primary-800);
@@ -137,7 +122,7 @@ const Projects = () => {
         return (
           <Layout>
             <SEO title="Gerard Hynes | Projects" />
-            <Heading>Projects</Heading>
+            <PageHeadingStyles>Projects</PageHeadingStyles>
             <ProjectGrid>
               <ProjectCardLeft>
                 <ImageContainer>

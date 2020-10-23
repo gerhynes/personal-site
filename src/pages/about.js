@@ -3,16 +3,8 @@ import { StaticQuery, graphql } from "gatsby";
 import Image from "gatsby-image";
 import styled from "styled-components";
 import Layout from "../components/layout";
-
 import SEO from "../components/seo";
-
-const Heading = styled.h2`
-  text-align: center;
-  font-size: 3.5rem;
-  font-weight: 700;
-  line-height: 3.5rem;
-  margin: 1rem 0 2rem 0;
-`;
+import PageHeadingStyles from "../components/styles/PageHeadingStyles";
 
 const BioContainer = styled.div`
   display: flex;
@@ -62,7 +54,7 @@ const About = () => {
         return (
           <Layout>
             <SEO title="Gerard Hynes | About" />
-            <Heading>About</Heading>
+            <PageHeadingStyles>About</PageHeadingStyles>
             <BioContainer>
               <BioImageWrapper>
                 <BioImage
