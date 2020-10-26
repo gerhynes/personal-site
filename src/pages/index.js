@@ -6,13 +6,13 @@ import SEO from "../components/seo";
 import { Twitter } from "@styled-icons/boxicons-logos/Twitter";
 import { Github } from "@styled-icons/boxicons-logos/Github";
 
-const Hero = styled.div`
+const HeroStyles = styled.div`
   margin-top: 20vh;
   text-align: center;
   padding: 0 0.5rem;
 `;
 
-const MainHeading = styled.h2`
+const HeadingStyles = styled.h2`
   padding-left: 0.25rem;
   padding-right: 0.25rem;
   font-size: 4rem;
@@ -28,14 +28,14 @@ const MainHeading = styled.h2`
   );
 `;
 
-const SubHeading = styled.p`
+const SubHeadingStyles = styled.p`
   font-size: 1.25rem;
   text-align: center;
   color: var(--dark);
   margin-bottom: 0.5rem;
 `;
 
-const Description = styled.p`
+const DescriptionStyles = styled.p`
   font-size: 1.25rem;
   text-align: center;
   color: var(--dark);
@@ -47,39 +47,49 @@ const Description = styled.p`
   }
 `;
 
-const TwitterIcon = styled(Twitter)`
+const TwitterIconStyles = styled(Twitter)`
   width: 2rem;
   margin: 1rem 0.5rem;
-  color: var(--dark);
+  fill: var(--dark);
+  transition: fill 300ms ease-in-out;
+
+  &:hover {
+    fill: var(--primary-900);
+  }
 `;
 
-const GithubIcon = styled(Github)`
-  margin: 1rem 0.5rem;
+const GithubIconStyles = styled(Github)`
   width: 2rem;
-  color: var(--dark);
+  margin: 1rem 0.5rem;
+  fill: var(--dark);
+  transition: fill 300ms ease-in-out;
+
+  &:hover {
+    fill: var(--primary-900);
+  }
 `;
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Gerard Hynes | Web Developer" />
-    <Hero>
-      <MainHeading>Hi, I'm Gerard</MainHeading>
-      <SubHeading>
+    <HeroStyles>
+      <HeadingStyles>Hi, I'm Gerard</HeadingStyles>
+      <SubHeadingStyles>
         I make fast, modern sites and apps using the Jamstack and fullstack
         JavaScript.
-      </SubHeading>
-      <Description>
+      </SubHeadingStyles>
+      <DescriptionStyles>
         You can <Link to="/projects">see some of my projects</Link>,{" "}
         <Link to="/about">find out about me</Link> or{" "}
         <Link to="/writing">see what I've been writing</Link>.
-      </Description>
+      </DescriptionStyles>
       <a href="https://twitter.com/Gerard_K_Hynes" aria-label="Twitter">
-        <TwitterIcon />
+        <TwitterIconStyles />
       </a>
       <a href="https://github.com/GK-Hynes" aria-label="GitHub">
-        <GithubIcon />
+        <GithubIconStyles />
       </a>
-    </Hero>
+    </HeroStyles>
   </Layout>
 );
 
