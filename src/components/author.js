@@ -36,8 +36,8 @@ const Author = () => {
             </div>
             <div>
               <p>
-                Written by <strong>{author}</strong>. I write about JavaScript
-                and modern web development.
+                Hi, I'm <strong>{author}</strong>. I write about JavaScript and
+                modern web development.
               </p>
               <p>
                 You can usually find me on{` `}
