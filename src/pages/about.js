@@ -85,7 +85,7 @@ const About = () => {
                   <a href="https://twitter.com/search?q=%23100DaysOfCode%20from%3AGerard_K_Hynes&src=typed_query&f=live">
                     #100DaysOfCode{` `}
                   </a>
-                  and talking about Irish.
+                  and talking about Irish. Labhair Gaeilge liom 👋.
                 </p>
               </Bio>
             </BioContainer>

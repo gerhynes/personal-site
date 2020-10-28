@@ -156,13 +156,7 @@ const Projects = () => {
               <ProjectCardRight>
                 <TextContainer>
                   <h3>Tráta Timer</h3>
-                  <p>
-                    A Pomodoro timer built with Gatsby for the{" "}
-                    <TextLink href="https://www.freecodecamp.org/">
-                      freeCodeCamp
-                    </TextLink>{" "}
-                    curriculum.
-                  </p>
+                  <p>A Pomodoro timer built with Gatsby.</p>
                   <ProjectLinkStyles to="/trata-timer">
                     View Project
                   </ProjectLinkStyles>
