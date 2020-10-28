@@ -27,14 +27,7 @@ export const PostBody = styled.section`
     color: #1a202c;
     background: #e2e8f0;
     font-weight: 600;
-
-    &::before {
-      content: "\`";
-    }
-
-    &::after {
-      content: "\`";
-    }
+    padding: 0 0.25rem;
   }
 
   pre {
