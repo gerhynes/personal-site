@@ -4,14 +4,25 @@ import Img from "gatsby-image";
 import { MDXProvider } from "@mdx-js/react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import styled from "styled-components";
+import { Github } from "@styled-icons/boxicons-logos/Github";
+import { LinkExternal } from "@styled-icons/boxicons-regular/LinkExternal";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Author from "../components/author";
-import { PostBody } from "../components/styles/PostStyles";
+import {
+  ProjectHeadingStyles,
+  ProjectBodyStyles,
+  ProjectLinkStyles,
+} from "../components/styles/ProjectStyles";
 
-const ProjectHeadingStyles = styled.h2`
-  font-weight: 700;
-  font-size: 2.5rem;
+const GithubStyles = styled(Github)`
+  width: 1.25rem;
+  margin-right: 0.25rem;
+`;
+
+const ExternalLinkStyles = styled(LinkExternal)`
+  width: 1.25rem;
+  margin-right: 0.25rem;
 `;
 
 const shortcodes = { Link }; // Provide common components here
@@ -21,7 +32,7 @@ export default function ProjectTemplate({
   data: { mdx },
   pageContext,
 }) {
-  const { title, image } = mdx.frontmatter;
+  const { title, image, repoUrl, siteUrl } = mdx.frontmatter;
   return (
     <Layout>
       <SEO
@@ -33,14 +44,23 @@ export default function ProjectTemplate({
       <div>
         <ProjectHeadingStyles>{title}</ProjectHeadingStyles>
         <Img
-          style={{ marginBottom: `1rem` }}
+          style={{ marginBottom: `1.5rem` }}
           fluid={image.childImageSharp.fluid}
           alt={title}
         />
         <MDXProvider components={shortcodes}>
-          <PostBody>
+          <ProjectBodyStyles>
             <MDXRenderer>{mdx.body}</MDXRenderer>
-          </PostBody>
+          </ProjectBodyStyles>
+          <ProjectLinkStyles>
+            <a href={siteUrl}>
+              <ExternalLinkStyles />
+              View Site
+            </a>
+            <a href={repoUrl}>
+              <GithubStyles /> View Code
+            </a>
+          </ProjectLinkStyles>
           <Author />
         </MDXProvider>
       </div>
@@ -55,6 +75,8 @@ export const pageQuery = graphql`
       body
       frontmatter {
         title
+        repoUrl
+        siteUrl
         image {
           childImageSharp {
             fluid(maxWidth: 800) {
