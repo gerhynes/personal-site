@@ -18,35 +18,27 @@ I built the first version of this app while completing [freeCodeCamp's](https://
 - An alarm sounds after each session or break.
 - The timer automatically switches to a new session or break once the current one is completed.
 
-In addition I added an animated progress circle using SVG to give visual feedback on how long was left.
+In addition, I added an animated progress circle using SVG to give visual feedback on how much time was left.
 
 A few months later I rewrote it to use React hooks instead of class-based components and add new features:
 
 - You can choose between a session, short break and longer break.
-- The break is set to at least fifteen minutes after every four completed sessions.
+- After every four completed sessions, the break will be set to at least fifteen minutes.
 
 ### Tech Stack
 
-While this project could have been written in just JavaScript, React, especially React hooks, provided a way to connect
-
-Gatsby
-SVG
+React, especially hooks, provided a clean way to manage app state and update the UI. Gatsby made it realtively straightforward to turn the app into a Progressive Web App using `gatsby-plugin-manifest` and `gatsby-plugin-offline`. SVG allowed for animations that would not be possible with CSS alone.
 
 ### Problems and Thought Process
 
-This app required keeping track of multiple changing values: session and break lengths, time left, and the type of timer currently running. The `useState` hook provided a straightforward way to keep track of and update the individual pieces of state.
+This app had to keep track of multiple changing values: session and break lengths, time left, number of completed sessions, and the type of timer currently running. The `useState` hook made it easier to track and update these individual pieces of app state.
 
-Working with `setInterval`. Basically you need to run it inside useEffect.
+Working with `setInterval` in React can be tricky (see Dan Abramov's [Making setInterval Declarative with React Hooks](https://overreacted.io/making-setinterval-declarative-with-react-hooks/)). Getting the timer to work required developing a greater understaning of both `setInterval` and `useEffect`.
 
-Animating the progress circle SVG.
-
-```js
-const perimeter = 150 * 2 * Math.PI;
-const dashOffset = (perimeter * timeLeft) / timerDuration - perimeter;
-```
+Animating the progress circle required me to learn some of the internals of SVG, such as `stroke-dasharray` and `stroke-dashoffset`. The next challenge was keeping the session/break length and time left in sync. I did this through a comination of state management and controling when the user can change these values so as not to break the SVG.
 
 ### Lessons Learned
 
-Better understanding of functional components with hooks vs class-based components
-A better understanding of `setInterval`
-Experience working with SVGs
+Rewriting the app to use functional components with hooks rather than class-based components gave me a better understanding of the differences and relative strengths of the two approaches to writing React components.
+
+It also clarified some core JavaScript functionality around setting and clearing intervals, leaving me better prepared to use these features in future projects.
