@@ -35,10 +35,11 @@ const SubHeadingStyles = styled.p`
   margin-bottom: 0.5rem;
 `;
 
-const DescriptionStyles = styled.p`
+const DescriptionStyles = styled.ul`
   font-size: 1.25rem;
   text-align: center;
   color: var(--dark);
+  list-style: none;
 
   a {
     font-weight: 600;
@@ -79,9 +80,24 @@ const IndexPage = () => (
         JavaScript.
       </SubHeadingStyles>
       <DescriptionStyles>
-        You can <Link to="/projects">see some of my projects</Link>,{" "}
-        <Link to="/about">find out about me</Link> or{" "}
-        <Link to="/writing">see what I've been writing</Link>.
+        <li>
+          <span role="img" aria-label="Laptop Emoji">
+            💻
+          </span>{" "}
+          <Link to="/projects">My Projects</Link>
+        </li>
+        <li>
+          <span role="img" aria-label="Waving Hand Emoji">
+            👋
+          </span>{" "}
+          <Link to="/about">About Me</Link>
+        </li>
+        <li>
+          <span role="img" aria-label="Hand Writing Emoji">
+            ✍️
+          </span>{" "}
+          <Link to="/writing">Recent Writing</Link>
+        </li>
       </DescriptionStyles>
       <a href="https://twitter.com/Gerard_K_Hynes" aria-label="Twitter">
         <TwitterIconStyles />
