@@ -1,12 +1,19 @@
 import styled from "styled-components";
 
-export const PostBody = styled.section`
+export const ProjectHeadingStyles = styled.h2`
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+`;
+
+export const ProjectBodyStyles = styled.section`
   font-size: 1.2rem;
   line-height: 1.75;
 
   h3 {
     font-weight: 700;
-    font-size: 1.25rem;
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
   }
 
   code {
@@ -89,20 +96,22 @@ export const PostBody = styled.section`
   }
 `;
 
-export const PostNavigation = styled.ul`
-  margin-top: 1rem;
+export const ProjectLinkStyles = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  list-style: none;
-  padding: 0;
-
-  li {
-    margin-bottom: 1rem;
-    font-weight: 500;
-  }
 
   a {
-    color: var(--primary-900);
+    display: inline-flex;
+    justify-content: space-between;
+    background: var(--primary-800);
+    color: #fff;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.25rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    transition: background-color 300ms ease;
+
+    &:hover {
+      background-color: var(--primary-900);
+    }
   }
 `;

@@ -613,9 +613,13 @@ video {
   --dark: #002a32;
   --grey-100: #F7FAFC;
   --grey-200: #edf2f7;
+  --grey-300: #E2E8F0;
+  --grey-400: #CBD5E0;
   --grey-500: #A0AEC0;
   --grey-600: #718096;
   --grey-700: #4A5568;
+  --grey-800: #2D3748;
+  --grey-900: #1A202C;
 }
 
 body {
@@ -628,6 +632,10 @@ h2,
 h3,
 h4 {
   color: var(--dark);
+}
+
+p {
+  color: var(---grey-900);
 }
 
 a {
