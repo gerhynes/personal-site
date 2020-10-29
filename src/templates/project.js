@@ -11,9 +11,9 @@ import SEO from "../components/seo";
 import Author from "../components/author";
 import {
   ProjectHeadingStyles,
-  ProjectBodyStyles,
   ProjectLinkStyles,
 } from "../components/styles/ProjectStyles";
+import { PostBodyStyles } from "../components/styles/PostStyles";
 
 const GithubStyles = styled(Github)`
   width: 1.25rem;
@@ -49,9 +49,9 @@ export default function ProjectTemplate({
           alt={title}
         />
         <MDXProvider components={shortcodes}>
-          <ProjectBodyStyles>
+          <PostBodyStyles>
             <MDXRenderer>{mdx.body}</MDXRenderer>
-          </ProjectBodyStyles>
+          </PostBodyStyles>
           <ProjectLinkStyles>
             <a href={siteUrl}>
               <ExternalLinkStyles />

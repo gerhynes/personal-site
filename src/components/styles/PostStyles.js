@@ -1,12 +1,13 @@
 import styled from "styled-components";
 
-export const PostBody = styled.section`
+export const PostBodyStyles = styled.section`
   font-size: 1.2rem;
   line-height: 1.75;
 
   h3 {
     font-weight: 700;
-    font-size: 1.25rem;
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
   }
 
   code {
@@ -89,7 +90,7 @@ export const PostBody = styled.section`
   }
 `;
 
-export const PostNavigation = styled.ul`
+export const PostNavigationStyles = styled.ul`
   margin-top: 1rem;
   display: flex;
   flex-wrap: wrap;

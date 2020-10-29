@@ -6,7 +6,7 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import PageHeadingStyles from "../components/styles/PageHeadingStyles";
 
-const BioContainer = styled.div`
+const BioContainerStyles = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -16,7 +16,7 @@ const BioContainer = styled.div`
   }
 `;
 
-const Bio = styled.div`
+const BioStyles = styled.div`
   margin-left: 1.5rem;
   margin-right: 1.5rem;
   font-size: 1.125rem;
@@ -33,12 +33,12 @@ const Bio = styled.div`
   }
 `;
 
-const BioImageWrapper = styled.div`
+const BioImageWrapperStyles = styled.div`
   text-align: center;
   margin-bottom: 1.5rem;
 `;
 
-const BioImage = styled(Image)`
+const BioImageStyles = styled(Image)`
   margin-right: 1.5rem;
   border-radius: 50%;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
@@ -55,14 +55,14 @@ const About = () => {
           <Layout>
             <SEO title="Gerard Hynes | About" />
             <PageHeadingStyles>About</PageHeadingStyles>
-            <BioContainer>
-              <BioImageWrapper>
-                <BioImage
+            <BioContainerStyles>
+              <BioImageWrapperStyles>
+                <BioImageStyles
                   fixed={data.avatar.childImageSharp.fixed}
                   alt={author}
                 />
-              </BioImageWrapper>
-              <Bio>
+              </BioImageWrapperStyles>
+              <BioStyles>
                 <p>Hi, I'm Gerard Hynes.</p>
                 <p>I'm a self-taught web developer from Ireland.</p>
                 <p>
@@ -87,8 +87,8 @@ const About = () => {
                   </a>
                   and talking about Irish. Labhair Gaeilge liom 👋.
                 </p>
-              </Bio>
-            </BioContainer>
+              </BioStyles>
+            </BioContainerStyles>
           </Layout>
         );
       }}

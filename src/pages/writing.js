@@ -5,37 +5,37 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import PageHeadingStyles from "../components/styles/PageHeadingStyles";
 
-const Container = styled.div`
+const ContainerStyles = styled.div`
   margin: 0 auto;
 `;
 
-const WritingIntro = styled.div`
+const WritingIntroStyles = styled.div`
   margin: 2rem 1rem 1rem 1rem;
   padding-bottom: 1rem;
 `;
 
-const Subheading = styled.p`
+const SubheadingStyles = styled.p`
   font-size: 1.125rem;
   line-height: 1.75rem;
   color: var(--grey-700);
 `;
 
-const ArticleList = styled.ul`
+const ArticleListStyles = styled.ul`
   padding: 0 1rem;
   list-style: none;
 `;
 
-const Article = styled.article`
+const ArticleStyles = styled.article`
   padding: 1.5rem 0;
 `;
 
-const Date = styled.p`
+const DateStyles = styled.p`
   color: var(--grey-700);
   display: inline-block;
   margin-right: 1rem;
 `;
 
-const Category = styled.p`
+const CategoryStyles = styled.p`
   display: inline-block;
   color: var(--grey-700);
   background: var(--primary-200);
@@ -43,21 +43,21 @@ const Category = styled.p`
   border-radius: 0.25rem;
 `;
 
-const ArticleTitle = styled.h2`
+const ArticleTitleStyles = styled.h2`
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
 `;
 
-const ArticleExcerpt = styled.p`
+const ArticleExcerptStyles = styled.p`
   margin: 0.5rem 0;
 `;
 
-const ArticleLink = styled.p`
+const ArticleLinkStyles = styled.p`
   font-weight: 500;
   color: var(--primary-900);
 
-  a {
+  a:hover {
     text-decoration: underline;
   }
 `;
@@ -67,32 +67,34 @@ export default function Writing({ data }) {
   return (
     <Layout>
       <SEO title="Gerard Hynes | Writing" />
-      <Container>
-        <WritingIntro>
+      <ContainerStyles>
+        <WritingIntroStyles>
           <PageHeadingStyles>Writing</PageHeadingStyles>
-          <Subheading>
+          <SubheadingStyles>
             I write about the things I'm learning to help me consolidate my
             knowledge. I hope you also find these articles useful.
-          </Subheading>
-        </WritingIntro>
-        <ArticleList>
+          </SubheadingStyles>
+        </WritingIntroStyles>
+        <ArticleListStyles>
           {posts.map(({ node: post }) => (
             <li key={post.id}>
-              <Article>
+              <ArticleStyles>
                 <Link to={post.fields.slug}>
-                  <ArticleTitle>{post.frontmatter.title}</ArticleTitle>
+                  <ArticleTitleStyles>
+                    {post.frontmatter.title}
+                  </ArticleTitleStyles>
                 </Link>
-                <Date>{post.frontmatter.date}</Date>
-                <Category>{`#${post.frontmatter.category}`}</Category>
-                <ArticleExcerpt>{post.excerpt}</ArticleExcerpt>
-                <ArticleLink>
+                <DateStyles>{post.frontmatter.date}</DateStyles>
+                <CategoryStyles>{`#${post.frontmatter.category}`}</CategoryStyles>
+                <ArticleExcerptStyles>{post.excerpt}</ArticleExcerptStyles>
+                <ArticleLinkStyles>
                   <Link to={post.fields.slug}>Read more →</Link>
-                </ArticleLink>
-              </Article>
+                </ArticleLinkStyles>
+              </ArticleStyles>
             </li>
           ))}
-        </ArticleList>
-      </Container>
+        </ArticleListStyles>
+      </ContainerStyles>
     </Layout>
   );
 }

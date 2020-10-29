@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "gatsby";
 import styled from "styled-components";
 
-const Nav = styled.nav`
+const NavStyles = styled.nav`
   margin: 0 auto;
   max-width: 960px;
   padding: 1.5rem 1rem;
@@ -13,7 +13,7 @@ const Nav = styled.nav`
   flex-wrap: wrap;
 `;
 
-const NavHeading = styled.h1`
+const NavHeadingStyles = styled.h1`
   font-weight: 700;
   font-size: 1.25rem;
   margin: 0 1rem 0 0;
@@ -28,12 +28,12 @@ const NavHeading = styled.h1`
   );
 `;
 
-const NavList = styled.ul`
+const NavListStyles = styled.ul`
   display: flex;
   flex-wrap: wrap;
 `;
 
-const NavLink = styled(Link)`
+const NavLinkStyles = styled(Link)`
   font-weight: 500;
   margin-right: 1rem;
   &:hover,
@@ -49,22 +49,22 @@ const NavLink = styled(Link)`
 
 const Header = ({ siteTitle }) => (
   <header>
-    <Nav>
-      <NavHeading>
+    <NavStyles>
+      <NavHeadingStyles>
         <Link to="/">{siteTitle}</Link>
-      </NavHeading>
-      <NavList>
+      </NavHeadingStyles>
+      <NavListStyles>
         <li>
-          <NavLink to="/about/">About</NavLink>
+          <NavLinkStyles to="/about/">About</NavLinkStyles>
         </li>
         <li>
-          <NavLink to="/projects/">Projects</NavLink>
+          <NavLinkStyles to="/projects/">Projects</NavLinkStyles>
         </li>
         <li>
-          <NavLink to="/writing/">Writing</NavLink>
+          <NavLinkStyles to="/writing/">Writing</NavLinkStyles>
         </li>
-      </NavList>
-    </Nav>
+      </NavListStyles>
+    </NavStyles>
   </header>
 );
 

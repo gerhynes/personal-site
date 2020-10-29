@@ -7,27 +7,30 @@ import styled from "styled-components";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Author from "../components/author";
-import { PostBody, PostNavigation } from "../components/styles/PostStyles";
+import {
+  PostBodyStyles,
+  PostNavigationStyles,
+} from "../components/styles/PostStyles";
 
-const Post = styled.div`
+const PostStyles = styled.div`
   min-width: 100px;
   margin-left: 1rem;
   margin-right: 1rem;
 `;
 
-const PostHeading = styled.h2`
+const PostHeadingStyles = styled.h2`
   font-weight: 700;
   font-size: 2.5rem;
 `;
 
-const PostDate = styled.p`
+const PostDateStyles = styled.p`
   display: inline-block;
   color: var(--grey-700);
   margin-bottom: 1rem;
   margin-right: 1rem;
 `;
 
-const PostCategory = styled.p`
+const PostCategoryStyles = styled.p`
   display: inline-block;
   color: var(--grey-700);
   background: var(--primary-200);
@@ -49,21 +52,21 @@ export default function PostTemplate({ location, data: { mdx }, pageContext }) {
         image={image.childImageSharp.fluid}
         pathname={location.pathname}
       />
-      <Post>
+      <PostStyles>
         <Img
           style={{ marginBottom: `1rem` }}
           fluid={image.childImageSharp.fluid}
           alt={title}
         />
-        <PostHeading>{title}</PostHeading>
-        <PostDate>{date}</PostDate>
-        <PostCategory>{`#${category}`}</PostCategory>
+        <PostHeadingStyles>{title}</PostHeadingStyles>
+        <PostDateStyles>{date}</PostDateStyles>
+        <PostCategoryStyles>{`#${category}`}</PostCategoryStyles>
         <MDXProvider components={shortcodes}>
-          <PostBody>
+          <PostBodyStyles>
             <MDXRenderer>{mdx.body}</MDXRenderer>
-          </PostBody>
+          </PostBodyStyles>
           <Author />
-          <PostNavigation>
+          <PostNavigationStyles>
             <li>
               {prev && (
                 <Link to={prev.node.fields.slug} rel="prev">
@@ -78,9 +81,9 @@ export default function PostTemplate({ location, data: { mdx }, pageContext }) {
                 </Link>
               )}
             </li>
-          </PostNavigation>
+          </PostNavigationStyles>
         </MDXProvider>
-      </Post>
+      </PostStyles>
     </Layout>
   );
 }

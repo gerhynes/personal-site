@@ -3,7 +3,7 @@ import { StaticQuery, graphql } from "gatsby";
 import Image from "gatsby-image";
 import styled from "styled-components";
 
-const AuthorDetails = styled.section`
+const AuthorDetailStyles = styled.section`
   display: flex;
   margin: 2rem 0;
 
@@ -30,7 +30,7 @@ const Author = () => {
       render={(data) => {
         const { author, social } = data.site.siteMetadata;
         return (
-          <AuthorDetails>
+          <AuthorDetailStyles>
             <div>
               <Image fixed={data.avatar.childImageSharp.fixed} alt={author} />
             </div>
@@ -44,7 +44,7 @@ const Author = () => {
                 <a href={`https://twitter.com/${social.twitter}`}>Twitter</a>
               </p>
             </div>
-          </AuthorDetails>
+          </AuthorDetailStyles>
         );
       }}
     />

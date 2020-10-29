@@ -5,7 +5,7 @@ import styled from "styled-components";
 import Header from "./header";
 import GlobalStyles from "./styles/GlobalStyles";
 
-const Container = styled.section`
+const ContainerStyles = styled.section`
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -13,16 +13,16 @@ const Container = styled.section`
   min-width: 0;
 `;
 
-const Wrapper = styled.div`
+const WrapperStyles = styled.div`
   flex: 1;
 `;
 
-const Main = styled.main`
+const MainStyles = styled.main`
   margin: 0 auto;
   max-width: 800px;
 `;
 
-const Footer = styled.footer`
+const FooterStyles = styled.footer`
   text-align: center;
   padding: 1rem;
 `;
@@ -41,13 +41,13 @@ const Layout = ({ children }) => {
   return (
     <>
       <GlobalStyles />
-      <Container>
-        <Wrapper>
+      <ContainerStyles>
+        <WrapperStyles>
           <Header siteTitle={data.site.siteMetadata.title} />
-          <Main>{children}</Main>
-        </Wrapper>
-        <Footer>Gerard Hynes © {new Date().getFullYear()}</Footer>
-      </Container>
+          <MainStyles>{children}</MainStyles>
+        </WrapperStyles>
+        <FooterStyles>Gerard Hynes © {new Date().getFullYear()}</FooterStyles>
+      </ContainerStyles>
     </>
   );
 };

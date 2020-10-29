@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "gatsby";
 import styled from "styled-components";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -35,19 +34,6 @@ const SubHeadingStyles = styled.p`
   margin-bottom: 0.5rem;
 `;
 
-const DescriptionStyles = styled.ul`
-  font-size: 1.25rem;
-  text-align: center;
-  color: var(--dark);
-  list-style: none;
-
-  a {
-    font-weight: 600;
-    text-decoration: underline;
-    color: #75abad;
-  }
-`;
-
 const TwitterIconStyles = styled(Twitter)`
   width: 2rem;
   margin: 1rem 0.5rem;
@@ -79,26 +65,6 @@ const IndexPage = () => (
         I make fast, modern sites and apps using the Jamstack and fullstack
         JavaScript.
       </SubHeadingStyles>
-      <DescriptionStyles>
-        <li>
-          <span role="img" aria-label="Laptop Emoji">
-            💻
-          </span>{" "}
-          <Link to="/projects">My Projects</Link>
-        </li>
-        <li>
-          <span role="img" aria-label="Waving Hand Emoji">
-            👋
-          </span>{" "}
-          <Link to="/about">About Me</Link>
-        </li>
-        <li>
-          <span role="img" aria-label="Hand Writing Emoji">
-            ✍️
-          </span>{" "}
-          <Link to="/writing">Recent Writing</Link>
-        </li>
-      </DescriptionStyles>
       <a href="https://twitter.com/Gerard_K_Hynes" aria-label="Twitter">
         <TwitterIconStyles />
       </a>
