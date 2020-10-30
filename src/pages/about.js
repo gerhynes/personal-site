@@ -63,7 +63,7 @@ const About = () => {
                 />
               </BioImageWrapperStyles>
               <BioStyles>
-                <p>Hi, I'm Gerard Hynes.</p>
+                <p>Hi, I'm Gerard.</p>
                 <p>I'm a self-taught web developer from Ireland.</p>
                 <p>
                   I've spent the last couple of years diving into web

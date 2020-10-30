@@ -21,25 +21,25 @@ html {
 /* Sections
    ========================================================================== */
 
-/**
- * Remove the margin in all browsers.
+/*
+  Remove the margin in all browsers.
  */
 
 body {
   margin: 0;
 }
 
-/**
- * Render the main element consistently in IE.
+/*
+  Render the main element consistently in IE.
  */
 
 main {
   display: block;
 }
 
-/**
- * Correct the font size and margin on h1 elements within section and
- * article contexts in Chrome, Firefox, and Safari.
+/*
+  Correct the font size and margin on h1 elements within section and
+  article contexts in Chrome, Firefox, and Safari.
  */
 
 h1 {
@@ -91,7 +91,7 @@ abbr[title] {
   border-bottom: none; /* 1 */
   text-decoration: underline; /* 2 */
   -webkit-text-decoration: underline dotted;
-  text-decoration: underline dotted; /* 2 */
+          text-decoration: underline dotted; /* 2 */
 }
 
 /**
@@ -180,8 +180,7 @@ textarea {
  */
 
 button,
-input {
-  /* 1 */
+input { /* 1 */
   overflow: visible;
 }
 
@@ -191,8 +190,7 @@ input {
  */
 
 button,
-select {
-  /* 1 */
+select { /* 1 */
   text-transform: none;
 }
 
@@ -421,9 +419,7 @@ ul {
  */
 
 html {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 1 */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 1 */
   line-height: 1.5; /* 2 */
 }
 
@@ -471,13 +467,10 @@ hr {
 }
 
 /**
- * Undo the border-style: none reset that Normalize applies to images so that
- * our border - { width } utilities have the expected effect.
+ * Undo the border-style: none reset that Normalize applies to images.
  *
  * The Normalize reset is unnecessary for us since we default the border-width
  * to 0 on all elements.
- *
- * https://github.com/tailwindcss/tailwindcss/issues/362
  */
 
 img {
@@ -488,13 +481,11 @@ textarea {
   resize: vertical;
 }
 
-input:-ms-input-placeholder,
-textarea:-ms-input-placeholder {
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   color: #a0aec0;
 }
 
-input::-ms-input-placeholder,
-textarea::-ms-input-placeholder {
+input::-ms-input-placeholder, textarea::-ms-input-placeholder {
   color: #a0aec0;
 }
 
@@ -561,8 +552,7 @@ pre,
 code,
 kbd,
 samp {
-  font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
-    monospace;
+  font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 /**
