@@ -15,9 +15,9 @@ const WritingIntroStyles = styled.div`
 `;
 
 const SubheadingStyles = styled.p`
-  font-size: 1.125rem;
-  line-height: 1.75rem;
-  color: var(--grey-700);
+  font-size: 1.2rem;
+  line-height: 1.75;
+  color: var(--grey-900);
 `;
 
 const ArticleListStyles = styled.ul`
@@ -44,17 +44,21 @@ const CategoryStyles = styled.p`
 `;
 
 const ArticleTitleStyles = styled.h2`
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
 `;
 
 const ArticleExcerptStyles = styled.p`
+  font-size: 1.2rem;
+  line-height: 1.75;
   margin: 0.5rem 0;
+  color: var(--grey-900);
 `;
 
 const ArticleLinkStyles = styled.p`
-  font-weight: 500;
+  font-size: 1.2rem;
+  font-weight: 600;
   color: var(--primary-900);
 
   a:hover {

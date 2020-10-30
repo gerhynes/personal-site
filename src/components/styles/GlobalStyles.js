@@ -632,6 +632,10 @@ a {
   color: inherit;
 }
 
+/* *, *::before, *::after {
+  outline: 1px solid red;
+} */
+
 `;
 
 export default GlobalStyles;

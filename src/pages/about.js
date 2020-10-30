@@ -19,11 +19,11 @@ const BioContainerStyles = styled.div`
 const BioStyles = styled.div`
   margin-left: 1.5rem;
   margin-right: 1.5rem;
-  font-size: 1.125rem;
+  font-size: 1.2rem;
   line-height: 1.75;
 
   p {
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
   }
 
   a {

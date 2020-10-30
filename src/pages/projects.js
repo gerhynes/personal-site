@@ -6,13 +6,13 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import PageHeadingStyles from "../components/styles/PageHeadingStyles";
 
-const ProjectGrid = styled.section`
+const ProjectGridStyles = styled.section`
   max-width: 1080px;
-  margin-left: 1.5rem;
-  margin-right: 1.5rem;
+  margin: 0 1.5rem;
+  padding-top: 1rem;
 `;
 
-const ProjectCard = styled.article`
+const ProjectCardStyles = styled.article`
   display: flex;
   padding-bottom: 2rem;
   position: relative;
@@ -22,15 +22,15 @@ const ProjectCard = styled.article`
   }
 `;
 
-const ProjectCardLeft = styled(ProjectCard)`
+const ProjectCardLeftStyles = styled(ProjectCardStyles)`
   flex-direction: column;
 `;
 
-const ProjectCardRight = styled(ProjectCard)`
+const ProjectCardRightStyles = styled(ProjectCardStyles)`
   flex-direction: column-reverse;
 `;
 
-const ImageContainer = styled.div`
+const ImageContainerStyles = styled.div`
   flex: 3;
   display: flex;
   align-items: center;
@@ -41,7 +41,7 @@ const ImageContainer = styled.div`
   }
 `;
 
-const ImageWrapper = styled.figure`
+const ImageWrapperStyles = styled.figure`
   position: relative;
   max-width: 450px;
   margin: auto;
@@ -64,17 +64,19 @@ const ImageWrapper = styled.figure`
   }
 `;
 
-const TextContainer = styled.div`
+const TextContainerStyles = styled.div`
   flex: 2;
   padding: 3rem 2rem;
 
   h3 {
     font-size: 1.5rem;
     font-weight: 700;
+    margin-bottom: 0.5rem;
   }
 
   p {
-    font-size: 1.125rem;
+    font-size: 1.2rem;
+    line-height: 1.75;
     margin-bottom: 0.5rem;
   }
 
@@ -94,7 +96,7 @@ const TextContainer = styled.div`
   }
 `;
 
-const TextLink = styled.a`
+const TextLinkStyles = styled.a`
   font-weight: 600;
   text-decoration: underline;
   color: var(--primary-900);
@@ -106,7 +108,7 @@ const ProjectLinkStyles = styled(Link)`
   color: #fff;
   padding: 0.25rem 0.75rem;
   border-radius: 0.25rem;
-  margin: 1rem auto;
+  margin: 0.5rem auto 1.5rem auto;
   transition: background-color 300ms ease;
 
   &:hover {
@@ -123,23 +125,23 @@ const Projects = () => {
           <Layout>
             <SEO title="Gerard Hynes | Projects" />
             <PageHeadingStyles>Projects</PageHeadingStyles>
-            <ProjectGrid>
-              <ProjectCardLeft>
-                <ImageContainer>
-                  <ImageWrapper>
+            <ProjectGridStyles>
+              <ProjectCardLeftStyles>
+                <ImageContainerStyles>
+                  <ImageWrapperStyles>
                     <Image
                       fluid={data.nasaApod.childImageSharp.fluid}
                       alt="NASA apod"
                     />
-                  </ImageWrapper>
-                </ImageContainer>
-                <TextContainer>
+                  </ImageWrapperStyles>
+                </ImageContainerStyles>
+                <TextContainerStyles>
                   <h3>NASA Astronomy Picture of the Day</h3>
                   <p>
                     An app which displays daily images and videos from{" "}
-                    <TextLink href="https://api.nasa.gov/">
+                    <TextLinkStyles href="https://api.nasa.gov/">
                       NASA's APOD API.
-                    </TextLink>
+                    </TextLinkStyles>
                   </p>
                   <ProjectLinkStyles to="/nasa-apod">
                     View Project
@@ -150,11 +152,11 @@ const Projects = () => {
                     <li>#APIs</li>
                     <li>#PWA</li>
                   </ul>
-                </TextContainer>
-              </ProjectCardLeft>
+                </TextContainerStyles>
+              </ProjectCardLeftStyles>
 
-              <ProjectCardRight>
-                <TextContainer>
+              <ProjectCardRightStyles>
+                <TextContainerStyles>
                   <h3>Tráta Timer</h3>
                   <p>A Pomodoro timer built with Gatsby.</p>
                   <ProjectLinkStyles to="/trata-timer">
@@ -164,17 +166,17 @@ const Projects = () => {
                     <li>#React</li>
                     <li>#Gatsby</li>
                   </ul>
-                </TextContainer>
-                <ImageContainer>
-                  <ImageWrapper>
+                </TextContainerStyles>
+                <ImageContainerStyles>
+                  <ImageWrapperStyles>
                     <Image
                       fluid={data.trataTimer.childImageSharp.fluid}
                       alt="Tráta Timer"
                     />
-                  </ImageWrapper>
-                </ImageContainer>
-              </ProjectCardRight>
-            </ProjectGrid>
+                  </ImageWrapperStyles>
+                </ImageContainerStyles>
+              </ProjectCardRightStyles>
+            </ProjectGridStyles>
           </Layout>
         );
       }}
