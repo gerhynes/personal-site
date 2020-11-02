@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Gerard Hynes`,
-    description: `Web Developer focusing on JAMstack and fullstack JavaScript`,
+    description: `Web Developer focusing on the Jamstack and fullstack JavaScript`,
     author: `Gerard Hynes`,
     social: {
       twitter: `Gerard_K_Hynes`,
