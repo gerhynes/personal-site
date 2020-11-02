@@ -21,6 +21,7 @@ const PostStyles = styled.div`
 const PostHeadingStyles = styled.h2`
   font-weight: 700;
   font-size: 2.5rem;
+  margin-bottom: 1rem;
 `;
 
 const PostDateStyles = styled.p`
@@ -54,7 +55,7 @@ export default function PostTemplate({ location, data: { mdx }, pageContext }) {
       />
       <PostStyles>
         <Img
-          style={{ marginBottom: `1rem` }}
+          style={{ marginBottom: `2rem` }}
           fluid={image.childImageSharp.fluid}
           alt={title}
         />
