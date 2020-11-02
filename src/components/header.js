@@ -31,6 +31,8 @@ const NavHeadingStyles = styled.h1`
 const NavListStyles = styled.ul`
   display: flex;
   flex-wrap: wrap;
+  /* justify-content: center; */
+  align-items: center;
 `;
 
 const NavLinkStyles = styled(Link)`
