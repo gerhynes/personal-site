@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+export const ProjectContainerStyles = styled.div`
+  margin: 0 1.5rem;
+`;
+
 export const ProjectHeadingStyles = styled.h2`
   font-weight: 700;
   font-size: 2.5rem;

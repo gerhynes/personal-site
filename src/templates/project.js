@@ -10,6 +10,7 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Author from "../components/author";
 import {
+  ProjectContainerStyles,
   ProjectHeadingStyles,
   ProjectLinkStyles,
 } from "../components/styles/ProjectStyles";
@@ -41,7 +42,7 @@ export default function ProjectTemplate({
         image={image.childImageSharp.fluid}
         pathname={location.pathname}
       />
-      <div>
+      <ProjectContainerStyles>
         <ProjectHeadingStyles>{title}</ProjectHeadingStyles>
         <Img
           style={{ marginBottom: `1.5rem` }}
@@ -63,7 +64,7 @@ export default function ProjectTemplate({
           </ProjectLinkStyles>
           <Author />
         </MDXProvider>
-      </div>
+      </ProjectContainerStyles>
     </Layout>
   );
 }

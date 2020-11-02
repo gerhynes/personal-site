@@ -88,6 +88,10 @@ export const PostBodyStyles = styled.section`
       margin-left: 1rem;
     }
   }
+
+  img {
+    margin-bottom: 1rem;
+  }
 `;
 
 export const PostNavigationStyles = styled.ul`
