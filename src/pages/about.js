@@ -7,12 +7,11 @@ import SEO from "../components/seo";
 import PageHeadingStyles from "../components/styles/PageHeadingStyles";
 
 const BioContainerStyles = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr;
 
   @media (min-width: 768px) {
-    flex-direction: row-reverse;
+    grid-template-columns: 4fr 1fr;
   }
 `;
 
@@ -21,6 +20,10 @@ const BioStyles = styled.div`
   margin-right: 1.5rem;
   font-size: 1.2rem;
   line-height: 1.75;
+
+  @media (min-width: 768px) {
+    grid-row: 1;
+  }
 
   p {
     margin-bottom: 1.25rem;
