@@ -11,7 +11,6 @@ const ContainerStyles = styled.div`
 
 const WritingIntroStyles = styled.div`
   margin: 2rem 1rem 1rem 1rem;
-  padding-bottom: 1rem;
 `;
 
 const SubheadingStyles = styled.p`

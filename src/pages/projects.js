@@ -10,62 +10,36 @@ const ProjectGridStyles = styled.section`
   max-width: 1080px;
   margin: 0 1.5rem;
   padding-top: 1rem;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
 `;
 
-const ProjectCardStyles = styled.article`
-  display: flex;
-  padding-bottom: 2rem;
-  position: relative;
+const ProjectImageStyles = styled.div`
+  figure {
+    position: relative;
 
-  @media (min-width: 768px) {
-    flex-direction: row;
-  }
-`;
-
-const ProjectCardLeftStyles = styled(ProjectCardStyles)`
-  flex-direction: column;
-`;
-
-const ProjectCardRightStyles = styled(ProjectCardStyles)`
-  flex-direction: column-reverse;
-`;
-
-const ImageContainerStyles = styled.div`
-  flex: 3;
-  display: flex;
-  align-items: center;
-  position: relative;
-
-  & > * {
-    flex-grow: 1;
-  }
-`;
-
-const ImageWrapperStyles = styled.figure`
-  position: relative;
-  max-width: 450px;
-  margin: auto;
-
-  &::before {
-    position: absolute;
-    top: -1rem;
-    left: -1rem;
-    bottom: 1rem;
-    width: 100%;
-    content: "";
-    background-color: var(--primary-500);
-  }
-
-  @media (min-width: 768px) {
     &::before {
-      top: -1.5rem;
-      left: -1.5rem;
+      position: absolute;
+      top: -1rem;
+      left: -1rem;
+      bottom: 1rem;
+      width: 100%;
+      content: "";
+      background-color: var(--primary-500);
+    }
+
+    @media (min-width: 768px) {
+      &::before {
+        top: -1.5rem;
+        left: -1.5rem;
+      }
     }
   }
 `;
 
-const TextContainerStyles = styled.div`
-  flex: 2;
+const ProjectTextStyles = styled.div`
   padding: 3rem 2rem;
 
   h3 {
@@ -116,6 +90,11 @@ const ProjectLinkStyles = styled(Link)`
   }
 `;
 
+const ProjectTagsStyles = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+`;
+
 const Projects = () => {
   return (
     <StaticQuery
@@ -126,56 +105,53 @@ const Projects = () => {
             <SEO title="Gerard Hynes | Projects" />
             <PageHeadingStyles>Projects</PageHeadingStyles>
             <ProjectGridStyles>
-              <ProjectCardLeftStyles>
-                <ImageContainerStyles>
-                  <ImageWrapperStyles>
-                    <Image
-                      fluid={data.nasaApod.childImageSharp.fluid}
-                      alt="NASA apod"
-                    />
-                  </ImageWrapperStyles>
-                </ImageContainerStyles>
-                <TextContainerStyles>
-                  <h3>NASA Astronomy Picture of the Day</h3>
-                  <p>
-                    An app which displays daily images and videos from{" "}
-                    <TextLinkStyles href="https://api.nasa.gov/">
-                      NASA's APOD API.
-                    </TextLinkStyles>
-                  </p>
-                  <ProjectLinkStyles to="/nasa-apod">
-                    View Project
-                  </ProjectLinkStyles>
-                  <ul>
-                    <li>#React</li>
-                    <li>#Gatsby</li>
-                    <li>#APIs</li>
-                    <li>#PWA</li>
-                  </ul>
-                </TextContainerStyles>
-              </ProjectCardLeftStyles>
+              <ProjectImageStyles>
+                <figure>
+                  <Image
+                    fluid={data.nasaApod.childImageSharp.fluid}
+                    alt="NASA apod"
+                  />
+                </figure>
+              </ProjectImageStyles>
+              <ProjectTextStyles>
+                <h3>NASA Astronomy Picture of the Day</h3>
+                <p>
+                  An app which displays daily images and videos from{" "}
+                  <TextLinkStyles href="https://api.nasa.gov/">
+                    NASA's APOD API.
+                  </TextLinkStyles>
+                </p>
+                <ProjectLinkStyles to="/nasa-apod">
+                  View Project
+                </ProjectLinkStyles>
+                <ProjectTagsStyles>
+                  <li>#React</li>
+                  <li>#Gatsby</li>
+                  <li>#APIs</li>
+                  <li>#PWA</li>
+                </ProjectTagsStyles>
+              </ProjectTextStyles>
 
-              <ProjectCardRightStyles>
-                <TextContainerStyles>
-                  <h3>Tráta Timer</h3>
-                  <p>A Pomodoro timer built with Gatsby.</p>
-                  <ProjectLinkStyles to="/trata-timer">
-                    View Project
-                  </ProjectLinkStyles>
-                  <ul>
-                    <li>#React</li>
-                    <li>#Gatsby</li>
-                  </ul>
-                </TextContainerStyles>
-                <ImageContainerStyles>
-                  <ImageWrapperStyles>
-                    <Image
-                      fluid={data.trataTimer.childImageSharp.fluid}
-                      alt="Tráta Timer"
-                    />
-                  </ImageWrapperStyles>
-                </ImageContainerStyles>
-              </ProjectCardRightStyles>
+              <ProjectTextStyles>
+                <h3>Tráta Timer</h3>
+                <p>A Pomodoro timer built with Gatsby.</p>
+                <ProjectLinkStyles to="/trata-timer">
+                  View Project
+                </ProjectLinkStyles>
+                <ProjectTagsStyles>
+                  <li>#React</li>
+                  <li>#Gatsby</li>
+                </ProjectTagsStyles>
+              </ProjectTextStyles>
+
+              <ProjectImageStyles className="lower">
+                <figure>
+                  <Image
+                    fluid={data.trataTimer.childImageSharp.fluid}
+                    alt="Tráta Timer"
+                  />
+                </figure>
+              </ProjectImageStyles>
             </ProjectGridStyles>
           </Layout>
         );
