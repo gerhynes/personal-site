@@ -10,7 +10,7 @@ const ContainerStyles = styled.div`
 `;
 
 const WritingIntroStyles = styled.div`
-  margin: 2rem 1rem 1rem 1rem;
+  margin: 1rem;
 `;
 
 const SubheadingStyles = styled.p`
@@ -75,7 +75,7 @@ export default function Writing({ data }) {
           <PageHeadingStyles>Writing</PageHeadingStyles>
           <SubheadingStyles>
             I write about the things I'm learning to help me consolidate my
-            knowledge. I hope you also find these articles useful.
+            knowledge. I hope you might also find these articles useful.
           </SubheadingStyles>
         </WritingIntroStyles>
         <ArticleListStyles>

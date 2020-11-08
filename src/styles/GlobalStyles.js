@@ -632,6 +632,11 @@ a {
   color: inherit;
 }
 
+// Good old CSS Debugger
+/* *, *::before, *::after {
+  outline: 1px solid red;
+} */
+
 `;
 
 export default GlobalStyles;
