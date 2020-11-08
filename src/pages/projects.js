@@ -4,16 +4,17 @@ import Image from "gatsby-image";
 import styled from "styled-components";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import PageHeadingStyles from "../components/styles/PageHeadingStyles";
+import PageHeadingStyles from "../styles/PageHeadingStyles";
 
 const ProjectGridStyles = styled.section`
-  max-width: 1080px;
-  margin: 0 1.5rem;
-  padding-top: 1rem;
+  padding: 1rem 1.5rem;
+`;
 
+const ProjectStyles = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 2rem;
+  margin-bottom: 1.5rem;
 `;
 
 const ProjectImageStyles = styled.div`
@@ -35,6 +36,14 @@ const ProjectImageStyles = styled.div`
         top: -1.5rem;
         left: -1.5rem;
       }
+    }
+  }
+  &.upper {
+    grid-row: 1;
+  }
+  @media (min-width: 768px) {
+    &.upper {
+      grid-row: auto;
     }
   }
 `;
@@ -105,53 +114,57 @@ const Projects = () => {
             <SEO title="Gerard Hynes | Projects" />
             <PageHeadingStyles>Projects</PageHeadingStyles>
             <ProjectGridStyles>
-              <ProjectImageStyles>
-                <figure>
-                  <Image
-                    fluid={data.nasaApod.childImageSharp.fluid}
-                    alt="NASA apod"
-                  />
-                </figure>
-              </ProjectImageStyles>
-              <ProjectTextStyles>
-                <h3>NASA Astronomy Picture of the Day</h3>
-                <p>
-                  An app which displays daily images and videos from{" "}
-                  <TextLinkStyles href="https://api.nasa.gov/">
-                    NASA's APOD API.
-                  </TextLinkStyles>
-                </p>
-                <ProjectLinkStyles to="/nasa-apod">
-                  View Project
-                </ProjectLinkStyles>
-                <ProjectTagsStyles>
-                  <li>#React</li>
-                  <li>#Gatsby</li>
-                  <li>#APIs</li>
-                  <li>#PWA</li>
-                </ProjectTagsStyles>
-              </ProjectTextStyles>
+              <ProjectStyles>
+                <ProjectImageStyles>
+                  <figure>
+                    <Image
+                      fluid={data.nasaApod.childImageSharp.fluid}
+                      alt="NASA apod"
+                    />
+                  </figure>
+                </ProjectImageStyles>
+                <ProjectTextStyles>
+                  <h3>NASA Astronomy Picture of the Day</h3>
+                  <p>
+                    An app which displays daily images and videos from{" "}
+                    <TextLinkStyles href="https://api.nasa.gov/">
+                      NASA's APOD API.
+                    </TextLinkStyles>
+                  </p>
+                  <ProjectLinkStyles to="/nasa-apod">
+                    View Project
+                  </ProjectLinkStyles>
+                  <ProjectTagsStyles>
+                    <li>#React</li>
+                    <li>#Gatsby</li>
+                    <li>#APIs</li>
+                    <li>#PWA</li>
+                  </ProjectTagsStyles>
+                </ProjectTextStyles>
+              </ProjectStyles>
 
-              <ProjectTextStyles>
-                <h3>Tráta Timer</h3>
-                <p>A Pomodoro timer built with Gatsby.</p>
-                <ProjectLinkStyles to="/trata-timer">
-                  View Project
-                </ProjectLinkStyles>
-                <ProjectTagsStyles>
-                  <li>#React</li>
-                  <li>#Gatsby</li>
-                </ProjectTagsStyles>
-              </ProjectTextStyles>
+              <ProjectStyles>
+                <ProjectTextStyles>
+                  <h3>Tráta Timer</h3>
+                  <p>A Pomodoro timer built with Gatsby.</p>
+                  <ProjectLinkStyles to="/trata-timer">
+                    View Project
+                  </ProjectLinkStyles>
+                  <ProjectTagsStyles>
+                    <li>#React</li>
+                    <li>#Gatsby</li>
+                  </ProjectTagsStyles>
+                </ProjectTextStyles>
 
-              <ProjectImageStyles className="lower">
-                <figure>
-                  <Image
-                    fluid={data.trataTimer.childImageSharp.fluid}
-                    alt="Tráta Timer"
-                  />
-                </figure>
-              </ProjectImageStyles>
+                <ProjectImageStyles className="upper">
+                  <figure>
+                    <Image
+                      fluid={data.trataTimer.childImageSharp.fluid}
+                      alt="Tráta Timer"
+                    />
+                  </figure>
+                </ProjectImageStyles>
+              </ProjectStyles>
             </ProjectGridStyles>
           </Layout>
         );
