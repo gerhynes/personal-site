@@ -3,7 +3,7 @@ import { graphql, Link } from "gatsby";
 import styled from "styled-components";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import PageHeadingStyles from "../components/styles/PageHeadingStyles";
+import PageHeadingStyles from "../styles/PageHeadingStyles";
 
 const ContainerStyles = styled.div`
   margin: 0 auto;

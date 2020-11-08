@@ -4,7 +4,7 @@ import Image from "gatsby-image";
 import styled from "styled-components";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import PageHeadingStyles from "../components/styles/PageHeadingStyles";
+import PageHeadingStyles from "../styles/PageHeadingStyles";
 
 const BioContainerStyles = styled.div`
   display: grid;

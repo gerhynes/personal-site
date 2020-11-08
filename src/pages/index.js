@@ -6,7 +6,7 @@ import { Twitter } from "@styled-icons/boxicons-logos/Twitter";
 import { Github } from "@styled-icons/boxicons-logos/Github";
 
 const HeroStyles = styled.div`
-  margin-top: 20vh;
+  margin-top: 25vh;
   text-align: center;
   padding: 0 0.5rem;
 `;
@@ -41,7 +41,7 @@ const TwitterIconStyles = styled(Twitter)`
   transition: fill 300ms ease-in-out;
 
   &:hover {
-    fill: var(--primary-900);
+    fill: var(--primary-500);
   }
 `;
 
@@ -52,7 +52,7 @@ const GithubIconStyles = styled(Github)`
   transition: fill 300ms ease-in-out;
 
   &:hover {
-    fill: var(--primary-900);
+    fill: var(--primary-500);
   }
 `;
 

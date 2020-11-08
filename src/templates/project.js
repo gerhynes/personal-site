@@ -13,8 +13,8 @@ import {
   ProjectContainerStyles,
   ProjectHeadingStyles,
   ProjectLinkStyles,
-} from "../components/styles/ProjectStyles";
-import { PostBodyStyles } from "../components/styles/PostStyles";
+} from "../styles/ProjectStyles";
+import { PostBodyStyles } from "../styles/PostStyles";
 
 const GithubStyles = styled(Github)`
   width: 1.25rem;

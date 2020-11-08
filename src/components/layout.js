@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
 import Header from "./header";
-import GlobalStyles from "./styles/GlobalStyles";
+import GlobalStyles from "../styles/GlobalStyles";
 
 const ContainerStyles = styled.div`
   margin: 0 auto;

@@ -7,10 +7,7 @@ import styled from "styled-components";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Author from "../components/author";
-import {
-  PostBodyStyles,
-  PostNavigationStyles,
-} from "../components/styles/PostStyles";
+import { PostBodyStyles, PostNavigationStyles } from "../styles/PostStyles";
 
 const PostStyles = styled.div`
   min-width: 100px;
