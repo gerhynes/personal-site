@@ -6,9 +6,13 @@ import { Twitter } from "@styled-icons/boxicons-logos/Twitter";
 import { Github } from "@styled-icons/boxicons-logos/Github";
 
 const HeroStyles = styled.div`
-  margin-top: 25vh;
+  margin-top: 20vh;
   text-align: center;
   padding: 0 0.5rem;
+
+  @media (min-width: 768px) {
+    margin-top: 25vh;
+  }
 `;
 
 const HeadingStyles = styled.h2`
