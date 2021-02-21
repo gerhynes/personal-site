@@ -45,7 +45,7 @@ const TwitterIconStyles = styled(Twitter)`
   transition: fill 300ms ease-in-out;
 
   &:hover {
-    fill: var(--primary-500);
+    fill: var(--primary-600);
   }
 `;
 
@@ -56,7 +56,7 @@ const GithubIconStyles = styled(Github)`
   transition: fill 300ms ease-in-out;
 
   &:hover {
-    fill: var(--primary-500);
+    fill: var(--primary-600);
   }
 `;
 
