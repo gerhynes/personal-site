@@ -44,7 +44,7 @@ const CategoryStyles = styled.p`
 
 const ArticleTitleStyles = styled.h2`
   font-size: 1.75rem;
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: 0.5rem;
 `;
 

@@ -32,7 +32,7 @@ const MainItemStyles = styled.li`
 `;
 
 const NavHeadingStyles = styled.h1`
-  font-weight: 700;
+  font-weight: 600;
   font-size: 1.25rem;
   padding-left: 0.125rem;
   padding-right: 0.125rem;

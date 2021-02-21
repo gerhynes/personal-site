@@ -19,7 +19,7 @@ const HeadingStyles = styled.h2`
   padding-left: 0.25rem;
   padding-right: 0.25rem;
   font-size: 4rem;
-  font-weight: 700;
+  font-weight: 600;
   text-align: center;
   color: var(--dark);
   display: inline;
@@ -42,7 +42,7 @@ const TwitterIconStyles = styled(Twitter)`
   width: 2rem;
   margin: 1rem 0.5rem;
   fill: var(--dark);
-  transition: fill 300ms ease-in-out;
+  transition: fill 150ms ease-in-out;
 
   &:hover {
     fill: var(--primary-600);
@@ -53,7 +53,7 @@ const GithubIconStyles = styled(Github)`
   width: 2rem;
   margin: 1rem 0.5rem;
   fill: var(--dark);
-  transition: fill 300ms ease-in-out;
+  transition: fill 150ms ease-in-out;
 
   &:hover {
     fill: var(--primary-600);
