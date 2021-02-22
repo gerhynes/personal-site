@@ -18,7 +18,7 @@ const HeroStyles = styled.div`
 const HeadingStyles = styled.h2`
   padding-left: 0.25rem;
   padding-right: 0.25rem;
-  font-size: 4rem;
+  font-size: 3rem;
   font-weight: 600;
   text-align: center;
   color: var(--dark);
@@ -29,6 +29,10 @@ const HeadingStyles = styled.h2`
     var(--primary-500) 15% 55%,
     transparent 55%
   );
+
+  @media (min-width: 640px) {
+    font-size: 4rem;
+  }
 `;
 
 const SubHeadingStyles = styled.p`
