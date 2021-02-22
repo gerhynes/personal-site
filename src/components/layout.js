@@ -4,6 +4,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
 import Header from "./header";
 import GlobalStyles from "../styles/GlobalStyles";
+import "@fontsource/inter";
 
 const ContainerStyles = styled.div`
   margin: 0 auto;
