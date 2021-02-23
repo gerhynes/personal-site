@@ -35,13 +35,14 @@ const PostCategoryStyles = styled.p`
   padding: 0.25rem;
   border-radius: 0.25rem;
   margin-bottom: 1rem;
+  margin-right: 0.5rem;
 `;
 
 const shortcodes = { Link }; // Provide common components here
 
 export default function PostTemplate({ location, data: { mdx }, pageContext }) {
   const { prev, next } = pageContext;
-  const { title, date, image, category } = mdx.frontmatter;
+  const { title, date, image, tags } = mdx.frontmatter;
   return (
     <Layout>
       <SEO
@@ -58,7 +59,9 @@ export default function PostTemplate({ location, data: { mdx }, pageContext }) {
         />
         <PostHeadingStyles>{title}</PostHeadingStyles>
         <PostDateStyles>{date}</PostDateStyles>
-        <PostCategoryStyles>{`#${category}`}</PostCategoryStyles>
+        {tags.map((tag) => (
+          <PostCategoryStyles> {`#${tag}`}</PostCategoryStyles>
+        ))}
         <MDXProvider components={shortcodes}>
           <PostBodyStyles>
             <MDXRenderer>{mdx.body}</MDXRenderer>
@@ -94,7 +97,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "DD MMMM YYYY")
-        category
+        tags
         image {
           childImageSharp {
             fluid(maxWidth: 800) {

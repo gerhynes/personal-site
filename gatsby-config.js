@@ -3,11 +3,13 @@ module.exports = {
     title: `Gerard Hynes`,
     description: `Web Developer focusing on the Jamstack and fullstack JavaScript`,
     author: `Gerard Hynes`,
+    siteUrl: `https://gerardhynes.com/`,
     social: {
       twitter: `Gerard_K_Hynes`,
     },
   },
   plugins: [
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
     {

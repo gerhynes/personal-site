@@ -34,11 +34,12 @@ const DateStyles = styled.p`
   margin-right: 1rem;
 `;
 
-const CategoryStyles = styled.p`
+const TagStyles = styled.p`
   display: inline-block;
   color: var(--grey-700);
   background: var(--primary-200);
   padding: 0.25rem;
+  margin-right: 0.5rem;
   border-radius: 0.25rem;
 `;
 
@@ -88,7 +89,9 @@ export default function Writing({ data }) {
                   </ArticleTitleStyles>
                 </Link>
                 <DateStyles>{post.frontmatter.date}</DateStyles>
-                <CategoryStyles>{`#${post.frontmatter.category}`}</CategoryStyles>
+                {post.frontmatter.tags.map((tag) => (
+                  <TagStyles>{`#${tag}`}</TagStyles>
+                ))}
                 <ArticleExcerptStyles>{post.excerpt}</ArticleExcerptStyles>
                 <ArticleLinkStyles>
                   <Link to={post.fields.slug}>Read more →</Link>
@@ -115,7 +118,7 @@ export const pageQuery = graphql`
           frontmatter {
             title
             date(formatString: "DD MMMM YYYY")
-            category
+            tags
           }
           id
           fields {
