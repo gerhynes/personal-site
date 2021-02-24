@@ -64,23 +64,48 @@ const GithubIconStyles = styled(Github)`
   }
 `;
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Gerard Hynes | Web Developer" />
-    <HeroStyles>
-      <HeadingStyles>Hi, I'm Gerard</HeadingStyles>
-      <SubHeadingStyles>
-        I make fast, modern sites and apps using the Jamstack and fullstack
-        JavaScript.
-      </SubHeadingStyles>
-      <a href="https://twitter.com/Gerard_K_Hynes" aria-label="Twitter">
-        <TwitterIconStyles />
-      </a>
-      <a href="https://github.com/GK-Hynes" aria-label="GitHub">
-        <GithubIconStyles />
-      </a>
-    </HeroStyles>
-  </Layout>
-);
+const IndexPage = ({ data }) => {
+  const { description } = data.site.steMetadata;
+  const { homepage } = data;
+  return (
+    <Layout>
+      <SEO
+        title="Gerard Hynes | Web Developer"
+        description={description}
+        image={homepage}
+      />
+      <HeroStyles>
+        <HeadingStyles>Hi, I'm Gerard</HeadingStyles>
+        <SubHeadingStyles>
+          I make fast, modern sites and apps using the Jamstack and fullstack
+          JavaScript.
+        </SubHeadingStyles>
+        <a href="https://twitter.com/Gerard_K_Hynes" aria-label="Twitter">
+          <TwitterIconStyles />
+        </a>
+        <a href="https://github.com/GK-Hynes" aria-label="GitHub">
+          <GithubIconStyles />
+        </a>
+      </HeroStyles>
+    </Layout>
+  );
+};
 
 export default IndexPage;
+
+export const query = graphql`
+  query socialQuery {
+    site {
+      siteMetadata {
+        description
+      }
+    }
+    homepage: file(absolutePath: { regex: "/homepage.png/" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`;
