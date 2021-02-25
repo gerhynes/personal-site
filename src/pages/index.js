@@ -1,4 +1,5 @@
 import React from "react";
+import { graphql } from "gatsby";
 import styled from "styled-components";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -65,7 +66,7 @@ const GithubIconStyles = styled(Github)`
 `;
 
 const IndexPage = ({ data }) => {
-  const { description } = data.site.steMetadata;
+  const { description } = data.site.siteMetadata;
   const { homepage } = data;
   return (
     <Layout>
