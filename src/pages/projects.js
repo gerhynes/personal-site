@@ -1,5 +1,5 @@
 import React from "react";
-import { StaticQuery, graphql, Link } from "gatsby";
+import { graphql, Link } from "gatsby";
 import Image from "gatsby-image";
 import styled from "styled-components";
 import Layout from "../components/layout";
@@ -104,79 +104,85 @@ const ProjectTagsStyles = styled.ul`
   flex-wrap: wrap;
 `;
 
-const Projects = () => {
+function Projects({ data }) {
+  const { description } = data.site.siteMetadata;
+  const { socialImg, nasaApod, trataTimer } = data;
   return (
-    <StaticQuery
-      query={projectsQuery}
-      render={(data) => {
-        return (
-          <Layout>
-            <SEO title="Gerard Hynes | Projects" />
-            <PageHeadingStyles>Projects</PageHeadingStyles>
-            <ProjectGridStyles>
-              <ProjectStyles>
-                <ProjectImageStyles>
-                  <figure>
-                    <Image
-                      fluid={data.nasaApod.childImageSharp.fluid}
-                      alt="NASA apod"
-                    />
-                  </figure>
-                </ProjectImageStyles>
-                <ProjectTextStyles>
-                  <h3>NASA Astronomy Picture of the Day</h3>
-                  <p>
-                    An app which displays daily images and videos from{" "}
-                    <TextLinkStyles href="https://api.nasa.gov/">
-                      NASA's APOD API.
-                    </TextLinkStyles>
-                  </p>
-                  <ProjectLinkStyles to="/nasa-apod">
-                    View Project
-                  </ProjectLinkStyles>
-                  <ProjectTagsStyles>
-                    <li>#React</li>
-                    <li>#Gatsby</li>
-                    <li>#APIs</li>
-                    <li>#PWA</li>
-                  </ProjectTagsStyles>
-                </ProjectTextStyles>
-              </ProjectStyles>
+    <Layout>
+      <SEO
+        title="Gerard Hynes | Projects"
+        description={description}
+        image={socialImg.childImageSharp.fluid}
+      />
+      <PageHeadingStyles>Projects</PageHeadingStyles>
+      <ProjectGridStyles>
+        <ProjectStyles>
+          <ProjectImageStyles>
+            <figure>
+              <Image fluid={nasaApod.childImageSharp.fluid} alt="NASA apod" />
+            </figure>
+          </ProjectImageStyles>
+          <ProjectTextStyles>
+            <h3>NASA Astronomy Picture of the Day</h3>
+            <p>
+              An app which displays daily images and videos from{" "}
+              <TextLinkStyles href="https://api.nasa.gov/">
+                NASA's APOD API.
+              </TextLinkStyles>
+            </p>
+            <ProjectLinkStyles to="/nasa-apod">View Project</ProjectLinkStyles>
+            <ProjectTagsStyles>
+              <li>#React</li>
+              <li>#Gatsby</li>
+              <li>#APIs</li>
+              <li>#PWA</li>
+            </ProjectTagsStyles>
+          </ProjectTextStyles>
+        </ProjectStyles>
 
-              <ProjectStyles>
-                <ProjectTextStyles>
-                  <h3>Tráta Timer</h3>
-                  <p>A Pomodoro timer built with Gatsby.</p>
-                  <ProjectLinkStyles to="/trata-timer">
-                    View Project
-                  </ProjectLinkStyles>
-                  <ProjectTagsStyles>
-                    <li>#React</li>
-                    <li>#Gatsby</li>
-                  </ProjectTagsStyles>
-                </ProjectTextStyles>
+        <ProjectStyles>
+          <ProjectTextStyles>
+            <h3>Tráta Timer</h3>
+            <p>A Pomodoro timer built with Gatsby.</p>
+            <ProjectLinkStyles to="/trata-timer">
+              View Project
+            </ProjectLinkStyles>
+            <ProjectTagsStyles>
+              <li>#React</li>
+              <li>#Gatsby</li>
+            </ProjectTagsStyles>
+          </ProjectTextStyles>
 
-                <ProjectImageStyles className="upper">
-                  <figure>
-                    <Image
-                      fluid={data.trataTimer.childImageSharp.fluid}
-                      alt="Tráta Timer"
-                    />
-                  </figure>
-                </ProjectImageStyles>
-              </ProjectStyles>
-            </ProjectGridStyles>
-          </Layout>
-        );
-      }}
-    />
+          <ProjectImageStyles className="upper">
+            <figure>
+              <Image
+                fluid={trataTimer.childImageSharp.fluid}
+                alt="Tráta Timer"
+              />
+            </figure>
+          </ProjectImageStyles>
+        </ProjectStyles>
+      </ProjectGridStyles>
+    </Layout>
   );
-};
+}
 
 export default Projects;
 
-const projectsQuery = graphql`
+export const query = graphql`
   query projectsQuery {
+    site {
+      siteMetadata {
+        description
+      }
+    }
+    socialImg: file(absolutePath: { regex: "/social.png/" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
     nasaApod: file(absolutePath: { regex: "/nasa-apod.jpg/" }) {
       childImageSharp {
         fluid {

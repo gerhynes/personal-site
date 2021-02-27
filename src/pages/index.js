@@ -65,15 +65,15 @@ const GithubIconStyles = styled(Github)`
   }
 `;
 
-const IndexPage = ({ data }) => {
+function IndexPage({ data }) {
   const { description } = data.site.siteMetadata;
-  const { homepage } = data;
+  const { socialImg } = data;
   return (
     <Layout>
       <SEO
         title="Gerard Hynes | Web Developer"
         description={description}
-        image={homepage.childImageSharp.fluid}
+        image={socialImg.childImageSharp.fluid}
       />
       <HeroStyles>
         <HeadingStyles>Hi, I'm Gerard</HeadingStyles>
@@ -90,7 +90,7 @@ const IndexPage = ({ data }) => {
       </HeroStyles>
     </Layout>
   );
-};
+}
 
 export default IndexPage;
 
@@ -101,7 +101,7 @@ export const query = graphql`
         description
       }
     }
-    homepage: file(absolutePath: { regex: "/homepage.png/" }) {
+    socialImg: file(absolutePath: { regex: "/social.png/" }) {
       childImageSharp {
         fluid {
           ...GatsbyImageSharpFluid

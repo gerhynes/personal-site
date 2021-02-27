@@ -66,11 +66,17 @@ const ArticleLinkStyles = styled.p`
   }
 `;
 
-export default function Writing({ data }) {
+function Writing({ data }) {
   const { edges: posts } = data.allMdx;
+  const { description } = data.site.siteMetadata;
+  const { socialImg } = data;
   return (
     <Layout>
-      <SEO title="Gerard Hynes | Writing" />
+      <SEO
+        title="Gerard Hynes | Web Developer"
+        description={description}
+        image={socialImg.childImageSharp.fluid}
+      />
       <ContainerStyles>
         <WritingIntroStyles>
           <PageHeadingStyles>Writing</PageHeadingStyles>
@@ -105,8 +111,22 @@ export default function Writing({ data }) {
   );
 }
 
-export const pageQuery = graphql`
-  query {
+export default Writing;
+
+export const query = graphql`
+  query writingQuery {
+    site {
+      siteMetadata {
+        description
+      }
+    }
+    socialImg: file(absolutePath: { regex: "/social.png/" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
     allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { published: { eq: true } } }

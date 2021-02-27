@@ -1,5 +1,5 @@
 import React from "react";
-import { StaticQuery, graphql } from "gatsby";
+import { graphql } from "gatsby";
 import Image from "gatsby-image";
 import styled from "styled-components";
 import Layout from "../components/layout";
@@ -48,65 +48,69 @@ const BioImageStyles = styled(Image)`
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
 `;
 
-const About = () => {
+function About({ data }) {
+  const { description, author, social } = data.site.siteMetadata;
+  const { socialImg } = data;
   return (
-    <StaticQuery
-      query={bioQuery}
-      render={(data) => {
-        const { author, social } = data.site.siteMetadata;
-        return (
-          <Layout>
-            <SEO title="Gerard Hynes | About" />
-            <PageHeadingStyles>About</PageHeadingStyles>
-            <BioContainerStyles>
-              <BioImageWrapperStyles>
-                <BioImageStyles
-                  fixed={data.avatar.childImageSharp.fixed}
-                  alt={author}
-                />
-              </BioImageWrapperStyles>
-              <BioStyles>
-                <p>Hi, I'm Gerard.</p>
-                <p>I'm a self-taught web developer from Ireland.</p>
-                <p>
-                  I've spent the last couple of years diving into web
-                  development, with a focus on JavaScript, from frontend
-                  frameworks like React to Node on the server.
-                </p>
-                <p>
-                  Right now, I'm enjoying building fast, flexible sites and apps
-                  with the <a href="https://jamstack.org/">Jamstack</a>. In
-                  fact,{" "}
-                  <a href="https://github.com/GK-Hynes/personal-site">
-                    this is a Gatsby site.
-                  </a>
-                </p>
-                <p>
-                  You can usually find me on{` `}
-                  <a href={`https://twitter.com/${social.twitter}`}>Twitter</a>,
-                  where I'll probably be doing{" "}
-                  <a href="https://twitter.com/search?q=%23100DaysOfCode%20from%3AGerard_K_Hynes&src=typed_query&f=live">
-                    #100DaysOfCode{` `}
-                  </a>
-                  and talking about Irish. Labhair Gaeilge liom 👋.
-                </p>
-              </BioStyles>
-            </BioContainerStyles>
-          </Layout>
-        );
-      }}
-    />
+    <Layout>
+      <SEO
+        title="Gerard Hynes | About"
+        description={description}
+        image={socialImg.childImageSharp.fluid}
+      />
+      <PageHeadingStyles>About</PageHeadingStyles>
+      <BioContainerStyles>
+        <BioImageWrapperStyles>
+          <BioImageStyles
+            fixed={data.avatar.childImageSharp.fixed}
+            alt={author}
+          />
+        </BioImageWrapperStyles>
+        <BioStyles>
+          <p>Hi, I'm Gerard.</p>
+          <p>I'm a self-taught web developer from Ireland.</p>
+          <p>
+            I've spent the last couple of years diving into web development,
+            with a focus on JavaScript, from frontend frameworks like React to
+            Node on the server.
+          </p>
+          <p>
+            Right now, I'm enjoying building fast, flexible sites and apps with
+            the <a href="https://jamstack.org/">Jamstack</a>. In fact,{" "}
+            <a href="https://github.com/GK-Hynes/personal-site">
+              this is a Gatsby site.
+            </a>
+          </p>
+          <p>
+            You can usually find me on{` `}
+            <a href={`https://twitter.com/${social.twitter}`}>Twitter</a>, where
+            I'll probably be doing{" "}
+            <a href="https://twitter.com/search?q=%23100DaysOfCode%20from%3AGerard_K_Hynes&src=typed_query&f=live">
+              #100DaysOfCode{` `}
+            </a>
+            and talking about Irish. Labhair Gaeilge liom 👋.
+          </p>
+        </BioStyles>
+      </BioContainerStyles>
+    </Layout>
   );
-};
+}
 
 export default About;
 
-const bioQuery = graphql`
+export const query = graphql`
   query bioQuery {
     avatar: file(absolutePath: { regex: "/bio.jpg/" }) {
       childImageSharp {
         fixed(width: 200, height: 200) {
           ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    socialImg: file(absolutePath: { regex: "/social.png/" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
         }
       }
     }
