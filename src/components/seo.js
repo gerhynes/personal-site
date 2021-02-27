@@ -12,6 +12,7 @@ function SEO({ description, lang, meta, title, image: metaImage, pathname }) {
             title
             description
             author
+            siteUrl
             social {
               twitter
             }
