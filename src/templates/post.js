@@ -48,7 +48,7 @@ export default function PostTemplate({ location, data: { mdx }, pageContext }) {
       <SEO
         title={title}
         description={mdx.excerpt}
-        image={image.childImageSharp.fluid}
+        image={image.childImageSharp.fluid.src}
         pathname={location.pathname}
       />
       <PostStyles>

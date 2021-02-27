@@ -73,7 +73,7 @@ const IndexPage = ({ data }) => {
       <SEO
         title="Gerard Hynes | Web Developer"
         description={description}
-        image={homepage}
+        image={homepage.childImageSharp.fluid.src}
       />
       <HeroStyles>
         <HeadingStyles>Hi, I'm Gerard</HeadingStyles>
