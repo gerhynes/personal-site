@@ -96,7 +96,7 @@ function Writing({ data }) {
                 </Link>
                 <DateStyles>{post.frontmatter.date}</DateStyles>
                 {post.frontmatter.tags.map((tag) => (
-                  <TagStyles>{`#${tag}`}</TagStyles>
+                  <TagStyles key={tag}>{`#${tag}`}</TagStyles>
                 ))}
                 <ArticleExcerptStyles>{post.excerpt}</ArticleExcerptStyles>
                 <ArticleLinkStyles>

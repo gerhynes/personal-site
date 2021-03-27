@@ -60,7 +60,7 @@ export default function PostTemplate({ location, data: { mdx }, pageContext }) {
         <PostHeadingStyles>{title}</PostHeadingStyles>
         <PostDateStyles>{date}</PostDateStyles>
         {tags.map((tag) => (
-          <PostCategoryStyles> {`#${tag}`}</PostCategoryStyles>
+          <PostCategoryStyles key={tag}> {`#${tag}`}</PostCategoryStyles>
         ))}
         <MDXProvider components={shortcodes}>
           <PostBodyStyles>
