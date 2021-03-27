@@ -42,12 +42,12 @@ const shortcodes = { Link }; // Provide common components here
 
 export default function PostTemplate({ location, data: { mdx }, pageContext }) {
   const { prev, next } = pageContext;
-  const { title, date, image, tags } = mdx.frontmatter;
+  const { title, date, description, image, tags } = mdx.frontmatter;
   return (
     <Layout>
       <SEO
         title={title}
-        description={mdx.excerpt}
+        description={description}
         image={image.childImageSharp.fluid}
         pathname={location.pathname}
       />
@@ -97,6 +97,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "DD MMMM YYYY")
+        description
         tags
         image {
           childImageSharp {

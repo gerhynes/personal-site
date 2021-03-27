@@ -49,7 +49,7 @@ const ArticleTitleStyles = styled.h2`
   margin-bottom: 0.5rem;
 `;
 
-const ArticleExcerptStyles = styled.p`
+const ArticleDescriptionStyles = styled.p`
   font-size: 1.2rem;
   line-height: 1.75;
   margin: 0.5rem 0;
@@ -98,7 +98,9 @@ function Writing({ data }) {
                 {post.frontmatter.tags.map((tag) => (
                   <TagStyles key={tag}>{`#${tag}`}</TagStyles>
                 ))}
-                <ArticleExcerptStyles>{post.excerpt}</ArticleExcerptStyles>
+                <ArticleDescriptionStyles>
+                  {post.frontmatter.description}
+                </ArticleDescriptionStyles>
                 <ArticleLinkStyles>
                   <Link to={post.fields.slug}>Read more →</Link>
                 </ArticleLinkStyles>
@@ -138,6 +140,7 @@ export const query = graphql`
           frontmatter {
             title
             date(formatString: "DD MMMM YYYY")
+            description
             tags
           }
           id
