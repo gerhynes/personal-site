@@ -87,14 +87,6 @@ function SEO({ description, lang, meta, title, image: metaImage, pathname }) {
                   content: image,
                 },
                 {
-                  property: "og:image:width",
-                  content: metaImage.width,
-                },
-                {
-                  property: "og:image:height",
-                  content: metaImage.height,
-                },
-                {
                   name: "twitter:card",
                   content: "summary_large_image",
                 },
@@ -124,8 +116,6 @@ SEO.propTypes = {
   title: PropTypes.string.isRequired,
   image: PropTypes.shape({
     src: PropTypes.string.isRequired,
-    height: PropTypes.number.isRequired,
-    width: PropTypes.number.isRequired,
   }),
   pathname: PropTypes.string,
 };
