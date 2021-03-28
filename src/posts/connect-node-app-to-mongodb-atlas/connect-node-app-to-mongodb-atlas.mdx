@@ -16,21 +16,21 @@ I recently built a few projects with Node and MongoDB Atlas and felt it might be
 
 ### Step 1 - Set up your MongoDB Atlas Account and Cluster
 
-![MongoDB Atlas Account Setup](mongodb-atlas-account-setup.png)
+![MongoDB Atlas account setup page](mongodb-atlas-account-setup.png)
 
 First things first, go to the [MongoDB Atlas website](https://www.mongodb.com/cloud/atlas) and create a free account. You can choose whatever name you want for your organization and project. Choose JavaScript as your preferred language.
 
-![MongoDB Atlas Create Cluster](mongodb-atlas-create-cluster.png)
+![MongoDB Atlas create cluster page](mongodb-atlas-create-cluster.png)
 
 Next choose a free shared cluster. This will be enough for demos and small personal projects.
 
 When you're invited to create a starter cluster, you can leave the Cloud Provider and Region as the defaults (unless you have strong feelings about them) and click **Create Cluster**.
 
-![MongoDb Atlas Dashboard](mongodb-atlas-dashboard.png)
+![MongoDB Atlas dashboard](mongodb-atlas-dashboard.png)
 
 You'll now be brought to your admin dashboard. Click on **Create a New Cluster**. This can take a couple of minutes.
 
-Once your cluster is ready, click on the **Connect** button in the Sandbox.
+Once your cluster is ready, click on the **Connect** button in the sandbox.
 
 ![MongoDB Atlas IP and user setup](mongodb-atlas-ip-user.png)
 
@@ -38,7 +38,7 @@ Allow access from all IP addresses. This would be a terrible idea in production 
 
 Next, create a new user for the database and choose a password. Store these somewhere safe, like your password manager.
 
-![MongoDB Atlas Connect Modal](mongodb-atlas-connect-modal.png)
+![MongoDB Atlas connect modal](mongodb-atlas-connect-modal.png)
 
 Now click on **Choose a connection method**.
 
@@ -97,7 +97,7 @@ To keep things organized, I keep my database config in its own file.
 
 In the root of your project, create a `db.js` file. This will contain all the configuration for connecting to your database.
 
-We're going to use the [Mongoose library](https://mongoosejs.com/) to handle connecting to our database.
+We're going to use [Mongoose](https://mongoosejs.com/) to handle connecting to our database.
 
 Install Mongoose with `npm install mongoose` and import it into `db.js`.
 
@@ -105,11 +105,11 @@ Import your database URI as `db` from `process.env.DB_URI`.
 
 Create a `connectDB` function. Make sure you mark it as an `async` function as it will take some amount of time to connect to your database.
 
-Inside `connectDB`, create a `try-catch` block to handle an errors that occur.
+Inside `connectDB`, create a `try-catch` block to handle any errors that occur.
 
-In the `try` block, await `mongoose.connect()`. Pass it the `db` variable and a settings object. In the settings object, set `useNewUrlParser` and `useUnifiedTopology` to `true`. This will prevent Mongoose from issuing you warnings. Mongoose explains the warnings in their [documentation](https://mongoosejs.com/docs/deprecations.html).
+In the `try` block, await `mongoose.connect()`. Pass it the `db` variable and a settings object. In the settings object, set `useNewUrlParser` and `useUnifiedTopology` to `true`. This will prevent Mongoose from giving you warnings. Mongoose explains the warnings in their [documentation](https://mongoosejs.com/docs/deprecations.html).
 
-It's also a good habit to `console.log` a success message to tell you you've connected to your database. I once spnt an hour trying to debug a database connection simply because I wasn't telling myself it was connected.
+It's also a good habit to `console.log` a success message to tell you you've connected to your database. I once spent an hour trying to debug a database connection simply because I wasn't telling myself it was connected.
 
 In the `catch` block, `console.error` any error you receive and use `process.exit(1)` to terminate the process if an error occurs.
 
@@ -165,7 +165,7 @@ app.listen(port, () => {
 });
 ```
 
-Congratulations, your Node app is now connected to your MongoDB Atlas cluster. You can start to write schemas and perform CRUD operations with your data.
+Congratulations, your Node app is now connected to your MongoDB Atlas cluster. If you run `node app.js`, you'll see two messages printed to your console: that your app is running and that you've connected to your database. From here you can start to write schemas and perform CRUD operations with your data.
 
 If you ran into any issues, [the code for this demo app](https://github.com/GK-Hynes/node-mongodb-atlas) is in this repo.
 
