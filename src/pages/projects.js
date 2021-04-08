@@ -127,7 +127,7 @@ function Projects({ data }) {
             <p>
               An app which displays daily images and videos from{" "}
               <TextLinkStyles href="https://api.nasa.gov/">
-                NASA's APOD API.
+                NASA's APOD API. Built as a present for my NASA-loving wife.
               </TextLinkStyles>
             </p>
             <ProjectLinkStyles to="/nasa-apod">View Project</ProjectLinkStyles>
@@ -143,7 +143,10 @@ function Projects({ data }) {
         <ProjectStyles>
           <ProjectTextStyles>
             <h3>Tráta Timer</h3>
-            <p>A Pomodoro timer built with Gatsby.</p>
+            <p>
+              A Pomodoro timer I built to help me focus when learning new
+              technologies.
+            </p>
             <ProjectLinkStyles to="/trata-timer">
               View Project
             </ProjectLinkStyles>
