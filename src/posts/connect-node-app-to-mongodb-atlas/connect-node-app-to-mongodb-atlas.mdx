@@ -76,7 +76,7 @@ app.listen(port, () => {
 
 In your command line, run `node app.js` and you should see the confirmation message that your app is listening on a particular port.
 
-### Step 3 Store Environmental Variables
+### Step 3 - Store Environmental Variables
 
 Remember your MongoDB Atlas URI? You don't want to just paste that into your code where it could get committed to Git and potentially publicly exposed.
 
@@ -91,7 +91,7 @@ Create a `.env` file in the root of your project, paste in your URI, and assign 
 DB_URI=mongodb+srv://<username>:<password>@<cluster-name>.mongodb.net/<db-name>?retryWrites=true&w=majority
 ```
 
-### Step 3 - Configure your Database Connection
+### Step 4 - Configure your Database Connection
 
 To keep things organized, I keep my database config in its own file.
 
@@ -138,7 +138,7 @@ async function connectDB() {
 module.exports = connectDB;
 ```
 
-### Step 5 Time to Connect to Your Database
+### Step 5 - Time to Connect to Your Database
 
 In your `app.js` file, require `dotenv` and call the `config` method on it.
 
