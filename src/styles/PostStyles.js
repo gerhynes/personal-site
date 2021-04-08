@@ -2,12 +2,13 @@ import styled from "styled-components";
 
 export const PostBodyStyles = styled.section`
   font-size: 1.2rem;
-  line-height: 1.75;
+  line-height: 1.7;
 
   h3 {
     font-weight: 600;
     font-size: 1.75rem;
-    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
   }
 
   code {
@@ -22,7 +23,7 @@ export const PostBodyStyles = styled.section`
     background: #2d3748;
     padding: 1rem 1.5rem;
     border-radius: 0.375rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
   }
 
   pre code {
@@ -90,7 +91,7 @@ export const PostBodyStyles = styled.section`
   }
 
   img {
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
   }
 `;
 
