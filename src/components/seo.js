@@ -80,7 +80,7 @@ function SEO({ description, lang, meta, title, image: metaImage, pathname }) {
         },
       ]
         .concat(
-          metaImage
+          image
             ? [
                 {
                   property: "og:image",
