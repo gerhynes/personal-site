@@ -127,8 +127,9 @@ function Projects({ data }) {
             <p>
               An app which displays daily images and videos from{" "}
               <TextLinkStyles href="https://api.nasa.gov/">
-                NASA's APOD API. Built as a present for my NASA-loving wife.
-              </TextLinkStyles>
+                NASA's APOD API.
+              </TextLinkStyles>{" "}
+              Built as a present for my NASA-loving wife.
             </p>
             <ProjectLinkStyles to="/nasa-apod">View Project</ProjectLinkStyles>
             <ProjectTagsStyles>
