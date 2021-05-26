@@ -145,7 +145,7 @@ function Projects({ data }) {
           <ProjectTextStyles>
             <h3>Tráta Timer</h3>
             <p>
-              A Pomodoro timer I built to help me focus when learning new
+              A bilingual Pomodoro timer I built to help me focus when learning new
               technologies.
             </p>
             <ProjectLinkStyles to="/trata-timer">
@@ -154,6 +154,7 @@ function Projects({ data }) {
             <ProjectTagsStyles>
               <li>#React</li>
               <li>#Gatsby</li>
+              <li>#i18n</li>
             </ProjectTagsStyles>
           </ProjectTextStyles>
 
