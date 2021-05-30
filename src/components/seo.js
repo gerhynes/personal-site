@@ -27,8 +27,6 @@ function SEO({ description, lang, meta, title, image, pathname }) {
     image && image.src ? `${site.siteMetadata.siteUrl}${image.src}` : null;
   const canonical = pathname ? `${site.siteMetadata.siteUrl}${pathname}` : null;
 
-  console.log(metaImage);
-
   return (
     <Helmet
       htmlAttributes={{
