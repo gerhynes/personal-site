@@ -5,9 +5,15 @@ export const PostBodyStyles = styled.section`
   line-height: 1.7;
 
   h3 {
-    font-weight: 600;
+    font-weight: 700;
     font-size: 1.75rem;
     margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  h4 {
+    font-weight: 600;
+    font-size: 1.5rem;
     margin-bottom: 0.5rem;
   }
 

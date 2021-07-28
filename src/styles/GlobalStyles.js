@@ -613,7 +613,7 @@ video {
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: "InterVariable", sans-serif;
   background-image: linear-gradient(135deg, var(--grey-100) 50%, #fff 50%);
 }
 
