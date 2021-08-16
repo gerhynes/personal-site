@@ -20,14 +20,16 @@ I built the first version of this app while completing [freeCodeCamp's](https://
 
 In addition, I added an animated progress circle using SVG to give visual feedback on how much time was left.
 
-A few months later I rewrote it to use React hooks instead of class-based components and add new features:
+A few months later I rewrote it to use React hooks instead of class-based components and added new features:
 
 - You can choose between a session, short break and longer break.
 - After every four completed sessions, the break will be set to at least fifteen minutes.
 
+Coming back to the project, I added the ability to toggle between Irish and English, because I wanted to learn more about internationalization (agus tá chuile rud níos fearr le Gaeilge).
+
 ### Tech Stack
 
-React, especially hooks, provided a clean way to manage app state and update the UI. Gatsby made it realtively straightforward to turn the app into a Progressive Web App using `gatsby-plugin-manifest` and `gatsby-plugin-offline`. SVG allowed for animations that would not be possible with CSS alone.
+React, especially hooks, provided a clean way to manage app state and update the UI. Gatsby made it realtively straightforward to turn the app into a Progressive Web App using `gatsby-plugin-manifest` and `gatsby-plugin-offline`. `gatsby-plugin-intl` also made it possible to add support for multiple languages. SVG allowed for animations that would not be possible with CSS alone.
 
 ### Problems and Thought Process
 
@@ -39,6 +41,8 @@ Animating the progress circle required me to learn some of the internals of SVG,
 
 ### Lessons Learned
 
-Rewriting the app to use functional components with hooks rather than class-based components gave me a better understanding of the differences and relative strengths of the two approaches to writing React components.
+Rewriting the app to use functional components with hooks rather than class-based components gave me a better understanding of the differences between the two approaches to writing React components.
 
-It also clarified some core JavaScript functionality around setting and clearing intervals, leaving me better prepared to use these features in future projects.
+Making the app bilingual taught me about some of the challenges of internationalization, such as keeping content in multiple languages in sync and managing navigation between languages.
+
+This project clarified some core JavaScript functionality around setting and clearing intervals, leaving me better prepared to use these features in future projects.
