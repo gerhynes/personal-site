@@ -7,6 +7,7 @@ import SEO from "../components/seo";
 import PageHeadingStyles from "../styles/PageHeadingStyles";
 
 const ProjectGridStyles = styled.section`
+  margin: 1rem 0;
   padding: 1rem 1.5rem;
 `;
 
@@ -14,7 +15,7 @@ const ProjectStyles = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 2rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2.5rem;
 `;
 
 const ProjectImageStyles = styled.div`
@@ -49,7 +50,7 @@ const ProjectImageStyles = styled.div`
 `;
 
 const ProjectTextStyles = styled.div`
-  padding: 3rem 2rem;
+  padding: 0 2rem;
 
   h3 {
     font-size: 1.5rem;
@@ -106,7 +107,7 @@ const ProjectTagsStyles = styled.ul`
 
 function Projects({ data }) {
   const { description } = data.site.siteMetadata;
-  const { socialImg, nasaApod, trataTimer } = data;
+  const { socialImg, nasaApod, trataTimer, readingHabit } = data;
   return (
     <Layout>
       <SEO
@@ -119,9 +120,31 @@ function Projects({ data }) {
         <ProjectStyles>
           <ProjectImageStyles>
             <figure>
-              <Image fluid={nasaApod.childImageSharp.fluid} alt="NASA apod" />
+              <Image
+                fluid={readingHabit.childImageSharp.fluid}
+                alt="Reading Habit"
+              />
             </figure>
           </ProjectImageStyles>
+          <ProjectTextStyles>
+            <h3>Reading Habit</h3>
+            <p>
+              A fullstack Jamstack app to help me keep track of the books I'm
+              reading.
+            </p>
+            <ProjectLinkStyles to="/reading-habit">
+              View Project
+            </ProjectLinkStyles>
+            <ProjectTagsStyles>
+              <li>#Nextjs</li>
+              <li>#FaunaDB</li>
+              <li>#Auth0</li>
+              <li>#TailwindCSS</li>
+            </ProjectTagsStyles>
+          </ProjectTextStyles>
+        </ProjectStyles>
+
+        <ProjectStyles>
           <ProjectTextStyles>
             <h3>NASA Astronomy Picture of the Day</h3>
             <p>
@@ -139,14 +162,27 @@ function Projects({ data }) {
               <li>#PWA</li>
             </ProjectTagsStyles>
           </ProjectTextStyles>
+          <ProjectImageStyles className="upper">
+            <figure>
+              <Image fluid={nasaApod.childImageSharp.fluid} alt="NASA apod" />
+            </figure>
+          </ProjectImageStyles>
         </ProjectStyles>
 
         <ProjectStyles>
+          <ProjectImageStyles>
+            <figure>
+              <Image
+                fluid={trataTimer.childImageSharp.fluid}
+                alt="Tráta Timer"
+              />
+            </figure>
+          </ProjectImageStyles>
           <ProjectTextStyles>
             <h3>Tráta Timer</h3>
             <p>
-              A bilingual Pomodoro timer I built to help me focus when learning new
-              technologies.
+              A bilingual Pomodoro timer I built to help me focus when learning
+              new technologies.
             </p>
             <ProjectLinkStyles to="/trata-timer">
               View Project
@@ -157,15 +193,6 @@ function Projects({ data }) {
               <li>#i18n</li>
             </ProjectTagsStyles>
           </ProjectTextStyles>
-
-          <ProjectImageStyles className="upper">
-            <figure>
-              <Image
-                fluid={trataTimer.childImageSharp.fluid}
-                alt="Tráta Timer"
-              />
-            </figure>
-          </ProjectImageStyles>
         </ProjectStyles>
       </ProjectGridStyles>
     </Layout>
@@ -188,7 +215,14 @@ export const query = graphql`
         }
       }
     }
-    nasaApod: file(absolutePath: { regex: "/nasa-apod.jpg/" }) {
+    readingHabit: file(absolutePath: { regex: "/reading-habit.png/" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    nasaApod: file(absolutePath: { regex: "/nasa-apod.png/" }) {
       childImageSharp {
         fluid {
           ...GatsbyImageSharpFluid

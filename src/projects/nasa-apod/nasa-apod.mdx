@@ -4,7 +4,7 @@ date: "2020-10-06"
 slug: nasa-apod
 repoUrl: https://github.com/GK-Hynes/nasa-apod
 siteUrl: https://julie-nasa.netlify.app/
-image: ./nasa-apod.jpg
+image: ./nasa-apod.png
 ---
 
 ### Project Purpose and Goal
@@ -24,6 +24,8 @@ I used [Axios](https://github.com/axios/axios) instead of Fetch to make requests
 Sometimes the Astronomy Picture of the Day would be a video, so I created a `Video` component and conditionally rendered different components depending on the media type returned from the API.
 
 When the date input changes, it can take a moment for the API to return the new data and render it to the page, especially the new image or video. To convey a sense of progress and prevent a mismatch between new text and an older image, I implemented a custom Skeleton loading component.
+
+![Skeleton components while API data loads](./skeleton-screen.png)
 
 ### Lessons Learned
 
