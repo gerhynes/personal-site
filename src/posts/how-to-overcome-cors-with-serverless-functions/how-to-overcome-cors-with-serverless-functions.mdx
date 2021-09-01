@@ -72,7 +72,7 @@ Relieved to be making progress, I deployed the app to Netlify... and ran into a 
 
 Everything worked locally but once the app was deployed I kept getting a [502 Bad Gateway](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502) response, meaning that the proxy server received an invalid response from the server it was proxying to.
 
-![Developer tools with 502 response message](./server-response.png)
+![Developer tools with 502 response message](./error-response.png)
 
 Netlify have really great [Support Forums](https://answers.netlify.com/) and the good people there pointed me to potential solutions - setting specific headers on my redirects, checking for differences between my local environment and the build environment on Netlify. But none of this made a difference.
 
