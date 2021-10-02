@@ -2,7 +2,7 @@
 title: Tráta Timer
 date: "2020-10-13"
 slug: trata-timer
-repoUrl: https://github.com/GK-Hynes/trata-timer
+repoUrl: https://github.com/gerhynes/trata-timer
 siteUrl: https://trata-timer.netlify.app/
 image: ./trata-timer.png
 ---
@@ -37,7 +37,7 @@ This app had to keep track of multiple changing values: session and break length
 
 Working with `setInterval` in React can be tricky (see Dan Abramov's [Making setInterval Declarative with React Hooks](https://overreacted.io/making-setinterval-declarative-with-react-hooks/)). Getting the timer to work required developing a greater understaning of both `setInterval` and `useEffect`.
 
-Animating the progress circle required me to learn some of the internals of SVG, such as `stroke-dasharray` and `stroke-dashoffset`. The next challenge was keeping the session/break length and time left in sync. I did this through a comination of state management and controling when the user can change these values so as not to break the SVG.
+Animating the progress circle required me to learn some of the internals of SVG, such as `stroke-dasharray` and `stroke-dashoffset`. The next challenge was keeping the session/break length and time left in sync. I did this through a combination of state management and controling when the user can change these values so as not to break the SVG.
 
 ### Lessons Learned
 

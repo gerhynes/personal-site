@@ -2,7 +2,7 @@
 title: Reading Habit
 date: "2021-08-16"
 slug: reading-habit
-repoUrl: https://github.com/GK-Hynes/reading-habit
+repoUrl: https://github.com/gerhynes/reading-habit
 siteUrl: https://reading-habit.vercel.app/
 image: ./reading-habit.png
 ---
@@ -33,7 +33,7 @@ I chose [FaunaDB](https://fauna.com/) as the database since its API-first approa
 
 I introduced more than one bug by not keeping better track of the shape of the data being stored in Fauna. When new books were added they didn't have an id and the app's state was out of sync with the database.
 
-Importantly, documents in Fauna are stored with a Ref containing their collection and a unique id. The document's data is then stored in a data object.
+Importantly, documents in Fauna are stored with a Ref (containing their collection and a unique id) and a timestamp. The document's data is then stored in a nested data object.
 
 ```js
 {
@@ -55,7 +55,7 @@ From this I learned more about debugging app state and API requests, as well as 
 
 ### Lessons Learned
 
-I made this app for my own use but began to think about how usable it would be for other people. This made me consider User Experience more fully.
+I made this app for my own use but began to think about how usable it would be for other people. This made me consider user experience more fully.
 
 I planned out the user flow from the landing page to adding a book and realized I needed to make the following changes:
 
@@ -71,4 +71,4 @@ I also spent time thinking about how to manage the edit flow. I considerd a sepa
 
 ![Edit form](./edit-form.png)
 
-I finished this project with a better understanding of the technologies involved, a renewed enthusiasm for building with the Jamstack, and a greater appreciation of the importance of User Experience.
+I finished this project with a better understanding of the technologies involved, a renewed enthusiasm for building with the Jamstack, and a greater appreciation of the importance of user experience.

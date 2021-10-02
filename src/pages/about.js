@@ -77,7 +77,7 @@ function About({ data }) {
           <p>
             Right now, I'm enjoying building fast, flexible sites and apps with
             the <a href="https://jamstack.org/">Jamstack</a>. In fact,{" "}
-            <a href="https://github.com/GK-Hynes/personal-site">
+            <a href="https://github.com/gerhynes/personal-site">
               this is a Gatsby site.
             </a>
           </p>

@@ -84,7 +84,7 @@ function IndexPage({ data }) {
         <a href="https://twitter.com/Gerard_K_Hynes" aria-label="Twitter">
           <TwitterIconStyles />
         </a>
-        <a href="https://github.com/GK-Hynes" aria-label="GitHub">
+        <a href="https://github.com/gerhynes" aria-label="GitHub">
           <GithubIconStyles />
         </a>
       </HeroStyles>
