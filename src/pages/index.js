@@ -2,7 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import styled from "styled-components";
 import Layout from "../components/layout";
-import SEO from "../components/seo";
+import Seo from "../components/seo";
 import { Twitter } from "@styled-icons/boxicons-logos/Twitter";
 import { Github } from "@styled-icons/boxicons-logos/Github";
 
@@ -70,7 +70,7 @@ function IndexPage({ data }) {
   const { socialImg } = data;
   return (
     <Layout>
-      <SEO
+      <Seo
         title="Gerard Hynes | Web Developer"
         description={description}
         image={socialImg.childImageSharp.fluid}

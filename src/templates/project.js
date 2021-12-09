@@ -7,7 +7,7 @@ import styled from "styled-components";
 import { Github } from "@styled-icons/boxicons-logos/Github";
 import { LinkExternal } from "@styled-icons/boxicons-regular/LinkExternal";
 import Layout from "../components/layout";
-import SEO from "../components/seo";
+import Seo from "../components/seo";
 import Author from "../components/author";
 import {
   ProjectContainerStyles,
@@ -36,7 +36,7 @@ export default function ProjectTemplate({
   const { title, image, repoUrl, siteUrl } = mdx.frontmatter;
   return (
     <Layout>
-      <SEO
+      <Seo
         title={title}
         description={mdx.excerpt}
         image={image.childImageSharp.fluid}

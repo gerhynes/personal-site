@@ -5,7 +5,7 @@ import { MDXProvider } from "@mdx-js/react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import styled from "styled-components";
 import Layout from "../components/layout";
-import SEO from "../components/seo";
+import Seo from "../components/seo";
 import Author from "../components/author";
 import { PostBodyStyles, PostNavigationStyles } from "../styles/PostStyles";
 
@@ -45,7 +45,7 @@ export default function PostTemplate({ location, data: { mdx }, pageContext }) {
   const { title, date, description, image, tags } = mdx.frontmatter;
   return (
     <Layout>
-      <SEO
+      <Seo
         title={title}
         description={description}
         image={image.childImageSharp.fluid}

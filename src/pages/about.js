@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 import Image from "gatsby-image";
 import styled from "styled-components";
 import Layout from "../components/layout";
-import SEO from "../components/seo";
+import Seo from "../components/seo";
 import PageHeadingStyles from "../styles/PageHeadingStyles";
 
 const BioContainerStyles = styled.div`
@@ -53,7 +53,7 @@ function About({ data }) {
   const { socialImg } = data;
   return (
     <Layout>
-      <SEO
+      <Seo
         title="Gerard Hynes | About"
         description={description}
         image={socialImg.childImageSharp.fluid}

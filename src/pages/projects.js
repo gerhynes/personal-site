@@ -3,7 +3,7 @@ import { graphql, Link } from "gatsby";
 import Image from "gatsby-image";
 import styled from "styled-components";
 import Layout from "../components/layout";
-import SEO from "../components/seo";
+import Seo from "../components/seo";
 import PageHeadingStyles from "../styles/PageHeadingStyles";
 
 const ProjectGridStyles = styled.section`
@@ -110,7 +110,7 @@ function Projects({ data }) {
   const { socialImg, nasaApod, trataTimer, readingHabit } = data;
   return (
     <Layout>
-      <SEO
+      <Seo
         title="Gerard Hynes | Projects"
         description={description}
         image={socialImg.childImageSharp.fluid}
