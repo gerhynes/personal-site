@@ -1,6 +1,6 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
-import Image from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import styled from "styled-components";
 
 const AuthorDetailStyles = styled.section`
@@ -32,7 +32,7 @@ const Author = () => {
         return (
           <AuthorDetailStyles>
             <div>
-              <Image fixed={data.avatar.childImageSharp.fixed} alt={author} />
+              <GatsbyImage image={data.avatar.childImageSharp.gatsbyImageData} alt={author} />
             </div>
             <div>
               <p>
@@ -53,22 +53,19 @@ const Author = () => {
 
 export default Author;
 
-const authorQuery = graphql`
-  query authorQuery {
-    avatar: file(absolutePath: { regex: "/bio.jpg/" }) {
-      childImageSharp {
-        fixed(width: 50, height: 50) {
-          ...GatsbyImageSharpFixed
-        }
-      }
+const authorQuery = graphql`query authorQuery {
+  avatar: file(absolutePath: {regex: "/bio.jpg/"}) {
+    childImageSharp {
+      gatsbyImageData(width: 50, height: 50, layout: FIXED)
     }
-    site {
-      siteMetadata {
-        author
-        social {
-          twitter
-        }
+  }
+  site {
+    siteMetadata {
+      author
+      social {
+        twitter
       }
     }
   }
+}
 `;

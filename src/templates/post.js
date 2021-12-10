@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { MDXProvider } from "@mdx-js/react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import styled from "styled-components";
@@ -48,15 +48,14 @@ export default function PostTemplate({ location, data: { mdx }, pageContext }) {
       <Seo
         title={title}
         description={description}
-        image={image.childImageSharp.fluid}
+        image={image.childImageSharp.gatsbyImageData}
         pathname={location.pathname}
       />
       <PostStyles>
-        <Img
+        <GatsbyImage
+          image={image.childImageSharp.gatsbyImageData}
           style={{ marginBottom: `2rem` }}
-          fluid={image.childImageSharp.fluid}
-          alt={title}
-        />
+          alt={title} />
         <PostHeadingStyles>{title}</PostHeadingStyles>
         <PostDateStyles>{date}</PostDateStyles>
         {tags.map((tag) => (
@@ -89,24 +88,21 @@ export default function PostTemplate({ location, data: { mdx }, pageContext }) {
   );
 }
 
-export const pageQuery = graphql`
-  query PostQuery($slug: String!) {
-    mdx(fields: { slug: { eq: $slug } }) {
-      excerpt(pruneLength: 160)
-      body
-      frontmatter {
-        title
-        date(formatString: "DD MMMM YYYY")
-        description
-        tags
-        image {
-          childImageSharp {
-            fluid(maxWidth: 800) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
+export const pageQuery = graphql`query PostQuery($slug: String!) {
+  mdx(fields: {slug: {eq: $slug}}) {
+    excerpt(pruneLength: 160)
+    body
+    frontmatter {
+      title
+      date(formatString: "DD MMMM YYYY")
+      description
+      tags
+      image {
+        childImageSharp {
+          gatsbyImageData(width: 800, layout: CONSTRAINED)
         }
       }
     }
   }
+}
 `;

@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
-import Image from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import styled from "styled-components";
 import Layout from "../components/layout";
 import Seo from "../components/seo";
@@ -113,17 +113,14 @@ function Projects({ data }) {
       <Seo
         title="Gerard Hynes | Projects"
         description={description}
-        image={socialImg.childImageSharp.fluid}
+        image={socialImg.childImageSharp.gatsbyImageData}
       />
       <PageHeadingStyles>Projects</PageHeadingStyles>
       <ProjectGridStyles>
         <ProjectStyles>
           <ProjectImageStyles>
             <figure>
-              <Image
-                fluid={readingHabit.childImageSharp.fluid}
-                alt="Reading Habit"
-              />
+              <GatsbyImage image={readingHabit.childImageSharp.gatsbyImageData} alt="Reading Habit" />
             </figure>
           </ProjectImageStyles>
           <ProjectTextStyles>
@@ -164,7 +161,7 @@ function Projects({ data }) {
           </ProjectTextStyles>
           <ProjectImageStyles className="upper">
             <figure>
-              <Image fluid={nasaApod.childImageSharp.fluid} alt="NASA apod" />
+              <GatsbyImage image={nasaApod.childImageSharp.gatsbyImageData} alt="NASA apod" />
             </figure>
           </ProjectImageStyles>
         </ProjectStyles>
@@ -172,10 +169,7 @@ function Projects({ data }) {
         <ProjectStyles>
           <ProjectImageStyles>
             <figure>
-              <Image
-                fluid={trataTimer.childImageSharp.fluid}
-                alt="Tráta Timer"
-              />
+              <GatsbyImage image={trataTimer.childImageSharp.gatsbyImageData} alt="Tráta Timer" />
             </figure>
           </ProjectImageStyles>
           <ProjectTextStyles>
@@ -201,40 +195,31 @@ function Projects({ data }) {
 
 export default Projects;
 
-export const query = graphql`
-  query projectsQuery {
-    site {
-      siteMetadata {
-        description
-      }
-    }
-    socialImg: file(absolutePath: { regex: "/social.png/" }) {
-      childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    readingHabit: file(absolutePath: { regex: "/reading-habit.png/" }) {
-      childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    nasaApod: file(absolutePath: { regex: "/nasa-apod.png/" }) {
-      childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    trataTimer: file(absolutePath: { regex: "/trata-timer.png/" }) {
-      childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid
-        }
-      }
+export const query = graphql`query projectsQuery {
+  site {
+    siteMetadata {
+      description
     }
   }
+  socialImg: file(absolutePath: {regex: "/social.png/"}) {
+    childImageSharp {
+      gatsbyImageData(layout: FULL_WIDTH)
+    }
+  }
+  readingHabit: file(absolutePath: {regex: "/reading-habit.png/"}) {
+    childImageSharp {
+      gatsbyImageData(layout: FULL_WIDTH)
+    }
+  }
+  nasaApod: file(absolutePath: {regex: "/nasa-apod.png/"}) {
+    childImageSharp {
+      gatsbyImageData(layout: FULL_WIDTH)
+    }
+  }
+  trataTimer: file(absolutePath: {regex: "/trata-timer.png/"}) {
+    childImageSharp {
+      gatsbyImageData(layout: FULL_WIDTH)
+    }
+  }
+}
 `;

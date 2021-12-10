@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Image from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import styled from "styled-components";
 import Layout from "../components/layout";
 import Seo from "../components/seo";
@@ -41,7 +41,7 @@ const BioImageWrapperStyles = styled.div`
   margin-bottom: 1.5rem;
 `;
 
-const BioImageStyles = styled(Image)`
+const BioImageStyles = styled(GatsbyImage)`
   margin-right: 1.5rem;
   border-radius: 50%;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
@@ -56,13 +56,13 @@ function About({ data }) {
       <Seo
         title="Gerard Hynes | About"
         description={description}
-        image={socialImg.childImageSharp.fluid}
+        image={socialImg.childImageSharp.gatsbyImageData}
       />
       <PageHeadingStyles>About</PageHeadingStyles>
       <BioContainerStyles>
         <BioImageWrapperStyles>
           <BioImageStyles
-            fixed={data.avatar.childImageSharp.fixed}
+            image={data.avatar.childImageSharp.gatsbyImageData}
             alt={author}
           />
         </BioImageWrapperStyles>
@@ -102,16 +102,12 @@ export const query = graphql`
   query bioQuery {
     avatar: file(absolutePath: { regex: "/bio.jpg/" }) {
       childImageSharp {
-        fixed(width: 200, height: 200) {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(width: 200, height: 200, layout: FIXED)
       }
     }
     socialImg: file(absolutePath: { regex: "/social.png/" }) {
       childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(layout: FULL_WIDTH)
       }
     }
     site {

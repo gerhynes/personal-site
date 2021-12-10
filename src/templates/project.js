@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { MDXProvider } from "@mdx-js/react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import styled from "styled-components";
@@ -39,16 +39,15 @@ export default function ProjectTemplate({
       <Seo
         title={title}
         description={mdx.excerpt}
-        image={image.childImageSharp.fluid}
+        image={image.childImageSharp.gatsbyImageData}
         pathname={location.pathname}
       />
       <ProjectContainerStyles>
         <ProjectHeadingStyles>{title}</ProjectHeadingStyles>
-        <Img
+        <GatsbyImage
+          image={image.childImageSharp.gatsbyImageData}
           style={{ marginBottom: `1.5rem` }}
-          fluid={image.childImageSharp.fluid}
-          alt={title}
-        />
+          alt={title} />
         <MDXProvider components={shortcodes}>
           <PostBodyStyles>
             <MDXRenderer>{mdx.body}</MDXRenderer>
@@ -69,23 +68,20 @@ export default function ProjectTemplate({
   );
 }
 
-export const pageQuery = graphql`
-  query ProjectQuery($slug: String!) {
-    mdx(fields: { slug: { eq: $slug } }) {
-      excerpt(pruneLength: 160)
-      body
-      frontmatter {
-        title
-        repoUrl
-        siteUrl
-        image {
-          childImageSharp {
-            fluid(maxWidth: 800) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
+export const pageQuery = graphql`query ProjectQuery($slug: String!) {
+  mdx(fields: {slug: {eq: $slug}}) {
+    excerpt(pruneLength: 160)
+    body
+    frontmatter {
+      title
+      repoUrl
+      siteUrl
+      image {
+        childImageSharp {
+          gatsbyImageData(width: 800, layout: CONSTRAINED)
         }
       }
     }
   }
+}
 `;

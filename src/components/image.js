@@ -1,5 +1,5 @@
 import React from "react";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 // Image component because gatsby-image doesn't work with gifs
 
@@ -10,7 +10,7 @@ const Image = ({ image, ...theRest }) => {
   if (image.extension === "gif") {
     return <img src={image.publicUrl} {...theRest} />;
   }
-  return <Img fluid={image.childImageSharp.fluid} {...theRest} />;
+  return <GatsbyImage image={image.childImageSharp.gatsbyImageData} {...theRest} />;
 };
 
 export default Image;
