@@ -55,7 +55,8 @@ export default function PostTemplate({ location, data: { mdx }, pageContext }) {
         <GatsbyImage
           image={image.childImageSharp.gatsbyImageData}
           style={{ marginBottom: `2rem` }}
-          alt={title} />
+          alt={title}
+        />
         <PostHeadingStyles>{title}</PostHeadingStyles>
         <PostDateStyles>{date}</PostDateStyles>
         {tags.map((tag) => (
@@ -88,21 +89,26 @@ export default function PostTemplate({ location, data: { mdx }, pageContext }) {
   );
 }
 
-export const pageQuery = graphql`query PostQuery($slug: String!) {
-  mdx(fields: {slug: {eq: $slug}}) {
-    excerpt(pruneLength: 160)
-    body
-    frontmatter {
-      title
-      date(formatString: "DD MMMM YYYY")
-      description
-      tags
-      image {
-        childImageSharp {
-          gatsbyImageData(width: 800, layout: CONSTRAINED)
+export const pageQuery = graphql`
+  query PostQuery($slug: String!) {
+    mdx(fields: { slug: { eq: $slug } }) {
+      excerpt(pruneLength: 160)
+      body
+      frontmatter {
+        title
+        date(formatString: "DD MMMM YYYY")
+        description
+        tags
+        image {
+          childImageSharp {
+            gatsbyImageData(
+              width: 800
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+            )
+          }
         }
       }
     }
   }
-}
 `;

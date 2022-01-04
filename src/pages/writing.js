@@ -75,7 +75,7 @@ function Writing({ data }) {
       <Seo
         title="Gerard Hynes | Web Developer"
         description={description}
-        image={socialImg.childImageSharp.gatsbyImageData}
+        image={socialImg.childImageSharp.resize}
       />
       <ContainerStyles>
         <WritingIntroStyles>
@@ -115,37 +115,42 @@ function Writing({ data }) {
 
 export default Writing;
 
-export const query = graphql`query writingQuery {
-  site {
-    siteMetadata {
-      description
+export const query = graphql`
+  query writingQuery {
+    site {
+      siteMetadata {
+        description
+      }
     }
-  }
-  socialImg: file(absolutePath: {regex: "/social.png/"}) {
-    childImageSharp {
-      gatsbyImageData(layout: FULL_WIDTH)
-    }
-  }
-  allMdx(
-    sort: {fields: [frontmatter___date], order: DESC}
-    filter: {frontmatter: {published: {eq: true}}}
-    limit: 1000
-  ) {
-    edges {
-      node {
-        excerpt
-        frontmatter {
-          title
-          date(formatString: "DD MMMM YYYY")
-          description
-          tags
+    socialImg: file(absolutePath: { regex: "/social.png/" }) {
+      childImageSharp {
+        resize(width: 1200) {
+          src
+          height
+          width
         }
-        id
-        fields {
-          slug
+      }
+    }
+    allMdx(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { published: { eq: true } } }
+      limit: 1000
+    ) {
+      edges {
+        node {
+          excerpt
+          frontmatter {
+            title
+            date(formatString: "DD MMMM YYYY")
+            description
+            tags
+          }
+          id
+          fields {
+            slug
+          }
         }
       }
     }
   }
-}
 `;

@@ -73,7 +73,7 @@ function IndexPage({ data }) {
       <Seo
         title="Gerard Hynes | Web Developer"
         description={description}
-        image={socialImg.childImageSharp.gatsbyImageData}
+        image={socialImg.childImageSharp.resize}
       />
       <HeroStyles>
         <HeadingStyles>Hi, I'm Gerard</HeadingStyles>
@@ -94,16 +94,21 @@ function IndexPage({ data }) {
 
 export default IndexPage;
 
-export const query = graphql`query socialQuery {
-  site {
-    siteMetadata {
-      description
+export const query = graphql`
+  query socialQuery {
+    site {
+      siteMetadata {
+        description
+      }
+    }
+    socialImg: file(absolutePath: { regex: "/social.png/" }) {
+      childImageSharp {
+        resize(width: 1200) {
+          src
+          height
+          width
+        }
+      }
     }
   }
-  socialImg: file(absolutePath: {regex: "/social.png/"}) {
-    childImageSharp {
-      gatsbyImageData(layout: FULL_WIDTH)
-    }
-  }
-}
 `;

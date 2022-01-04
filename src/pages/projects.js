@@ -113,14 +113,17 @@ function Projects({ data }) {
       <Seo
         title="Gerard Hynes | Projects"
         description={description}
-        image={socialImg.childImageSharp.gatsbyImageData}
+        image={socialImg.childImageSharp.resize}
       />
       <PageHeadingStyles>Projects</PageHeadingStyles>
       <ProjectGridStyles>
         <ProjectStyles>
           <ProjectImageStyles>
             <figure>
-              <GatsbyImage image={readingHabit.childImageSharp.gatsbyImageData} alt="Reading Habit" />
+              <GatsbyImage
+                image={readingHabit.childImageSharp.gatsbyImageData}
+                alt="Reading Habit"
+              />
             </figure>
           </ProjectImageStyles>
           <ProjectTextStyles>
@@ -161,7 +164,10 @@ function Projects({ data }) {
           </ProjectTextStyles>
           <ProjectImageStyles className="upper">
             <figure>
-              <GatsbyImage image={nasaApod.childImageSharp.gatsbyImageData} alt="NASA apod" />
+              <GatsbyImage
+                image={nasaApod.childImageSharp.gatsbyImageData}
+                alt="NASA apod"
+              />
             </figure>
           </ProjectImageStyles>
         </ProjectStyles>
@@ -169,7 +175,10 @@ function Projects({ data }) {
         <ProjectStyles>
           <ProjectImageStyles>
             <figure>
-              <GatsbyImage image={trataTimer.childImageSharp.gatsbyImageData} alt="Tráta Timer" />
+              <GatsbyImage
+                image={trataTimer.childImageSharp.gatsbyImageData}
+                alt="Tráta Timer"
+              />
             </figure>
           </ProjectImageStyles>
           <ProjectTextStyles>
@@ -195,31 +204,36 @@ function Projects({ data }) {
 
 export default Projects;
 
-export const query = graphql`query projectsQuery {
-  site {
-    siteMetadata {
-      description
+export const query = graphql`
+  query projectsQuery {
+    site {
+      siteMetadata {
+        description
+      }
+    }
+    socialImg: file(absolutePath: { regex: "/social.png/" }) {
+      childImageSharp {
+        resize(width: 1200) {
+          src
+          height
+          width
+        }
+      }
+    }
+    readingHabit: file(absolutePath: { regex: "/reading-habit.png/" }) {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH)
+      }
+    }
+    nasaApod: file(absolutePath: { regex: "/nasa-apod.png/" }) {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH)
+      }
+    }
+    trataTimer: file(absolutePath: { regex: "/trata-timer.png/" }) {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH)
+      }
     }
   }
-  socialImg: file(absolutePath: {regex: "/social.png/"}) {
-    childImageSharp {
-      gatsbyImageData(layout: FULL_WIDTH)
-    }
-  }
-  readingHabit: file(absolutePath: {regex: "/reading-habit.png/"}) {
-    childImageSharp {
-      gatsbyImageData(layout: FULL_WIDTH)
-    }
-  }
-  nasaApod: file(absolutePath: {regex: "/nasa-apod.png/"}) {
-    childImageSharp {
-      gatsbyImageData(layout: FULL_WIDTH)
-    }
-  }
-  trataTimer: file(absolutePath: {regex: "/trata-timer.png/"}) {
-    childImageSharp {
-      gatsbyImageData(layout: FULL_WIDTH)
-    }
-  }
-}
 `;

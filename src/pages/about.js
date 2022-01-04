@@ -56,7 +56,7 @@ function About({ data }) {
       <Seo
         title="Gerard Hynes | About"
         description={description}
-        image={socialImg.childImageSharp.gatsbyImageData}
+        image={socialImg.childImageSharp.resize}
       />
       <PageHeadingStyles>About</PageHeadingStyles>
       <BioContainerStyles>
@@ -107,7 +107,11 @@ export const query = graphql`
     }
     socialImg: file(absolutePath: { regex: "/social.png/" }) {
       childImageSharp {
-        gatsbyImageData(layout: FULL_WIDTH)
+        resize(width: 1200) {
+          src
+          height
+          width
+        }
       }
     }
     site {
