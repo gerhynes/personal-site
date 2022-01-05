@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { GatsbyImage, getImage, getSrc } from "gatsby-plugin-image";
 import { MDXProvider } from "@mdx-js/react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import styled from "styled-components";
@@ -35,8 +35,12 @@ export default function ProjectTemplate({
 }) {
   const { title, repoUrl, siteUrl } = mdx.frontmatter;
   const image = getImage(mdx.frontmatter.image);
-  const metaImage = mdx.frontmatter.image
-    ? mdx.frontmatter.image.childImageSharp.resize
+  const metaImage = image
+    ? {
+        width: image.width,
+        height: image.height,
+        src: getSrc(image),
+      }
     : null;
   return (
     <Layout>

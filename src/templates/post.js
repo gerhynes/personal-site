@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { GatsbyImage, getImage, getSrc } from "gatsby-plugin-image";
 import { MDXProvider } from "@mdx-js/react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import styled from "styled-components";
@@ -44,9 +44,14 @@ export default function PostTemplate({ location, data: { mdx }, pageContext }) {
   const { prev, next } = pageContext;
   const { title, date, description, tags } = mdx.frontmatter;
   const image = getImage(mdx.frontmatter.image);
-  const metaImage = mdx.frontmatter.image
-    ? mdx.frontmatter.image.childImageSharp.resize
+  const metaImage = image
+    ? {
+        width: image.width,
+        height: image.height,
+        src: getSrc(image),
+      }
     : null;
+  // console.log(metaImage);
   return (
     <Layout>
       <Seo
