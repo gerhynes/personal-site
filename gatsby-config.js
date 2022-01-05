@@ -7,6 +7,15 @@ module.exports = {
     social: {
       twitter: `Gerard_K_Hynes`,
     },
+    keywords: [
+      "Web Developer",
+      "Software Developer",
+      "Fullstack Developer",
+      "JavaScript",
+      "React",
+      "Node.js",
+      "Jamstack",
+    ],
   },
   plugins: [
     `gatsby-plugin-styled-components`,

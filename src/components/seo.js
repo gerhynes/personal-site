@@ -13,6 +13,7 @@ function Seo({ description, lang, meta, title, image, pathname }) {
             description
             author
             siteUrl
+            keywords
             social {
               twitter
             }
@@ -49,6 +50,10 @@ function Seo({ description, lang, meta, title, image, pathname }) {
           content: metaDescription,
         },
         {
+          name: "keywords",
+          content: site.siteMetadata.keywords.join(","),
+        },
+        {
           property: `og:title`,
           content: title,
         },
@@ -59,10 +64,6 @@ function Seo({ description, lang, meta, title, image, pathname }) {
         {
           property: `og:type`,
           content: `website`,
-        },
-        {
-          name: `twitter:card`,
-          content: `summary`,
         },
         {
           name: `twitter:creator`,
