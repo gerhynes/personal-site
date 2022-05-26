@@ -26,15 +26,12 @@ export const PostBodyStyles = styled.section`
 
   pre {
     overflow-x: auto;
-    background: #2d3748;
     padding: 1rem 1.5rem;
     border-radius: 0.375rem;
     margin-bottom: 1.5rem;
   }
 
   pre code {
-    color: #e2e8f0;
-    background: #2d3748;
     font-weight: 500;
 
     &::before {
