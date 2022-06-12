@@ -62,10 +62,12 @@ export default function ProjectTemplate({
             <MDXRenderer>{mdx.body}</MDXRenderer>
           </PostBodyStyles>
           <ProjectLinkStyles>
-            <a href={siteUrl}>
-              <ExternalLinkStyles />
-              View Site
-            </a>
+            {siteUrl && (
+              <a href={siteUrl}>
+                <ExternalLinkStyles />
+                View Site
+              </a>
+            )}
             <a href={repoUrl}>
               <GithubStyles /> View Code
             </a>

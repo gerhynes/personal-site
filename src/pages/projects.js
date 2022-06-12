@@ -107,7 +107,7 @@ const ProjectTagsStyles = styled.ul`
 
 function Projects({ data }) {
   const { description } = data.site.siteMetadata;
-  const { socialImg, nasaApod, trataTimer, readingHabit } = data;
+  const { socialImg, foram, nasaApod, readingHabit } = data;
   return (
     <Layout>
       <Seo
@@ -117,6 +117,32 @@ function Projects({ data }) {
       />
       <PageHeadingStyles>Projects</PageHeadingStyles>
       <ProjectGridStyles>
+        <ProjectStyles>
+          <ProjectTextStyles>
+            <h3>Fóram</h3>
+            <p>
+              A fullstack discussion forum app with a React frontend and a Scala
+              API. Includes authentication, persistent data and test suites.
+            </p>
+            <ProjectLinkStyles to="/foram">View Project</ProjectLinkStyles>
+            <ProjectTagsStyles>
+              <li>#Scala</li>
+              <li>#Akka</li>
+              <li>#React</li>
+              <li>#PostgreSQL</li>
+              <li>#Testing</li>
+            </ProjectTagsStyles>
+          </ProjectTextStyles>
+          <ProjectImageStyles className="upper">
+            <figure>
+              <GatsbyImage
+                image={foram.childImageSharp.gatsbyImageData}
+                alt="Fóram"
+              />
+            </figure>
+          </ProjectImageStyles>
+        </ProjectStyles>
+
         <ProjectStyles>
           <ProjectImageStyles>
             <figure>
@@ -171,32 +197,6 @@ function Projects({ data }) {
             </figure>
           </ProjectImageStyles>
         </ProjectStyles>
-
-        <ProjectStyles>
-          <ProjectImageStyles>
-            <figure>
-              <GatsbyImage
-                image={trataTimer.childImageSharp.gatsbyImageData}
-                alt="Tráta Timer"
-              />
-            </figure>
-          </ProjectImageStyles>
-          <ProjectTextStyles>
-            <h3>Tráta Timer</h3>
-            <p>
-              A bilingual Pomodoro timer I built to help me focus when learning
-              new technologies.
-            </p>
-            <ProjectLinkStyles to="/trata-timer">
-              View Project
-            </ProjectLinkStyles>
-            <ProjectTagsStyles>
-              <li>#React</li>
-              <li>#Gatsby</li>
-              <li>#i18n</li>
-            </ProjectTagsStyles>
-          </ProjectTextStyles>
-        </ProjectStyles>
       </ProjectGridStyles>
     </Layout>
   );
@@ -220,17 +220,17 @@ export const query = graphql`
         }
       }
     }
+    foram: file(absolutePath: { regex: "/foram.png/" }) {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH)
+      }
+    }
     readingHabit: file(absolutePath: { regex: "/reading-habit.png/" }) {
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH)
       }
     }
     nasaApod: file(absolutePath: { regex: "/nasa-apod.png/" }) {
-      childImageSharp {
-        gatsbyImageData(layout: FULL_WIDTH)
-      }
-    }
-    trataTimer: file(absolutePath: { regex: "/trata-timer.png/" }) {
       childImageSharp {
         gatsbyImageData(layout: FULL_WIDTH)
       }

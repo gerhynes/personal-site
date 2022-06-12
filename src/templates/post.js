@@ -51,7 +51,6 @@ export default function PostTemplate({ location, data: { mdx }, pageContext }) {
         src: getSrc(image),
       }
     : null;
-  // console.log(metaImage);
   return (
     <Layout>
       <Seo
