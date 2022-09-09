@@ -19,9 +19,32 @@ const SubheadingStyles = styled.p`
   color: var(--grey-900);
 `;
 
+const ExternalArticleSectionStyles = styled.div`
+  border: 2px solid var(--primary-700);
+  border-radius: 0.5rem;
+  margin: 1rem;
+  padding: 1.5rem 1rem;
+`;
+
+const ExternalLinkStyles = styled.span`
+  font-weight: 600;
+  text-decoration: underline;
+  color: var(--primary-900);
+`;
+
+const ExternalArticleHeadingStyles = styled.h3`
+  font-size: 1.2rem;
+  text-align: center;
+`;
+
+const ExternalArticleStyles = styled.article`
+  padding: 1.5rem 0;
+`;
+
 const ArticleListStyles = styled.ul`
   padding: 0 1rem;
   list-style: none;
+  margin: 1rem;
 `;
 
 const ArticleStyles = styled.article`
@@ -73,7 +96,7 @@ function Writing({ data }) {
   return (
     <Layout>
       <Seo
-        title="Gerard Hynes | Web Developer"
+        title="Gerard Hynes | Software Developer"
         description={description}
         image={socialImg.childImageSharp.resize}
       />
@@ -85,6 +108,51 @@ function Writing({ data }) {
             knowledge. I hope you might also find these articles useful.
           </SubheadingStyles>
         </WritingIntroStyles>
+        <ExternalArticleSectionStyles>
+          <ExternalArticleHeadingStyles>
+            I've also been published by{" "}
+            <ExternalLinkStyles>
+              <a href="https://www.freecodecamp.org/news/">freeCodeCamp</a>
+            </ExternalLinkStyles>
+          </ExternalArticleHeadingStyles>
+
+          <ExternalArticleStyles>
+            <a href="https://www.freecodecamp.org/news/learn-eleventy/">
+              <ArticleTitleStyles>
+                Learn the Eleventy Static Site Generator by Building and
+                Deploying a Portfolio Website
+              </ArticleTitleStyles>
+              <DateStyles>6 September 2022</DateStyles>
+              <ArticleDescriptionStyles>
+                Eleventy is a static site generator that uses JavaScript to
+                transform data and templates into HTML pages.
+              </ArticleDescriptionStyles>
+              <ArticleLinkStyles>
+                <a href="https://www.freecodecamp.org/news/learn-eleventy/">
+                  Read more →
+                </a>
+              </ArticleLinkStyles>
+            </a>
+          </ExternalArticleStyles>
+          <ExternalArticleStyles>
+            <a href="https://www.freecodecamp.org/news/manage-postgresql-with-psql/">
+              <ArticleTitleStyles>
+                How to Manage PostgreSQL Databases from the Command Line with
+                psql
+              </ArticleTitleStyles>
+              <DateStyles>7 June 2022</DateStyles>
+              <ArticleDescriptionStyles>
+                Now is a great time to learn relational databases and SQL. From
+                web development to data science, they are used everywhere.
+              </ArticleDescriptionStyles>
+              <ArticleLinkStyles>
+                <a href="https://www.freecodecamp.org/news/manage-postgresql-with-psql/">
+                  Read more →
+                </a>
+              </ArticleLinkStyles>
+            </a>
+          </ExternalArticleStyles>
+        </ExternalArticleSectionStyles>
         <ArticleListStyles>
           {posts.map(({ node: post }) => (
             <li key={post.id}>
