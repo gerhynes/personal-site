@@ -1,6 +1,6 @@
 function Footer() {
   return (
-    <footer className="w-full text-center py-2">
+    <footer className="w-full py-2 text-center">
       {new Date().getFullYear()}
     </footer>
   );
