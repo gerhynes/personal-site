@@ -1,0 +1,75 @@
+---
+title: Reading Habit
+date: "2021-08-16"
+description: "A fullstack Jamstack app to help me keep track of the books I'm reading."
+slug: reading-habit
+repoUrl: https://github.com/gerhynes/reading-habit
+siteUrl: https://reading-habit.vercel.app/
+image: /images/projects/reading-habit/reading-habit.png
+---
+
+### Project Purpose and Goal
+
+For the last few years I've keep track of every book I read in whatever pocket notebook I was using at the time.
+
+![Book lists for 2020 and 2021](/images/projects/book-lists.png)
+
+After moving apartment twice and nearly losing the notebooks, I decided I needed a digital back up of my reading list. A spreadsheet would have worked but where's the fun in that.
+
+At the same time, I was learning Next.js and wanted to build a fullstack Jamstack app with it. This project was a chance to accomplish both goals at once.
+
+I decided to take the app I was making while following James Q Quick's [Fullstack Jamstack](https://www.youtube.com/watch?v=TNKzKtNTjls) course, change the data source from Airtable to FaunaDB, and build on the additional functionality I needed.
+
+### Tech Stack
+
+I wanted [Next.js](https://nextjs.org/) as the framework for the app as it combines the responsiveness of React on the frontend with the ability to use serverless functions via Next's API routes.
+
+I chose [FaunaDB](https://fauna.com/) as the database since its API-first approach suited the serverless nature of Next.js.
+
+[Auth0](https://auth0.com/) had just released a new Next.js SDK and I was eager to see if it really made adding authentication to a Next app as straighforward as it claimed.
+
+[Tailwind CSS](https://tailwindcss.com/) made sense for styling as it let me quickly prototype the app but didn't commit me to a particular design system.
+
+### Problems and Thought Process
+
+I introduced more than one bug by not keeping better track of the shape of the data being stored in Fauna. When new books were added they didn't have an id and the app's state was out of sync with the database.
+
+Importantly, documents in Fauna are stored with a Ref (containing their collection and a unique id) and a timestamp. The document's data is then stored in a nested data object.
+
+```js
+{
+  "ref": Ref(Collection("books"), "305662176059720261"),
+  "ts": 1628171790980000,
+  "data": {
+    "author": "Hans Rosling",
+    "title": "Factfulness",
+    "completed": true,
+    "dateCompleted": "2021-07-17",
+    "userId": "google-oauth2|xxxxxxxxxxxxxxxxxxxxx"
+  }
+}
+```
+
+I tackled this problem by using the debugger to track the values of a book as it was created, saved to the database, fetched back from it, and rendered to the UI. It turned out I wasn't extracting the id from the Ref and, additionally, I was saving the edited data into the top level of the document, not the data object.
+
+From this I learned more about debugging app state and API requests, as well as manipulating objects.
+
+### Lessons Learned
+
+I made this app for my own use but began to think about how usable it would be for other people. This made me consider user experience more fully.
+
+I planned out the user flow from the landing page to adding a book and realized I needed to make the following changes:
+
+- First, adding a simple landing page explaining the app rather than immediately forcing the user to log in.
+
+- On login, redirecting to the current user's book list.
+
+- If no books were present, showing a prompt to add a new book.
+
+![App interface when no books have been added](/images/projects/empty-state.png)
+
+I also spent time thinking about how to manage the edit flow. I considerd a separate edit page (but this would involve additional API calls to the database to generate these pages) or a modal (which raised accessibility problems). Instead, I incorporated the edit form into the Book component, minimizing context switching for the user.
+
+![Edit form](/images/projects/edit-form.png)
+
+I finished this project with a better understanding of the technologies involved, a renewed enthusiasm for building with the Jamstack, and a greater appreciation of the importance of user experience.
