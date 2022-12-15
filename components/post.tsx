@@ -19,7 +19,7 @@ function Post({ frontmatter, children }: PostProps) {
           height="800"
         />
       </div>
-      <span>{frontmatter.date}</span>
+      <span>{new Date(frontmatter.date).toLocaleDateString()}</span>
       <div className="prose mx-auto mt-4 prose-headings:font-serif lg:prose-lg">
         {children}
       </div>
