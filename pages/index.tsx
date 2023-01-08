@@ -1,7 +1,8 @@
 import type { NextPage } from "next";
 import Image from "next/image";
 import portrait from "../public/images/portrait.jpg";
-import { FaTwitter, FaGithub, FaLinkedin } from "react-icons/fa";
+import Socials from "../components/socials";
+import DndCampaign from "../components/dndCampaign";
 
 const Home: NextPage = () => {
   return (
@@ -31,44 +32,25 @@ const Home: NextPage = () => {
                   ducimus autem beatae impedit, ad, molestiae aperiam molestias
                   eius voluptatum architecto?
                 </p>
-
-                <div className="flex gap-6">
-                  <a
-                    className="group -m-1 p-1"
-                    aria-label="Twitter"
-                    href="https://twitter.com/Gerard_K_Hynes"
-                  >
-                    <FaTwitter
-                      className="h-6 w-6 fill-slate-500 transition group-hover:fill-slate-600"
-                      aria-hidden="true"
-                    />
-                  </a>
-                  <a
-                    className="group -m-1 p-1"
-                    aria-label="GitHub"
-                    href="https://github.com/gerhynes"
-                  >
-                    <FaGithub
-                      className="h-6 w-6 fill-slate-500 transition group-hover:fill-slate-600"
-                      aria-hidden="true"
-                    />
-                  </a>
-                  <a
-                    className="group -m-1 p-1"
-                    aria-label="LinkedIn"
-                    href="https://www.linkedin.com/in/hynesgk/"
-                  >
-                    <FaLinkedin
-                      className="h-6 w-6 fill-slate-500 transition group-hover:fill-slate-600"
-                      aria-hidden="true"
-                    />
-                  </a>
-                </div>
+                <Socials />
               </div>
             </div>
           </div>
         </div>
       </div>
+      <section className="mt-10 py-8" id="dnd">
+        <h2 className="mb-4 font-serif text-3xl font-bold">
+          Roll Playing with Friends
+        </h2>
+        <p className="text-slate-500">
+          I'm currently involved in two Dungeons and Dragons groups: one as a
+          player, the other as a rotating DM.
+        </p>
+        <div className="mt-4 grid grid-cols-1 gap-8 md:grid-cols-2">
+          <DndCampaign />
+          <DndCampaign />
+        </div>
+      </section>
     </main>
   );
 };
