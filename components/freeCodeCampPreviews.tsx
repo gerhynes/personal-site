@@ -1,4 +1,5 @@
 import Link from "next/link";
+import useFormatDate from "../hooks/useFormatDate";
 
 type FCCPreviewsProps = {
   previews: FCCPreview[];
@@ -24,14 +25,14 @@ function FreeCodeCampPreviews({ previews }: FCCPreviewsProps) {
         </a>
       </p>
       {previews.map((preview) => (
-        <div className="my-4" key={preview.date}>
+        <div className="my-8" key={preview.date}>
           <h2 className="mb-2 font-serif text-lg font-semibold sm:text-xl lg:text-2xl">
             <Link className="hover:underline" href={preview.url}>
               {preview.title}
             </Link>
           </h2>
           <span className="mb-2 block text-gray-500">
-            {new Date(preview.date).toLocaleDateString()}
+            {useFormatDate(preview.date)}
           </span>
           <p className="mb-2 block">{preview.description}</p>
           <Link href={preview.url}>
