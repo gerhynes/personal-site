@@ -36,6 +36,14 @@ export async function getStaticProps() {
   const fccPreviews = [
     {
       title:
+        "How to Format Compact Numbers with the JavaScript Internationalization API",
+      date: "2023-01-04",
+      description:
+        "The JavaScript Internationalization APi lets you format numbers compactly, such as 123K for 123,000",
+      url: "https://www.freecodecamp.org/news/format-compact-numbers-with-javascript/",
+    },
+    {
+      title:
         "Learn the Eleventy Static Site Generator by Building and Deploying a Portfolio Website",
       date: "2022-09-06",
       description:
