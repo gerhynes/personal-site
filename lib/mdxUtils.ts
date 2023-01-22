@@ -73,7 +73,8 @@ export function getAllPosts(): Post[] {
   });
 
   const sortedPosts = posts.sort(
-    (post1, post2) => post1.data.date - post2.data.date
+    (post1, post2) =>
+      new Date(post2.data.date).getTime() - new Date(post1.data.date).getTime()
   );
 
   return sortedPosts;
