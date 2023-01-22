@@ -1,0 +1,20 @@
+[
+  {
+    "title": "How to Format Compact Numbers with the JavaScript Internationalization API",
+    "date": "2023-01-04",
+    "description": "The JavaScript Internationalization API lets you format numbers compactly, such as 123K for 123,000.",
+    "url": "https://www.freecodecamp.org/news/format-compact-numbers-with-javascript/"
+  },
+  {
+    "title": "Learn the Eleventy Static Site Generator by Building and Deploying a Portfolio Website",
+    "date": "2022-09-06",
+    "description": "Eleventy is a static site generator that uses JavaScript to transform data and templates into HTML pages.",
+    "url": "https://www.freecodecamp.org/news/learn-eleventy/"
+  },
+  {
+    "title": "How to Manage PostgreSQL Databases from the Command Line with psql",
+    "date": "2022-06-07",
+    "description": "Now is a great time to learn relational databases and SQL. From web development to data science, they are used everywhere.",
+    "url": "https://www.freecodecamp.org/news/manage-postgresql-with-psql/"
+  }
+]
