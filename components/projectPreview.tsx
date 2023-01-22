@@ -14,13 +14,10 @@ function ProjectPreview({ frontmatter }: ProjectPreviewProps) {
         width="1898"
         height="923"
       />
-      <h2 className="mb-2 font-serif text-2xl font-semibold">
+      <h2 className="mb-2 font-serif text-2xl font-semibold text-slate-900">
         {frontmatter.title}
       </h2>
-      <span className="mb-2 block">
-        {new Date(frontmatter.date).toLocaleDateString()}
-      </span>
-      <p className="mb-2 text-lg">{frontmatter.description}</p>
+      <p className="mb-2 text-lg text-slate-700">{frontmatter.description}</p>
       <Link href={`/projects/${frontmatter.slug}`}>
         <span className="cursor-pointer  text-lg text-teal-700 underline">
           Read More

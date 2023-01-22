@@ -8,7 +8,7 @@ type PostProps = {
 function Post({ frontmatter, children }: PostProps) {
   return (
     <div>
-      <h2 className="py-8 font-serif text-2xl font-bold sm:text-3xl lg:text-4xl">
+      <h2 className="py-8 font-serif text-2xl font-bold text-slate-900 sm:text-3xl lg:text-4xl">
         {frontmatter.title}
       </h2>
       <div className="mb-4">
@@ -19,8 +19,10 @@ function Post({ frontmatter, children }: PostProps) {
           height="800"
         />
       </div>
-      <span>{new Date(frontmatter.date).toLocaleDateString()}</span>
-      <div className="prose mx-auto mt-4 prose-headings:font-serif lg:prose-lg">
+      <span className="text-slate-600">
+        {new Date(frontmatter.date).toLocaleDateString()}
+      </span>
+      <div className="prose prose-slate mx-auto mt-4 prose-headings:font-serif lg:prose-lg">
         {children}
       </div>
     </div>

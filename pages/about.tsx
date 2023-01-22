@@ -3,8 +3,8 @@ import portrait from "../public/images/portrait.jpg";
 
 function About() {
   return (
-    <div className="prose mx-auto py-4 lg:prose-lg">
-      <h1 className="text-center font-serif text-2xl font-bold sm:text-3xl lg:text-4xl">
+    <div className="prose prose-slate mx-auto py-4 lg:prose-lg">
+      <h1 className="text-center font-serif text-2xl font-bold text-slate-900 sm:text-3xl lg:text-4xl">
         About
       </h1>
       <p>Hi, I'm Gerard.</p>

@@ -20,7 +20,7 @@ function Project({ frontmatter, children }: ProjectProps) {
         />
       </div>
       <span>{new Date(frontmatter.date).toLocaleDateString()}</span>
-      <div className="prose mx-auto mt-4 prose-headings:font-serif lg:prose-lg">
+      <div className="prose prose-slate mx-auto mt-4 prose-headings:font-serif lg:prose-lg">
         {children}
       </div>
     </div>

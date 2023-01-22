@@ -1,4 +1,5 @@
 import Link from "next/link";
+import useFormattedDate from "../hooks/useFormatDate";
 
 type PostPreviewProps = {
   frontmatter: any;
@@ -12,12 +13,12 @@ function PostPreview({ frontmatter }: PostPreviewProps) {
           {frontmatter.title}
         </Link>
       </h2>
-      <span className="mb-2 block text-gray-500">
-        {new Date(frontmatter.date).toLocaleDateString()}
+      <span className="mb-2 block text-slate-500">
+        {useFormattedDate(frontmatter.date)}
       </span>
-      <p className="prose mb-2 block">{frontmatter.description}</p>
+      <p className="prose mb-2 text-slate-700">{frontmatter.description}</p>
       <Link href={`/${frontmatter.slug}`}>
-        <span className="cursor-pointer text-teal-700 hover:underline">
+        <span className="cursor-pointer font-semibold text-teal-600 hover:underline">
           Read More
         </span>
       </Link>

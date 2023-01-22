@@ -2,7 +2,7 @@ import Link from "next/link";
 
 function Header() {
   return (
-    <header className="mx-auto flex max-w-3xl flex-wrap justify-between px-4 py-4 font-serif text-xl text-slate-800">
+    <header className="mx-auto flex max-w-3xl flex-wrap justify-between px-4 py-4 font-serif text-xl text-slate-900">
       <h1 className="font-bold">
         <Link href="/">
           <a className="hover:underline">Gerard Hynes</a>
