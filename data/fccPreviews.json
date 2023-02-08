@@ -1,5 +1,11 @@
 [
   {
+    "title": "The Apache Kafka Handbook - How to Get Started Using Kafka",
+    "date": "2023-02-03",
+    "description": "Apache Kafka is an open-source event streaming platform that can transport huge volumes of data at very low latency. ",
+    "url": "https://www.freecodecamp.org/news/apache-kafka-handbook/"
+  },
+  {
     "title": "How to Format Compact Numbers with the JavaScript Internationalization API",
     "date": "2023-01-04",
     "description": "The JavaScript Internationalization API lets you format numbers compactly, such as 123K for 123,000.",
