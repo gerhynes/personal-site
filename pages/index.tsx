@@ -4,7 +4,6 @@ import portrait from "../public/images/portrait.jpg";
 import Socials from "../components/socials";
 import DndCampaign from "../components/dndCampaign";
 import dndCampaigns from "../data/dndCampaigns.json";
-import DiceRoller from "../components/diceRoller";
 
 const Home: NextPage = () => {
   return (
@@ -47,7 +46,6 @@ const Home: NextPage = () => {
           </div>
         </section>
       </main>
-      <DiceRoller />
     </>
   );
 };

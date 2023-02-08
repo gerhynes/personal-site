@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { BsXLg } from "react-icons/bs";
 import DiceButton from "./diceButton";
+import RollResults from "./rollResults";
 import D20 from "../public/images/dice/d20.svg";
 import D12 from "../public/images/dice/d12.svg";
 import D10 from "../public/images/dice/d10.svg";
@@ -60,13 +61,11 @@ function DiceRoller() {
   ];
 
   const [menuIsOpen, setMenuIsOpen] = useState(false);
-  const [diceSelected, setDiceSelected] = useState(false);
-  const [diceToRoll, setDiceToRoll] = useState<number[]>([]);
-
-  // need way to set count for each die
   const [currentDice, setCurrentDice] = useState(dice);
+  const [diceToRoll, setDiceToRoll] = useState<number[]>([]);
+  const [rollResults, setRollResults] = useState<RollResult[]>([]);
 
-  function incrementDiceCount(name: string) {
+  function incrementCurrentDice(name: string) {
     const newDice = currentDice.map((die) => {
       if (die.name === name) {
         die.count = die.count + 1;
@@ -76,7 +75,7 @@ function DiceRoller() {
     setCurrentDice(newDice);
   }
 
-  function resetDiceCount() {
+  function resetCurrentDice() {
     setCurrentDice(dice);
   }
 
@@ -91,52 +90,38 @@ function DiceRoller() {
   function clearDice() {
     setMenuIsOpen(false);
     setDiceToRoll([]);
-    resetDiceCount();
+    resetCurrentDice();
   }
 
   function rollDice(diceToRoll: number[]) {
     const rollResults: RollResult[] = [];
 
     diceToRoll.forEach((sides) => {
-      let roll = Math.random() * (sides - 1) + 1;
+      let roll = Math.floor(Math.random() * (sides - 1) + 1);
       let rollResult = {} as RollResult;
       rollResult.sides = sides;
       rollResult.result = roll;
       rollResults.push(rollResult);
     });
 
-    return rollResults;
+    console.log(rollResults);
+
+    setRollResults(rollResults);
+  }
+
+  function handleRoll() {
+    rollDice(diceToRoll);
+    clearDice();
   }
 
   return (
-    <div className="fixed top-0 z-50 h-full w-full" id="rollingSpace">
-      <div id="diceBar" className="">
-        <div id="diceButtons">
-          {menuIsOpen ? (
-            <button
-              className="absolute bottom-2.5 flex h-16 w-16 items-center justify-center rounded-full border-4 border-teal-500 bg-slate-800 hover:bg-slate-500"
-              onClick={clearDice}
-            >
-              <BsXLg className="h-6 w-6 fill-white" />
-            </button>
-          ) : (
-            <button
-              className="absolute bottom-2.5 flex h-16 w-16 justify-center rounded-full bg-teal-500 hover:bg-teal-600"
-              onClick={openMenu}
-            >
-              <D20 className="h-16 w-16 fill-white" />
-            </button>
-          )}
-          {diceToRoll.length > 0 ? (
-            <button className="absolute left-20 bottom-2.5 h-16 w-24 rounded-full bg-red-500 text-lg font-bold uppercase tracking-wider text-white hover:bg-red-700">
-              Roll
-            </button>
-          ) : (
-            ""
-          )}
-        </div>
+    <div
+      className="pointer-events-none fixed top-0 z-50 flex h-full w-full"
+      id="rollingSpace"
+    >
+      <div id="diceArea" className="flex flex-col items-start justify-end p-4">
         <div
-          className={`absolute bottom-20 flex flex-col-reverse gap-2 ${
+          className={`mb-2 flex flex-col-reverse gap-2 ${
             menuIsOpen ? `` : `hidden`
           }`}
           id="diceMenu"
@@ -146,14 +131,40 @@ function DiceRoller() {
               key={die.name}
               die={die}
               updateDiceToRoll={updateDiceToRoll}
-              incrementDiceCount={incrementDiceCount}
+              incrementCurrentDice={incrementCurrentDice}
             />
           ))}
         </div>
+        <div className="pointer-events-auto flex gap-2" id="diceButtons">
+          {menuIsOpen ? (
+            <button
+              className="flex h-16 w-16 items-center justify-center rounded-full border-4 border-teal-500 bg-slate-800 hover:bg-slate-700"
+              onClick={clearDice}
+            >
+              <BsXLg className="h-6 w-6 fill-white" />
+            </button>
+          ) : (
+            <button
+              className="flex h-16 w-16 justify-center rounded-full bg-teal-500 hover:bg-teal-600"
+              onClick={openMenu}
+            >
+              <D20 className="h-16 w-16 fill-white" />
+            </button>
+          )}
+          {diceToRoll.length > 0 ? (
+            <button
+              className="h-16 w-24 rounded-full bg-red-600 text-lg font-bold uppercase tracking-wider text-white hover:bg-red-800"
+              onClick={handleRoll}
+            >
+              Roll
+            </button>
+          ) : (
+            ""
+          )}
+        </div>
       </div>
-      <div id="resultsSpace">
-        <div id="latestRoll"></div>
-        <div id="previousRolls"></div>
+      <div className="flex h-full w-full flex-col items-end justify-end p-4">
+        <RollResults rollResults={rollResults} />
       </div>
     </div>
   );
