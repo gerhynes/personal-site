@@ -12,58 +12,36 @@ type RollResult = {
 };
 
 type SplitResult = {
-  dice: number[];
-  scores: number[];
+  allDice: number[];
+  allScores: number[];
 };
 
 type Roll = {
-  summary: string;
+  diceSummary: string;
+  resultSummary: string;
   total: number;
 };
 
 function RollResults({ rollResults }: RollResultsProps) {
-  const results = [
-    {
-      sides: 6,
-      result: 5,
-    },
-    {
-      sides: 6,
-      result: 3,
-    },
-  ];
-
-  const dice: number[] = [4, 6, 6, 6];
-  const scores: number[] = [1, 5, 5, 3];
-
-  const lastRoll = {
-    summary: "1 + 3",
-    total: 4,
-  };
-
   const [resultsPanelIsOpen, setResultsPanelIsOpen] = useState(false);
-  const [previousRolls, setPreviousRolls] = useState<Roll[]>([]);
-  const [splitResult, setSplitResult] = useState<SplitResult>({
-    dice: [],
-    scores: [],
-  });
+  const [rolls, setRolls] = useState<Roll[]>([]);
 
   function splitResults(results: RollResult[]) {
-    const dice: number[] = [];
-    const scores: number[] = [];
+    const allDice: number[] = [];
+    const allScores: number[] = [];
 
     results.forEach((die: RollResult) => {
-      dice.push(die.sides);
-      scores.push(die.result);
+      allDice.push(die.sides);
+      allScores.push(die.result);
     });
 
     return {
-      dice,
-      scores,
+      allDice,
+      allScores,
     };
   }
 
-  function getTotal(scores: number[]) {
+  function getRollTotal(scores: number[]) {
     return scores.reduce((acc, curr) => acc + curr, 0);
   }
 
@@ -91,76 +69,80 @@ function RollResults({ rollResults }: RollResultsProps) {
   }
 
   function clearResults() {
-    setPreviousRolls([]);
-    setSplitResult({
-      dice: [],
-      scores: [],
-    });
+    setRolls([]);
     setResultsPanelIsOpen(false);
   }
 
-  function updatePreviousRolls(rollResults: RollResult[]) {
-    // split rollResults
-    const splitRes = splitResults(rollResults);
-    const summary = summarizeRolls(splitRes.scores);
-    const total = getTotal(splitRes.scores);
+  function updateRolls(rollResults: RollResult[]) {
+    // check prevents empty array being processed on initial render
+    if (rollResults.length > 0) {
+      const splitResult = splitResults(rollResults);
+      const resultSummary = summarizeRolls(splitResult.allScores);
+      const diceSummary = summarizeDice(
+        getDistinctDiceCount(splitResult.allDice)
+      );
+      const total = getRollTotal(splitResult.allScores);
 
-    let rollsToKeep: Roll[] = [];
+      let rollsToKeep: Roll[] = [];
 
-    if (previousRolls.length > 2) {
-      rollsToKeep = previousRolls.slice(-2);
-    } else {
-      rollsToKeep = previousRolls;
+      if (rolls.length > 2) {
+        rollsToKeep = rolls.slice(-2);
+      } else {
+        rollsToKeep = rolls;
+      }
+
+      console.log("All kept rolls", rolls);
+
+      setRolls([
+        ...rollsToKeep,
+        {
+          resultSummary,
+          diceSummary,
+          total,
+        },
+      ]);
+
+      setResultsPanelIsOpen(true);
     }
-
-    console.log("previous rolls", previousRolls);
-
-    setPreviousRolls([
-      ...rollsToKeep,
-      {
-        summary,
-        total,
-      },
-    ]);
   }
 
   useEffect(() => {
-    setSplitResult(splitResults(rollResults));
-    setResultsPanelIsOpen(true);
-    updatePreviousRolls(rollResults);
-    console.log(previousRolls);
+    updateRolls(rollResults);
+    console.log("Rolls: ", rolls);
   }, [rollResults]);
 
   return (
     <>
-      {rollResults.length > 0 ? (
+      {resultsPanelIsOpen ? (
         <div className="pointer-events-auto" id="resultsArea">
-          <div id="previousRolls">
-            {previousRolls.length > 1 &&
-              previousRolls
-                .slice(1, -1)
-                .map((roll, i) => <PreviousRoll roll={roll} key={i} />)}
-          </div>
-          <div
-            className="w-64 rounded-xl bg-slate-900 px-4 py-4"
-            id="latestRoll"
-          >
-            <span className="mb-2 block font-bold uppercase tracking-wider text-yellow-500">
-              Roll
-            </span>
-            <div className="mb-2 flex w-full items-center justify-evenly gap-2">
-              <D20 className="h-10 w-10 fill-slate-300" />
-              <span className="text-xl text-white">
-                {summarizeRolls(splitResult.scores)}
+          <div className="flex flex-col items-end">
+            <div id="previousRolls">
+              {rolls.length > 1 &&
+                rolls
+                  .slice(0, -1)
+                  .map((roll, i) => <PreviousRoll roll={roll} key={i} />)}
+            </div>
+            <div
+              className="w-64 rounded-xl bg-slate-900 px-4 py-4"
+              id="latestRoll"
+            >
+              <span className="mb-2 block font-bold uppercase tracking-wider text-yellow-500">
+                Roll
               </span>
-              <span className="text-slate-300">&#61;</span>
-              <span className="text-5xl font-bold text-white">
-                {getTotal(splitResult.scores)}
+              <div className="mb-2 flex w-full items-center justify-evenly gap-2">
+                <D20 className="h-10 w-10 fill-slate-300" />
+                <span className="text-xl text-white">
+                  {rolls.at(-1)?.resultSummary}
+                </span>
+                <span className="text-slate-300">&#61;</span>
+                <span className="text-5xl font-bold text-white">
+                  {rolls.at(-1)?.total}
+                </span>
+              </div>
+              <span className="font-semibold text-slate-300">
+                {rolls.at(-1)?.diceSummary}
               </span>
             </div>
-            <span className="font-semibold text-slate-300">
-              {summarizeDice(getDistinctDiceCount(splitResult.dice))}
-            </span>
           </div>
           <div className="mt-2 flex justify-end" id="resultButton">
             <button

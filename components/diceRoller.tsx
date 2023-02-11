@@ -15,7 +15,7 @@ type RollResult = {
 };
 
 function DiceRoller() {
-  const dice = [
+  const DICE = [
     {
       name: "d4",
       sides: 4,
@@ -61,7 +61,7 @@ function DiceRoller() {
   ];
 
   const [menuIsOpen, setMenuIsOpen] = useState(false);
-  const [currentDice, setCurrentDice] = useState(dice);
+  const [currentDice, setCurrentDice] = useState(DICE);
   const [diceToRoll, setDiceToRoll] = useState<number[]>([]);
   const [rollResults, setRollResults] = useState<RollResult[]>([]);
 
@@ -76,7 +76,7 @@ function DiceRoller() {
   }
 
   function resetCurrentDice() {
-    setCurrentDice(dice);
+    setCurrentDice(DICE);
   }
 
   function updateDiceToRoll(sides: number) {

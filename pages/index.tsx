@@ -10,8 +10,8 @@ const Home: NextPage = () => {
     <>
       <main>
         <div className="mx-auto max-w-7xl">
-          <div className="mx-auto mt-24 max-w-2xl lg:max-w-5xl">
-            <div className="mb-6 flex items-center justify-center">
+          <div className="mx-auto mt-12 max-w-2xl lg:max-w-5xl">
+            <div className="mb-12 flex items-center justify-center">
               <div className="h-44 w-44">
                 <Image
                   className="rounded-full"
@@ -33,7 +33,7 @@ const Home: NextPage = () => {
         </div>
         <section className="mt-10 py-8" id="dnd">
           <h2 className="mb-4 font-serif text-3xl font-bold text-slate-900">
-            Roll Playing with Friends
+            Role Playing with Friends
           </h2>
           <p className="text-lg text-slate-700">
             I'm currently involved in two Dungeons and Dragons groups: one as a

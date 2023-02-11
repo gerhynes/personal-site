@@ -1,5 +1,6 @@
 type Roll = {
-  summary: string;
+  diceSummary: string;
+  resultSummary: string;
   total: number;
 };
 
@@ -9,11 +10,11 @@ type PreviousRollProps = {
 
 function PreviousRoll({ roll }: PreviousRollProps) {
   return (
-    <div className="mb-4 flex items-center justify-between rounded-lg bg-slate-900 p-4">
+    <div className="mb-4 flex items-center justify-between gap-2 rounded-lg bg-slate-900 p-4">
       <span className="font-semibold uppercase tracking-wider text-yellow-500">
         Roll
       </span>
-      <span className="text-white">{roll.summary}</span>
+      <span className="flex flex-wrap text-white">{roll.resultSummary}</span>
       <span className="text-2xl font-semibold text-white">{roll.total}</span>
     </div>
   );
