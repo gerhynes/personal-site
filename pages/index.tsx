@@ -24,27 +24,16 @@ const Home: NextPage = () => {
             <h1 className="mb-6 font-serif text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
               Hi, I'm Gerard
             </h1>
+            <p className="mb-2 text-lg leading-7 text-slate-700">
+              I'm a software engineer, former English teacher, and big nerd.
+            </p>
             <p className="mb-6 text-lg leading-7 text-slate-700">
-              I'm a software engineer based in Galway. I currently work on
-              real-time data reporting with Scala, Kafka, and Kubernetes.
+              My professional work focuses on real-time data reporting
+              microservices with Scala, Kafka, and Kubernetes.
             </p>
             <Socials />
           </div>
         </div>
-        <section className="mt-10 py-8" id="dnd">
-          <h2 className="mb-4 font-serif text-3xl font-bold text-slate-900">
-            Role Playing with Friends
-          </h2>
-          <p className="text-lg text-slate-700">
-            I'm currently involved in two Dungeons and Dragons groups: one as a
-            player, the other as a rotating DM.
-          </p>
-          <div className="mt-4 grid grid-cols-1 gap-8 md:grid-cols-2">
-            {dndCampaigns.map((campaign) => (
-              <DndCampaign campaign={campaign} key={campaign.name} />
-            ))}
-          </div>
-        </section>
       </main>
     </>
   );
