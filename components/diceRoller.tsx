@@ -97,14 +97,12 @@ function DiceRoller() {
     const rollResults: RollResult[] = [];
 
     diceToRoll.forEach((sides) => {
-      let roll = Math.floor(Math.random() * (sides - 1) + 1);
-      let rollResult = {} as RollResult;
-      rollResult.sides = sides;
-      rollResult.result = roll;
-      rollResults.push(rollResult);
+      let result = Math.floor(Math.random() * (sides - 1) + 1);
+      rollResults.push({
+        sides,
+        result,
+      });
     });
-
-    console.log(rollResults);
 
     setRollResults(rollResults);
   }
@@ -121,7 +119,7 @@ function DiceRoller() {
     >
       <div id="diceArea" className="flex flex-col items-start justify-end p-4">
         <div
-          className={`mb-2 flex flex-col-reverse gap-2 ${
+          className={`mb-6 flex flex-col-reverse gap-6 ${
             menuIsOpen ? `` : `hidden`
           }`}
           id="diceMenu"
@@ -138,7 +136,7 @@ function DiceRoller() {
         <div className="pointer-events-auto flex gap-2" id="diceButtons">
           {menuIsOpen ? (
             <button
-              className="flex h-16 w-16 items-center justify-center rounded-full border-4 border-teal-500 bg-slate-800 hover:bg-slate-700"
+              className="flex h-16 w-16 items-center justify-center rounded-full border-4 border-teal-500 bg-slate-600 hover:bg-slate-700"
               onClick={clearDice}
             >
               <BsXLg className="h-6 w-6 fill-white" />
@@ -153,7 +151,7 @@ function DiceRoller() {
           )}
           {diceToRoll.length > 0 ? (
             <button
-              className="h-16 w-24 rounded-full bg-red-600 text-lg font-bold uppercase tracking-wider text-white hover:bg-red-800"
+              className="h-16 w-24 rounded-full bg-teal-500 text-lg font-bold uppercase tracking-wider text-white hover:bg-teal-600"
               onClick={handleRoll}
             >
               Roll
