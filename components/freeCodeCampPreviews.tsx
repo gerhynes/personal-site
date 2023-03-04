@@ -14,11 +14,11 @@ export type FCCPreview = {
 function FreeCodeCampPreviews({ previews }: FCCPreviewsProps) {
   return (
     <div className="border-t-2 border-b-2 border-slate-900 p-4">
-      <h2 className="mb-4 font-serif text-3xl font-semibold">
+      <h2 className="mb-4 font-serif text-xl font-semibold sm:text-2xl lg:text-3xl">
         freeCodeCamp Publications
       </h2>
       <p className="text-lg text-slate-700">
-        I've published tutorials with freeCodeCamp.
+        Tutorials I've published for freeCodeCamp.org.
       </p>
       {previews.map((preview) => (
         <div className="my-8" key={preview.date}>

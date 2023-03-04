@@ -1,20 +1,20 @@
 import ProjectPreview from "../components/projectPreview";
 import { getAllProjects, Project } from "../lib/mdxUtils";
 
-interface ProjectsPageProps {
+type ProjectsPageProps = {
   projects: Project[];
-}
+};
 
 export default function ProjectsPage({ projects }: ProjectsPageProps) {
   return (
-    <>
-      <h1 className="mb-4 text-center font-serif text-2xl font-bold sm:text-3xl lg:text-4xl">
-        Projects
+    <div className="my-8">
+      <h1 className="mb-8 text-center font-serif text-2xl font-bold sm:text-3xl lg:text-4xl">
+        Personal Projects
       </h1>
       {projects.map((project) => (
         <ProjectPreview key={project.data.title} frontmatter={project.data} />
       ))}
-    </>
+    </div>
   );
 }
 
