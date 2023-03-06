@@ -7,22 +7,37 @@ type ProjectPreviewProps = {
 
 function ProjectPreview({ frontmatter }: ProjectPreviewProps) {
   return (
-    <div className="mx-auto my-8">
-      <Image
-        src={frontmatter.image}
-        alt={frontmatter.title}
-        width="1898"
-        height="923"
-      />
-      <h2 className="mb-2 font-serif text-2xl font-semibold text-slate-900">
-        {frontmatter.title}
-      </h2>
-      <p className="mb-2 text-lg text-slate-700">{frontmatter.description}</p>
-      <Link href={`/projects/${frontmatter.slug}`}>
-        <span className="cursor-pointer  text-lg text-teal-700 underline">
-          Read More
-        </span>
-      </Link>
+    <div className="mx-auto my-12 grid gap-8 sm:grid-cols-2">
+      <div className="flex flex-col justify-center">
+        <Image
+          className="rounded"
+          src={frontmatter.image}
+          alt={frontmatter.title}
+          width="1898"
+          height="923"
+        />
+      </div>
+      <div className="">
+        <h2 className="mb-2 font-serif text-2xl font-semibold text-slate-900">
+          {frontmatter.title}
+        </h2>
+        <ul className="mb-2 flex flex-wrap gap-4">
+          {frontmatter.tags.map((tag: string) => (
+            <li
+              className="rounded-full bg-slate-200 py-1 px-2 text-sm text-slate-700"
+              key={tag}
+            >
+              {`#${tag}`}
+            </li>
+          ))}
+        </ul>
+        <p className="mb-2 text-lg text-slate-700">{frontmatter.description}</p>
+        <Link href={`/projects/${frontmatter.slug}`}>
+          <span className="cursor-pointer  text-lg text-teal-700 underline">
+            View Project
+          </span>
+        </Link>
+      </div>
     </div>
   );
 }

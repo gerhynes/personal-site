@@ -11,9 +11,11 @@ export default function ProjectsPage({ projects }: ProjectsPageProps) {
       <h1 className="mb-8 text-center font-serif text-2xl font-bold sm:text-3xl lg:text-4xl">
         Personal Projects
       </h1>
-      {projects.map((project) => (
-        <ProjectPreview key={project.data.title} frontmatter={project.data} />
-      ))}
+      <div id="projectsGrid">
+        {projects.map((project) => (
+          <ProjectPreview key={project.data.title} frontmatter={project.data} />
+        ))}
+      </div>
     </div>
   );
 }

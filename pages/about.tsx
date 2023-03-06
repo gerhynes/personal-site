@@ -20,10 +20,11 @@ function About() {
         nerd.
       </p>
       <p>
-        In 2017 I decided to learn to code. After a few years cramming in study
-        around work, I bit the bullet, did a Higher Diploma in Software Design
-        and Development, and landed a software development internship. That led
-        to my first software engineering role.
+        In 2017 I decided to learn to code. For a few years I crammed in study
+        around work, doing several rounds of the 100DaysOfCode challenge. In
+        2021 I bit the bullet, did a Higher Diploma in Software Design and
+        Development, and landed a software development internship. That led to
+        my first software engineering role.
       </p>
       <p>
         These days my professional work focuses on real-time data reporting

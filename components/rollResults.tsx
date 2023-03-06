@@ -17,6 +17,7 @@ type SplitResult = {
 };
 
 type Roll = {
+  id: string;
   diceSummary: string;
   resultSummary: string;
   total: number;
@@ -91,11 +92,10 @@ function RollResults({ rollResults }: RollResultsProps) {
         rollsToKeep = rolls;
       }
 
-      console.log("All kept rolls", rolls);
-
       setRolls([
         ...rollsToKeep,
         {
+          id: crypto.randomUUID(),
           resultSummary,
           diceSummary,
           total,
@@ -108,7 +108,6 @@ function RollResults({ rollResults }: RollResultsProps) {
 
   useEffect(() => {
     updateRolls(rollResults);
-    console.log("Rolls: ", rolls);
   }, [rollResults]);
 
   return (
@@ -120,7 +119,7 @@ function RollResults({ rollResults }: RollResultsProps) {
               {rolls.length > 1 &&
                 rolls
                   .slice(0, -1)
-                  .map((roll, i) => <PreviousRoll roll={roll} key={i} />)}
+                  .map((roll) => <PreviousRoll roll={roll} key={roll.id} />)}
             </div>
             <div
               className="w-64 rounded-xl bg-slate-600 px-4 py-4 text-slate-300"
