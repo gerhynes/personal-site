@@ -3,10 +3,14 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
-  content: [
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
-  ],
+  darkMode: "class",
+  purge: {
+    enabled: true,
+    content: [
+      "./pages/**/*.{js,ts,jsx,tsx}",
+      "./components/**/*.{js,ts,jsx,tsx}",
+    ],
+  },
   theme: {
     extend: {
       fontFamily: {
@@ -14,6 +18,9 @@ module.exports = {
         serif: ["Source Code Pro", ...defaultTheme.fontFamily.serif],
       },
     },
+  },
+  variants: {
+    typography: ["dark"],
   },
   plugins: [require("@tailwindcss/typography")],
 };

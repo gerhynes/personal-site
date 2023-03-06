@@ -21,13 +21,13 @@ const Home: NextPage = () => {
                 />
               </div>
             </div>
-            <h1 className="mb-6 font-serif text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
+            <h1 className="mb-6 font-serif text-4xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-5xl">
               Hi, I'm Gerard
             </h1>
-            <p className="mb-2 text-lg leading-7 text-slate-700">
+            <p className="mb-2 text-lg leading-7 text-slate-700 dark:text-slate-300">
               I'm a software engineer, former English teacher, and big nerd.
             </p>
-            <p className="mb-6 text-lg leading-7 text-slate-700">
+            <p className="mb-6 text-lg leading-7 text-slate-700 dark:text-slate-300">
               My professional work focuses on real-time data reporting
               microservices with Scala, Kafka, and Kubernetes.
             </p>

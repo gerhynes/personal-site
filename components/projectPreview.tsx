@@ -18,22 +18,24 @@ function ProjectPreview({ frontmatter }: ProjectPreviewProps) {
         />
       </div>
       <div className="">
-        <h2 className="mb-2 font-serif text-2xl font-semibold text-slate-900">
+        <h2 className="mb-2 font-serif text-2xl font-semibold text-slate-900 dark:text-white">
           {frontmatter.title}
         </h2>
         <ul className="mb-2 flex flex-wrap gap-4">
           {frontmatter.tags.map((tag: string) => (
             <li
-              className="rounded-full bg-slate-200 py-1 px-2 text-sm text-slate-700"
+              className="rounded-full bg-slate-200 py-1 px-2 text-sm text-slate-700 dark:bg-slate-700 dark:text-slate-300"
               key={tag}
             >
               {`#${tag}`}
             </li>
           ))}
         </ul>
-        <p className="mb-2 text-lg text-slate-700">{frontmatter.description}</p>
+        <p className="mb-2 text-lg text-slate-700 dark:text-slate-300">
+          {frontmatter.description}
+        </p>
         <Link href={`/projects/${frontmatter.slug}`}>
-          <span className="cursor-pointer  text-lg text-teal-700 underline">
+          <span className="cursor-pointer  text-lg text-teal-700 underline dark:text-teal-300">
             View Project
           </span>
         </Link>

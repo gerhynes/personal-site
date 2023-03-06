@@ -8,7 +8,7 @@ type ProjectsPageProps = {
 export default function ProjectsPage({ projects }: ProjectsPageProps) {
   return (
     <div className="my-8">
-      <h1 className="mb-8 text-center font-serif text-2xl font-bold sm:text-3xl lg:text-4xl">
+      <h1 className="mb-8 text-center font-serif text-2xl font-bold dark:text-white sm:text-3xl lg:text-4xl">
         Personal Projects
       </h1>
       <div id="projectsGrid">

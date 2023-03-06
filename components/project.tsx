@@ -7,7 +7,7 @@ type ProjectProps = {
 
 function Project({ frontmatter, children }: ProjectProps) {
   return (
-    <div>
+    <div className="mb-8">
       <h2 className="py-8 font-serif text-2xl font-bold sm:text-3xl lg:text-4xl">
         {frontmatter.title}
       </h2>
@@ -19,8 +19,10 @@ function Project({ frontmatter, children }: ProjectProps) {
           height="923"
         />
       </div>
-      <span>{new Date(frontmatter.date).toLocaleDateString()}</span>
-      <div className="prose prose-slate mx-auto mt-4 prose-headings:font-serif lg:prose-lg">
+      <span className="text-slate-600 dark:text-slate-300">
+        {new Date(frontmatter.date).toLocaleDateString()}
+      </span>
+      <div className="prose prose-slate mx-auto mt-4 prose-headings:font-serif prose-a:text-teal-500 dark:prose-invert lg:prose-lg">
         {children}
       </div>
     </div>
