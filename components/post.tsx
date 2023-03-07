@@ -11,8 +11,9 @@ function Post({ frontmatter, children }: PostProps) {
       <h2 className="py-8 font-serif text-2xl font-bold text-slate-900 dark:text-white sm:text-3xl lg:text-4xl">
         {frontmatter.title}
       </h2>
-      <div className="mb-4">
+      <div className="mb-4 flex rounded-lg border-2 border-white dark:border-slate-300">
         <Image
+          className="rounded-lg"
           src={frontmatter.image}
           alt={frontmatter.title}
           width="1600"

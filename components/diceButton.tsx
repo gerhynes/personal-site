@@ -23,7 +23,7 @@ function DiceButton({
     <div className="group pointer-events-auto relative flex items-center">
       <div className="relative h-16 w-16 rounded-full">
         <button
-          className="flex h-16 w-16 items-center justify-center rounded-full bg-slate-600 group-hover:bg-slate-700"
+          className="flex h-16 w-16 items-center justify-center rounded-full bg-slate-700 group-hover:bg-slate-600"
           onClick={handleClick}
         >
           {die.image}
@@ -38,7 +38,7 @@ function DiceButton({
         )}
       </div>
       <div className="absolute inset-x-0 -bottom-4 flex justify-center text-slate-300">
-        <p className="block w-11 rounded-lg bg-slate-600 text-center group-hover:bg-slate-700">
+        <p className="block w-11 rounded-lg bg-slate-700 text-center group-hover:bg-slate-600">
           {die.name}
         </p>
       </div>

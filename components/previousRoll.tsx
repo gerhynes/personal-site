@@ -10,7 +10,7 @@ type PreviousRollProps = {
 
 function PreviousRoll({ roll }: PreviousRollProps) {
   return (
-    <div className="mb-4 flex items-center justify-between gap-2 rounded-lg bg-slate-600 p-4 text-slate-300">
+    <div className="mb-4 flex items-center justify-between gap-2 rounded-lg bg-slate-700 p-4 text-slate-300">
       <span className="font-semibold uppercase tracking-wider text-teal-500">
         Roll
       </span>

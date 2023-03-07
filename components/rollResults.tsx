@@ -122,7 +122,7 @@ function RollResults({ rollResults }: RollResultsProps) {
                   .map((roll) => <PreviousRoll roll={roll} key={roll.id} />)}
             </div>
             <div
-              className="w-64 rounded-xl bg-slate-600 px-4 py-4 text-slate-300"
+              className="w-64 rounded-xl bg-slate-700 px-4 py-4 text-slate-300"
               id="latestRoll"
             >
               <span className="mb-2 block font-bold uppercase tracking-wider text-teal-500">
@@ -142,7 +142,7 @@ function RollResults({ rollResults }: RollResultsProps) {
           </div>
           <div className="mt-2 flex justify-end" id="resultButton">
             <button
-              className="rounded-full bg-slate-600 py-1 px-4 uppercase tracking-wider text-slate-300"
+              className="rounded-full bg-slate-700 py-1 px-4 uppercase tracking-wider text-slate-300"
               onClick={clearResults}
             >
               Clear all
