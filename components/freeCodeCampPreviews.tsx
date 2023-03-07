@@ -1,4 +1,4 @@
-import useFormattedDate from "../hooks/useFormatDate";
+import useFormattedDate from "../hooks/useFormattedDate";
 
 type FCCPreviewsProps = {
   previews: FCCPreview[];

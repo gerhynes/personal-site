@@ -1,5 +1,5 @@
 import Link from "next/link";
-import useFormattedDate from "../hooks/useFormatDate";
+import useFormattedDate from "../hooks/useFormattedDate";
 
 type PostPreviewProps = {
   frontmatter: any;
