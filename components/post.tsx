@@ -1,4 +1,5 @@
 import Image from "next/image";
+import useFormattedDate from "../hooks/useFormattedDate";
 
 type PostProps = {
   frontmatter: any;
@@ -7,7 +8,7 @@ type PostProps = {
 
 function Post({ frontmatter, children }: PostProps) {
   return (
-    <div>
+    <article>
       <h2 className="py-8 font-serif text-2xl font-bold text-slate-900 dark:text-white sm:text-3xl lg:text-4xl">
         {frontmatter.title}
       </h2>
@@ -21,12 +22,12 @@ function Post({ frontmatter, children }: PostProps) {
         />
       </div>
       <span className="text-slate-600 dark:text-slate-300">
-        {new Date(frontmatter.date).toLocaleDateString()}
+        {useFormattedDate(frontmatter.date)}
       </span>
-      <div className="prose prose-slate mx-auto mt-4 prose-headings:font-serif prose-a:text-teal-500 dark:prose-invert lg:prose-lg">
+      <div className="prose prose-slate mx-auto mt-4 prose-headings:font-serif prose-a:text-teal-700 dark:prose-invert lg:prose-lg">
         {children}
       </div>
-    </div>
+    </article>
   );
 }
 export default Post;

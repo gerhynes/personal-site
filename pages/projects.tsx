@@ -7,7 +7,7 @@ type ProjectsPageProps = {
 
 export default function ProjectsPage({ projects }: ProjectsPageProps) {
   return (
-    <div className="my-8">
+    <main className="my-8">
       <h1 className="mb-8 text-center font-serif text-2xl font-bold dark:text-white sm:text-3xl lg:text-4xl">
         Personal Projects
       </h1>
@@ -16,7 +16,7 @@ export default function ProjectsPage({ projects }: ProjectsPageProps) {
           <ProjectPreview key={project.data.title} frontmatter={project.data} />
         ))}
       </div>
-    </div>
+    </main>
   );
 }
 

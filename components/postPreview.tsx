@@ -7,7 +7,7 @@ type PostPreviewProps = {
 
 function PostPreview({ frontmatter }: PostPreviewProps) {
   return (
-    <div className="mx-auto my-8">
+    <article className="mx-auto my-8">
       <h2 className="mb-2 font-serif text-lg font-semibold hover:underline sm:text-xl lg:text-2xl">
         <Link href={`/${frontmatter.slug}`}>{frontmatter.title}</Link>
       </h2>
@@ -30,11 +30,11 @@ function PostPreview({ frontmatter }: PostPreviewProps) {
         {frontmatter.description}
       </p>
       <Link href={`/${frontmatter.slug}`}>
-        <span className="cursor-pointer font-semibold text-teal-600 hover:underline dark:text-teal-300">
-          Read More
+        <span className="cursor-pointer font-semibold text-teal-700 hover:underline dark:text-teal-300">
+          Read more about {frontmatter.linkText}
         </span>
       </Link>
-    </div>
+    </article>
   );
 }
 

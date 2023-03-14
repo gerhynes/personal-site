@@ -16,18 +16,19 @@ function WritingPage({ posts, fccPreviews }: WritingPageProps) {
         Writing
       </h1>
       <p className="mb-8 px-4 text-lg text-slate-700 dark:text-slate-300">
-        I write about the things I'm learning in the hope that explaining these
-        topics will help me remember them, and maybe help other learners too.
+        I write about the things I&apos;m learning in the hope that explaining
+        these topics will help me remember them, and maybe help other learners
+        too.
       </p>
       <FreeCodeCampPreviews previews={fccPreviews} />
-      <div className="px-4 pt-4">
+      <section className="px-4 pt-4">
         <h3 className="mb-2 font-serif text-xl font-semibold dark:text-white sm:text-2xl lg:text-3xl">
           Personal Posts
         </h3>
         {posts.map((post) => (
           <PostPreview key={post.data.title} frontmatter={post.data} />
         ))}
-      </div>
+      </section>
     </div>
   );
 }

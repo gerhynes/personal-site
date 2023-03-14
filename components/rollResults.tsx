@@ -113,7 +113,7 @@ function RollResults({ rollResults }: RollResultsProps) {
   return (
     <>
       {resultsPanelIsOpen ? (
-        <div className="pointer-events-auto" id="resultsArea">
+        <div className="pointer-events-auto w-full" id="resultsArea">
           <div className="flex flex-col items-end">
             <div id="previousRolls">
               {rolls.length > 1 &&
@@ -122,7 +122,7 @@ function RollResults({ rollResults }: RollResultsProps) {
                   .map((roll) => <PreviousRoll roll={roll} key={roll.id} />)}
             </div>
             <div
-              className="w-64 rounded-xl bg-slate-700 px-4 py-4 text-slate-300"
+              className="mb-4 w-full max-w-[256px] flex-1 rounded-xl bg-slate-700 px-4 py-4 text-slate-300"
               id="latestRoll"
             >
               <span className="mb-2 block font-bold uppercase tracking-wider text-teal-500">
@@ -140,7 +140,7 @@ function RollResults({ rollResults }: RollResultsProps) {
               </span>
             </div>
           </div>
-          <div className="mt-2 flex justify-end" id="resultButton">
+          <div className="flex justify-end" id="resultButton">
             <button
               className="rounded-full bg-slate-700 py-1 px-4 uppercase tracking-wider text-slate-300"
               onClick={clearResults}

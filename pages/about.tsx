@@ -3,7 +3,7 @@ import portrait from "../public/images/portrait.jpg";
 
 function About() {
   return (
-    <div className="prose prose-slate mx-auto my-8 py-4 prose-a:text-teal-500 dark:prose-invert lg:prose-lg">
+    <main className="prose prose-slate mx-auto my-8 py-4 prose-a:font-semibold prose-a:text-teal-800 dark:prose-invert lg:prose-lg">
       <h1 className="mb-8 text-center font-serif text-2xl font-bold text-slate-900 dark:text-white sm:text-3xl lg:text-4xl">
         A bit about me
       </h1>
@@ -13,11 +13,12 @@ function About() {
           src={portrait}
           alt="Gerard Hynes"
           placeholder="blur"
+          priority
         />
       </div>
       <p>
-        Hi, I'm Gerard. I'm a software engineer, former English teacher, and big
-        nerd.
+        Hi, I&apos;m Gerard. I&apos;m a software engineer, former English
+        teacher, and big nerd.
       </p>
       <p>
         In 2017 I decided to learn to code. For a few years I crammed in study
@@ -31,7 +32,7 @@ function About() {
         microservices with Scala, Kafka, and Kubernetes.
       </p>
       <p>
-        I've written tutorials for{" "}
+        I&apos;ve written tutorials for{" "}
         <a href="https://www.freecodecamp.org/news/author/gerardhynes/">
           freeCodeCamp
         </a>{" "}
@@ -40,16 +41,16 @@ function About() {
       <p>
         JavaScript was the first programming langauge I learned and I still love
         it. When I can, I enjoy building sites and apps with the{" "}
-        <a href="https://jamstack.org/">Jamstack</a>. If you're wondering, this
-        is a <a href="https://github.com/gerhynes/personal-site">Next.js</a>{" "}
-        site.
+        <a href="https://jamstack.org/">Jamstack</a>. If you&apos;re wondering,
+        this is a{" "}
+        <a href="https://github.com/gerhynes/personal-site">Next.js</a> site.
       </p>
       <p>
         I love fantasy and science fiction, once did a PhD on J.R.R. Tolkien,
         and enjoy playing tabletop role-playing games with my friends and
         family. If you ever meet me, online or offline, labhair Gaeilge liom 👋.
       </p>
-    </div>
+    </main>
   );
 }
 export default About;

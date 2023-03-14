@@ -9,13 +9,18 @@ function ProjectPreview({ frontmatter }: ProjectPreviewProps) {
   return (
     <div className="mx-auto my-12 grid gap-8 sm:grid-cols-2">
       <div className="flex flex-col justify-center">
-        <Image
-          className="rounded"
-          src={frontmatter.image}
-          alt={frontmatter.title}
-          width="1898"
-          height="923"
-        />
+        <div className="w-full rounded-lg border-2 border-white dark:border-slate-300">
+          <Image
+            className="rounded-lg"
+            src={frontmatter.image}
+            alt={frontmatter.title}
+            width="1898"
+            height="923"
+            sizes="(max-width: 768px) 100vw,
+          (max-width: 1200px) 50vw,
+          33vw"
+          />
+        </div>
       </div>
       <div className="">
         <h2 className="mb-2 font-serif text-2xl font-semibold text-slate-900 dark:text-white">
@@ -36,7 +41,7 @@ function ProjectPreview({ frontmatter }: ProjectPreviewProps) {
         </p>
         <Link href={`/projects/${frontmatter.slug}`}>
           <span className="cursor-pointer  text-lg text-teal-700 underline dark:text-teal-300">
-            View Project
+            View {frontmatter.title}
           </span>
         </Link>
       </div>
