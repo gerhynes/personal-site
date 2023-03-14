@@ -2,16 +2,21 @@ import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import Project from "../../components/project";
 import { getProjectBySlug, getAllProjectSlugs } from "../../lib/mdxUtils";
+import MDXImage from "../../components/mdxImage";
 
 type ProjectPageProps = {
   source: MDXRemoteSerializeResult;
+};
+
+const components = {
+  img: (props: any) => <MDXImage {...props} />,
 };
 
 function ProjectPage({ source }: ProjectPageProps) {
   return (
     <>
       <Project frontmatter={source.frontmatter}>
-        <MDXRemote {...source} />
+        <MDXRemote {...source} components={components} />
       </Project>
     </>
   );
@@ -28,7 +33,9 @@ type Params = {
 export async function getStaticProps({ params }: Params) {
   const project = getProjectBySlug(params.slug);
 
-  const mdxSource = await serialize(project, { parseFrontmatter: true });
+  const mdxSource = await serialize(project, {
+    parseFrontmatter: true,
+  });
   return { props: { source: mdxSource } };
 }
 
