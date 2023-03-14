@@ -1,5 +1,6 @@
 ---
 title: "How to Overcome CORS with Serverless Functions"
+linkText: "overcoming CORS"
 date: "2021-09-01"
 slug: how-to-overcome-cors-with-serverless-functions
 description: "Get rid of that dreaded CORS message using serverless functions with Netlify."
@@ -12,7 +13,7 @@ image: /images/posts/how-to-overcome-cors-with-serverless-functions/cors-serverl
 
 Recently I was working on a [Frontend Mentor challenge](https://www.frontendmentor.io/challenges/ip-address-tracker-I8-0yYAH0), an app where you can input an IP address or url and fetch and display information about it.
 
-![Screenhot of IP Address app](./images/posts/how-to-overcome-cors-with-serverless-functions/ip-app-screenshot.png)
+![Screenhot of IP Address app](/images/posts/how-to-overcome-cors-with-serverless-functions/ip-app-screenshot.png)
 
 Things were going well. I got the layout sorted, I set up a custom map using React Leaflet and Mapbox.
 
@@ -24,7 +25,7 @@ If you sign up for a free account with IPify and paste `https://geo.ipify.org/ap
 
 But if you try to make a HTTP request to this API from your client-side code, you'll get a message about CORS.
 
-![CORS message](./images/posts/how-to-overcome-cors-with-serverless-functions/cors-message.png)
+![CORS message](/images/posts/how-to-overcome-cors-with-serverless-functions/cors-message.png)
 
 ### What is CORS?
 
@@ -72,7 +73,7 @@ Relieved to be making progress, I deployed the app to Netlify... and ran into a 
 
 Everything worked locally but once the app was deployed I kept getting a [502 Bad Gateway](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502) response, meaning that the proxy server received an invalid response from the server it was proxying to.
 
-![Developer tools with 502 response message](./images/posts/how-to-overcome-cors-with-serverless-functions/error-response.png)
+![Developer tools with 502 response message](/images/posts/how-to-overcome-cors-with-serverless-functions/error-response.png)
 
 Netlify have really great [Support Forums](https://answers.netlify.com/) and the good people there pointed me to potential solutions - setting specific headers on my redirects, checking for differences between my local environment and the build environment on Netlify. But none of this made a difference.
 

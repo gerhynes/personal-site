@@ -1,5 +1,6 @@
 ---
 title: "How to Connect a Node App to MongoDB Atlas"
+linkText: "connecting to MongoDB Atlas"
 date: "2021-03-27"
 slug: connect-node-app-to-mongodb-atlas
 description: "A quick guide to getting your Node app talking to a cloud-based MongoDB database."
@@ -16,35 +17,35 @@ I recently built a few projects with Node and MongoDB Atlas and felt it might be
 
 ### Step 1 - Set up your MongoDB Atlas Account and Cluster
 
-![MongoDB Atlas account setup page](./images/posts/connect-node-app-to-mongodb-atlas/mongodb-atlas-account-setup.png)
+![MongoDB Atlas account setup page](/images/posts/connect-node-app-to-mongodb-atlas/mongodb-atlas-account-setup.png)
 
 First things first, go to the [MongoDB Atlas website](https://www.mongodb.com/cloud/atlas) and create a free account. You can choose whatever name you want for your organization and project. Choose JavaScript as your preferred language.
 
-![MongoDB Atlas create cluster page](./images/posts/connect-node-app-to-mongodb-atlas/mongodb-atlas-create-cluster.png)
+![MongoDB Atlas create cluster page](/images/posts/connect-node-app-to-mongodb-atlas/mongodb-atlas-create-cluster.png)
 
 Next choose a free shared cluster. This will be enough for demos and small personal projects.
 
 When you're invited to create a starter cluster, you can leave the Cloud Provider and Region as the defaults (unless you have strong feelings about them) and click **Create Cluster**.
 
-![MongoDB Atlas dashboard](./images/posts/connect-node-app-to-mongodb-atlas/mongodb-atlas-dashboard.png)
+![MongoDB Atlas dashboard](/images/posts/connect-node-app-to-mongodb-atlas/mongodb-atlas-dashboard.png)
 
 You'll now be brought to your admin dashboard. Click on **Create a New Cluster**. This can take a couple of minutes.
 
 Once your cluster is ready, click on the **Connect** button in the sandbox.
 
-![MongoDB Atlas IP and user setup](./images/posts/connect-node-app-to-mongodb-atlas/mongodb-atlas-ip-user.png)
+![MongoDB Atlas IP and user setup](/images/posts/connect-node-app-to-mongodb-atlas/mongodb-atlas-ip-user.png)
 
 Allow access from all IP addresses. This would be a terrible idea in production but this is just a demo for learning purposes.
 
 Next, create a new user for the database and choose a password. Store these somewhere safe, like your password manager.
 
-![MongoDB Atlas connect modal](./images/posts/connect-node-app-to-mongodb-atlas/mongodb-atlas-connect-modal.png)
+![MongoDB Atlas connect modal](/images/posts/connect-node-app-to-mongodb-atlas/mongodb-atlas-connect-modal.png)
 
 Now click on **Choose a connection method**.
 
 Select **Connect your application**
 
-![MongoDB Atlas database URI selection](./images/posts/connect-node-app-to-mongodb-atlas/mongodb-atlas-connect-cluster.png)
+![MongoDB Atlas database URI selection](/images/posts/connect-node-app-to-mongodb-atlas/mongodb-atlas-connect-cluster.png)
 
 Under **Add your connection string into your application code** you'll see a URI with the format `mongodb+srv://<username>:<password>@<cluster-name>.mongodb.net/<db-name>?retryWrites=true&w=majority`. The username, cluster-name and db-name fields will be automatically filled out.
 

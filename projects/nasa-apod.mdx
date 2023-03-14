@@ -19,7 +19,7 @@ I chose to build the app with [Gatsby](https://www.gatsbyjs.com/) since it's a t
 
 For the sake of reliability and accessibility, I decided to use an established third-party React component, [react-datepicker](https://github.com/Hacker0x01/react-datepicker) to select dates.
 
-I used [Axios](https://github.com/axios/axios) instead of Fetch to make requests to NASA's API as its syntax made error handling more straightforward.
+I used [Axios](https://github.com/axios/axios) instead of the fetch API to make requests to NASA's API as it made error handling more straightforward.
 
 ### Problems and Thought Process
 
@@ -27,7 +27,7 @@ Sometimes the Astronomy Picture of the Day would be a video, so I created a `Vid
 
 When the date input changes, it can take a moment for the API to return the new data and render it to the page, especially the new image or video. To convey a sense of progress and prevent a mismatch between new text and an older image, I implemented a custom Skeleton loading component.
 
-![Skeleton components while API data loads](/images/projects/skeleton-screen.png)
+![Skeleton components while API data loads](/images/projects/nasa-apod/skeleton-screen.png)
 
 ### Lessons Learned
 
