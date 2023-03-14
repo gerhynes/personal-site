@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Good old CSS debugger */
+/* *,
+*::before,
+*::after {
+  outline: 1px solid red;
+} */

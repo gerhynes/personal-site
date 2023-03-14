@@ -1,0 +1,34 @@
+[
+  {
+    "title": "The Apache Kafka Handbook - How to Get Started Using Kafka",
+    "linkText": "Apache Kafka",
+    "date": "2023-02-03",
+    "description": "Apache Kafka is an open-source event streaming platform that can transport huge volumes of data at very low latency.",
+    "tags": ["Kafka"],
+    "url": "https://www.freecodecamp.org/news/apache-kafka-handbook/"
+  },
+  {
+    "title": "How to Format Compact Numbers with the JavaScript Internationalization API",
+    "linkText": "the Internationalization API",
+    "date": "2023-01-04",
+    "description": "The JavaScript Internationalization API lets you format numbers compactly, such as 123K for 123,000.",
+    "tags": ["JavaScript", "i18n"],
+    "url": "https://www.freecodecamp.org/news/format-compact-numbers-with-javascript/"
+  },
+  {
+    "title": "Learn the Eleventy Static Site Generator by Building and Deploying a Portfolio Website",
+    "linkText": "building sites with Eleventy",
+    "date": "2022-09-06",
+    "description": "Eleventy is a static site generator that uses JavaScript to transform data and templates into HTML pages.",
+    "tags": ["Eleventy", "11ty"],
+    "url": "https://www.freecodecamp.org/news/learn-eleventy/"
+  },
+  {
+    "title": "How to Manage PostgreSQL Databases from the Command Line with psql",
+    "linkText": "PostgreSQL and psql",
+    "date": "2022-06-07",
+    "description": "Now is a great time to learn relational databases and SQL. From web development to data science, they are used everywhere.",
+    "tags": ["PostgreSQL"],
+    "url": "https://www.freecodecamp.org/news/manage-postgresql-with-psql/"
+  }
+]

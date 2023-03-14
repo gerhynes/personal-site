@@ -1,0 +1,36 @@
+---
+title: NASA Astronomy Picture of the Day
+date: "2020-10-06"
+description: "An app which displays daily images and videos from NASA's APOD API. Built as a present for my NASA-loving wife."
+slug: nasa-apod
+repoUrl: https://github.com/gerhynes/nasa-apod
+siteUrl: https://julie-nasa.netlify.app/
+tags: ["React", "Gatsby", "APIs", "PWA"]
+image: /images/projects/nasa-apod/nasa-apod.png
+---
+
+### Project Purpose and Goal
+
+This project came about because two things coincided. I was looking to practice working with APIs in React and I wanted to make an app for my wife. Since my wife is a huge NASA fan (she has the ISS Tracker on her phone), I decided to use NASA's [Astronomy Picture of the Day API](https://api.nasa.gov/) to make her an app to view some of NASA's stunning photography.
+
+### Tech Stack
+
+I chose to build the app with [Gatsby](https://www.gatsbyjs.com/) since it's a technology I want to get better at and it builds in certain performance wins such as code splitting.
+
+For the sake of reliability and accessibility, I decided to use an established third-party React component, [react-datepicker](https://github.com/Hacker0x01/react-datepicker) to select dates.
+
+I used [Axios](https://github.com/axios/axios) instead of the fetch API to make requests to NASA's API as it made error handling more straightforward.
+
+### Problems and Thought Process
+
+Sometimes the Astronomy Picture of the Day would be a video, so I created a `Video` component and conditionally rendered different components depending on the media type returned from the API.
+
+When the date input changes, it can take a moment for the API to return the new data and render it to the page, especially the new image or video. To convey a sense of progress and prevent a mismatch between new text and an older image, I implemented a custom Skeleton loading component.
+
+![Skeleton components while API data loads](/images/projects/nasa-apod/skeleton-screen.png)
+
+### Lessons Learned
+
+By the end of this project I had a better understanding of working with `useEffect` and promises to fetch data from an API, especially in terms of parsing data and error handling.
+
+I also developed a better appreciation of the importance of UX in terms of communicating what the app was currently doing and ensuring the UI updated in a coherent manner.
