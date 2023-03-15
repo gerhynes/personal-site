@@ -2,7 +2,7 @@ import PostPreview from "../components/postPreview";
 import FreeCodeCampPreviews from "../components/freeCodeCampPreviews";
 import { getAllPosts, Post } from "../lib/mdxUtils";
 import fccPreviews from "../data/fccArticleDetails.json";
-import { FCCPreview } from "../components/freeCodeCampPreviews";
+import { FCCPreview } from "../components/freeCodeCampPreview";
 
 type WritingPageProps = {
   posts: Post[];
