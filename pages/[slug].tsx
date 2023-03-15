@@ -14,7 +14,7 @@ const components = {
 
 function PostPage({ source }: PostPageProps) {
   return (
-    <main>
+    <main className="mb-8">
       <Post frontmatter={source.frontmatter}>
         <MDXRemote {...source} components={components} />
       </Post>

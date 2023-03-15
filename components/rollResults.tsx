@@ -1,4 +1,3 @@
-import D20 from "../public/images/dice/d20.svg";
 import { useState, useEffect } from "react";
 import PreviousRoll from "./previousRoll";
 
@@ -6,7 +5,7 @@ type RollResultsProps = {
   rollResults: RollResult[];
 };
 
-type RollResult = {
+export type RollResult = {
   sides: number;
   result: number;
 };

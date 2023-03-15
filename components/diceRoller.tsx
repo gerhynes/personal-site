@@ -2,17 +2,13 @@ import { useState } from "react";
 import { BsXLg } from "react-icons/bs";
 import DiceButton from "./diceButton";
 import RollResults from "./rollResults";
+import { RollResult } from "./rollResults";
 import D20 from "../public/images/dice/d20.svg";
 import D12 from "../public/images/dice/d12.svg";
 import D10 from "../public/images/dice/d10.svg";
 import D8 from "../public/images/dice/d8.svg";
 import D6 from "../public/images/dice/d6.svg";
 import D4 from "../public/images/dice/d4.svg";
-
-type RollResult = {
-  sides: number;
-  result: number;
-};
 
 function DiceRoller() {
   const DICE = [
