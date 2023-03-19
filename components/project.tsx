@@ -24,8 +24,24 @@ function Project({ frontmatter, children }: ProjectProps) {
       <span className="text-slate-600 dark:text-slate-300">
         {useFormattedDate(frontmatter.date)}
       </span>
-      <div className="prose prose-slate mx-auto mt-4 prose-headings:font-serif prose-a:text-teal-700 dark:prose-invert lg:prose-lg">
+      <div className="prose prose-slate mx-auto my-4 prose-headings:font-serif prose-a:text-teal-700 dark:prose-invert lg:prose-lg">
         {children}
+      </div>
+      <div className="flex flex-wrap justify-between border-t-2 border-slate-300 py-4">
+        <a
+          className="mb-4 block cursor-pointer font-semibold text-teal-700 hover:underline dark:text-teal-300"
+          href={frontmatter.repoUrl}
+        >
+          View code for {frontmatter.title}
+        </a>
+        {frontmatter.siteUrl.length !== 0 ? (
+          <a
+            className="mb-4 block cursor-pointer font-semibold text-teal-700 hover:underline dark:text-teal-300"
+            href={frontmatter.siteUrl}
+          >
+            View {frontmatter.title} project
+          </a>
+        ) : null}
       </div>
     </article>
   );
