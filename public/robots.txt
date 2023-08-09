@@ -1,3 +1,2 @@
-# Allow all crawlers
-User-agent: *
-Allow: /
+User-agent: GPTBot
+Disallow: /
