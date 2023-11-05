@@ -1,18 +1,8 @@
-import { FaTwitter, FaGithub, FaLinkedin, FaMastodon } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaMastodon } from "react-icons/fa";
 
 function Socials() {
   return (
     <div className="flex gap-6">
-      <a
-        className="group -m-1 p-1"
-        aria-label="Twitter"
-        href="https://twitter.com/Gerard_K_Hynes"
-      >
-        <FaTwitter
-          className="h-6 w-6 fill-teal-500 transition group-hover:fill-teal-600"
-          aria-hidden="true"
-        />
-      </a>
       <a
         rel="me"
         className="group -m-1 p-1"

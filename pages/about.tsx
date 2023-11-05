@@ -40,9 +40,7 @@ function About() {
       </p>
       <p>
         JavaScript was the first programming langauge I learned and I still love
-        it. When I can, I enjoy building sites and apps with the{" "}
-        <a href="https://jamstack.org/">Jamstack</a>. If you&apos;re wondering,
-        this is a{" "}
+        it for personal projects. If you&apos;re wondering, this is a{" "}
         <a href="https://github.com/gerhynes/personal-site">Next.js</a> site.
       </p>
       <p>
