@@ -6,24 +6,24 @@ function Header() {
   return (
     <header className="mx-auto max-w-3xl px-4 py-4 font-serif text-xl text-slate-900 dark:text-white sm:flex sm:flex-wrap sm:items-center sm:justify-between">
       <h1 className="mb-2 font-bold sm:mb-0">
-        <Link href="/">
-          <a className="hover:underline">Gerard Hynes</a>
+        <Link href="/" className="hover:underline">
+          Gerard Hynes
         </Link>
       </h1>
       <div className="mb-2 flex justify-between gap-6 sm:mb-0">
         <span>
-          <Link href="/about">
-            <a className="hover:underline">about</a>
+          <Link href="/about" className="hover:underline">
+            about
           </Link>
         </span>
         <span>
-          <Link href="/projects">
-            <a className="hover:underline">projects</a>
+          <Link href="/projects" className="hover:underline">
+            projects
           </Link>
         </span>
         <span>
-          <Link href="/writing">
-            <a className="hover:underline">writing</a>
+          <Link href="/writing" className="hover:underline">
+            writing
           </Link>
         </span>
       </div>
